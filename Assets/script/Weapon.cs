@@ -1,61 +1,102 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Weapon: MonoBehaviour {
+public abstract class Weapon: MonoBehaviour {
 
 
-    public float DetectRadius;
-    public GameObject Prefabbullet;
-    public GameObject WeaponDetectorGObj;
-    public float ShootPeriod;
+    public float detectRadius;
+    public GameObject weaponDetectorGObj;
+    public float shootPeriod;
 
-    public int Level = 1;
-    public float AttackDamage = 10;
+    public int maxLevel = 1;
+    public int level = 1;
+    public float attackDamage = 10;
 
 
     //timer for shooting periodically
-    private float shootTimer = 0f;
+    protected float shootTimer = 0f;
 
-    private Transform myTrfm;
-    private Transform currentTarget;
+    protected Transform myTrfm;
+    protected GameObject currentTarget;
+    protected List<GameObject> targetList;
 
 
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
         shootTimer = Time.time;
         myTrfm     =transform;
         setupWeaponDetector();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
 
-        // dunamically choose a target
-        setCurrentTarget();
+        // dynamically choose a target
+        SetCurrentTarget();
+
+        // periodically shoot
+        if (Time.time - shootTimer >= shootPeriod && currentTarget != null) {
+            shootTimer = Time.time;
+            Attack();
+        }
+
+
+
 	}
 
+
+
+    //============abstract functions==============
+    public abstract void Attack();
+    public virtual void LevelUp()
+    {
+        if (level < maxLevel) level++;
+    }
+
+
+
+    //=============public functions==================
+    public void KillEnemy(GameObject enemy)
+    {
+        WeaponDetector detector = GetWeaponDetector();
+        detector.KillEnemy(enemy);
+        SetCurrentTarget();
+    }
+
+
+
+
+    //=============private functions===================
 
     // setup the gun detector
     private void setupWeaponDetector()
     {
-        WeaponDetector detector = getWeaponDetector();
+        WeaponDetector detector = GetWeaponDetector();
         detector.position   = myTrfm.position;
-        detector.scale      = new Vector2(DetectRadius, DetectRadius);
-        detector.setupTransform();
+        detector.scale      = new Vector2(detectRadius, detectRadius);
+        detector.SetupTransform();
     }
 
 
-    private void setCurrentTarget()
+    private void SetCurrentTarget()
     {
-        WeaponDetector detector = getWeaponDetector();
-        currentTarget = detector.enemyNearest.transform;
+        WeaponDetector detector = GetWeaponDetector();
+
+        if (detector.enemyNearest != null) {
+            targetList = detector.enemyDetectedList;
+            currentTarget = detector.enemyNearest;
+        }
+        else {
+            currentTarget = null;
+        }
     }
 
 
-    private WeaponDetector getWeaponDetector()
+    private WeaponDetector GetWeaponDetector()
     {
-        WeaponDetector detector = (WeaponDetector)WeaponDetectorGObj.GetComponent("WeaponDetector");
+        WeaponDetector detector = (WeaponDetector)weaponDetectorGObj.GetComponent("WeaponDetector");
         if (detector == null) {
             Debug.Log("Error: WeaponDetector Not Found!");
         }
