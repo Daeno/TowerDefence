@@ -12,7 +12,7 @@ public class DestroyTank : MonoBehaviour {
 	void Update () {
 
 	}
-	void OnCollision2DEnter(Collision coli){
+	void OnTrigger2DEnter(Collision2D coli){
 		Debug.Log ("aya");
 		if (coli.gameObject.tag == "Enemy") {
 			Debug.Log("hihi");
