@@ -1,40 +1,74 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Weapon: MonoBehaviour {
+public abstract class Weapon: MonoBehaviour {
 
 
     public float DetectRadius;
-    public GameObject Prefabbullet;
     public GameObject WeaponDetectorGObj;
     public float ShootPeriod;
 
+    public int MaxLevel = 1;
     public int Level = 1;
     public float AttackDamage = 10;
 
 
     //timer for shooting periodically
-    private float shootTimer = 0f;
+    protected float shootTimer = 0f;
 
-    private Transform myTrfm;
-    private Transform currentTarget;
+    protected Transform myTrfm;
+    protected GameObject currentTarget;
+    protected List<GameObject> targetList;
 
 
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
         shootTimer = Time.time;
         myTrfm     =transform;
         setupWeaponDetector();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
 
-        // dunamically choose a target
+        // dynamically choose a target
         setCurrentTarget();
+
+        // periodically shoot
+        if (Time.time - shootTimer >= ShootPeriod && currentTarget != null) {
+            shootTimer = Time.time;
+            attack();
+        }
+
+
+
 	}
 
+
+
+    //============abstract functions==============
+    public abstract void attack();
+    public virtual void levelUp()
+    {
+        if (Level < MaxLevel) Level++;
+    }
+
+
+
+    //=============public functions==================
+    public void KillEnemy(GameObject enemy)
+    {
+        WeaponDetector detector = getWeaponDetector();
+        detector.KillEnemy(enemy);
+        setCurrentTarget();
+    }
+
+
+
+
+    //=============private functions===================
 
     // setup the gun detector
     private void setupWeaponDetector()
@@ -49,7 +83,14 @@ public class Weapon: MonoBehaviour {
     private void setCurrentTarget()
     {
         WeaponDetector detector = getWeaponDetector();
-        currentTarget = detector.enemyNearest.transform;
+
+        if (detector.enemyNearest != null) {
+            targetList = detector.enemyDetectedList;
+            currentTarget = detector.enemyNearest;
+        }
+        else {
+            currentTarget = null;
+        }
     }
 
 

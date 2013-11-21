@@ -17,7 +17,7 @@ public class WeaponDetector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        renderer.sortingLayerName = "weapondetector";
 	}
 	
 	// Update is called once per frame
@@ -29,14 +29,30 @@ public class WeaponDetector : MonoBehaviour {
 
 
 
-    public void OnTrigger2DEnter(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         // Enemy enter detected region
         if (collider.gameObject.CompareTag("Enemy")) {
+            Debug.Log("Detect enemy");
+
             enemyDetectedList.Add(collider.gameObject);
 
             // detect the first enemy, immediately set it as the nearest
             if (enemyDetectedList.Count == 1) {
+                SetNearestEnemy();
+            }
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Enemy")) {
+            Debug.Log("Enemy leaves");
+
+            enemyDetectedList.Remove(collider.gameObject);
+
+            // detect the first enemy, immediately set it as the nearest
+            if (enemyNearest == collider.gameObject) {
                 SetNearestEnemy();
             }
         }
@@ -50,6 +66,10 @@ public class WeaponDetector : MonoBehaviour {
         transform.localScale = scale;
     }
 
+
+    //maybe not needed, 
+    //maybe we can just check if some enemy is killed in SetNearesestEnemy() when updeta() called
+    //but maybe also we will need this to calculate score, etc
     public void KillEnemy(GameObject enemyObj)
     {
         enemyDetectedList.Remove(enemyObj);
@@ -67,18 +87,46 @@ public class WeaponDetector : MonoBehaviour {
             return;
         }
 
+        // only 1 enemy detected
+        if (enemyDetectedList.Count == 1) {
+            enemyNearest = enemyDetectedList[0];
+
+            //killed by some bullet
+            if (enemyNearest == null) {
+                enemyDetectedList.Remove(enemyNearest);
+                return;
+            }
+
+            nearestDist = distToEnemy2D(enemyNearest);
+            return;
+        }
+
+
         // some enemies detected
         foreach (GameObject obj in enemyDetectedList) {
-            Transform enemyTrfm = obj.transform;
-            Vector2   enemyPos  = new Vector2(enemyTrfm.position.x, enemyTrfm.position.y);
-            float     dist      = Vector2.Distance(enemyPos, position);
+            
+            //killed by some bullet
+            if (obj == null) {
+                enemyDetectedList.Remove(obj);
+                continue;
+            }
+
+            float dist = distToEnemy2D(obj);
             if (dist < nearestDist) {
                 enemyNearest = obj;
-                nearestDist  = dist;
+                nearestDist = dist;
             }
         }
     
     
+    }
+
+
+    private float distToEnemy2D(GameObject enemyGObj)
+    {
+        Transform enemyTrfm = enemyGObj.transform;
+        Vector2   enemyPos  = new Vector2(enemyTrfm.position.x, enemyTrfm.position.y);
+        return Vector2.Distance(enemyPos, position);
     }
 
 

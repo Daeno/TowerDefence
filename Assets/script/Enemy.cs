@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour {
         //move toward the target
         Vector3 pos = transform.position;
         Vector2 tgt = targetList[targetIdx];
+        //not reached
         if (Vector3.Distance(pos, tgt) > 0.1) {
             Vector3 direction = new Vector3(tgt.x - pos.x, tgt.y - pos.y);
             direction = Vector3.Normalize(direction);
@@ -68,7 +69,6 @@ public class Enemy : MonoBehaviour {
                 reached();
             }
         }
-        
     }
 
 
