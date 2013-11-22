@@ -24,7 +24,8 @@ public abstract class Enemy : MonoBehaviour {
     private float poisonedDamage;
     private float poisonedDeltaTime;
 
-
+    //the MyNavigation object attached to the GameObject
+    private MyNavigation myNavigation;
 
 
 	// Use this for initialization
@@ -32,20 +33,22 @@ public abstract class Enemy : MonoBehaviour {
 	    //set the sorting layer
         renderer.sortingLayerName = "weapon";
 
-        //at the beginning
-//        targetIdx = 0;
+        InitMyNavigation();
+
 	}
 	
 	// Update is called once per frame
 	public void Update () {
 
+        //update speed and tell MyNavigation
+        UpdateSpeed();
+
         //update slowed and poisoned state
         UpdateSlowedState();
         UpdatePoisonedState();
 
+        
 
-        //move toward the target
-        //move();
 	}
 
 
@@ -90,30 +93,6 @@ public abstract class Enemy : MonoBehaviour {
     }
 
 
-	/*
-    private void move()
-    {
-        //move toward the target
-        Vector3 pos = transform.position;
-        Vector2 tgt = targetList[targetIdx];
-        //not reached
-        if (Vector3.Distance(pos, tgt) > 0.1) {
-            Vector3 direction = new Vector3(tgt.x - pos.x, tgt.y - pos.y);
-            direction = Vector3.Normalize(direction);
-            transform.Translate(direction * speed * Time.deltaTime);
-        }
-        //reach the target
-        else {
-            targetIdx++;
-
-            //reach the last target
-            if (targetIdx == targetList.Length) {
-                reached();
-            }
-        }
-    }*/
-
-
     //may need to send "Killed" message to the Game
     private void killed()
     {
@@ -130,6 +109,18 @@ public abstract class Enemy : MonoBehaviour {
         //TODO send message to the game
     }
 
+
+    private void InitMyNavigation()
+    {
+        myNavigation = (MyNavigation)GetComponent<MyNavigation>();
+        UpdateSpeed();
+    }
+
+
+    private void UpdateSpeed()
+    {
+        myNavigation.SetSpeed(speed);
+    }
 
     private void UpdateSlowedState()
     {
