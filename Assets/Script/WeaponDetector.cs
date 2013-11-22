@@ -60,7 +60,7 @@ public class WeaponDetector : MonoBehaviour {
 
 
 
-    public void setupTransform()
+    public void SetupTransform()
     {
         transform.position = position;
         transform.localScale = scale;
@@ -97,7 +97,7 @@ public class WeaponDetector : MonoBehaviour {
                 return;
             }
 
-            nearestDist = distToEnemy2D(enemyNearest);
+            nearestDist = DistToEnemy2D(enemyNearest);
             return;
         }
 
@@ -111,7 +111,7 @@ public class WeaponDetector : MonoBehaviour {
                 continue;
             }
 
-            float dist = distToEnemy2D(obj);
+            float dist = DistToEnemy2D(obj);
             if (dist < nearestDist) {
                 enemyNearest = obj;
                 nearestDist = dist;
@@ -122,7 +122,7 @@ public class WeaponDetector : MonoBehaviour {
     }
 
 
-    private float distToEnemy2D(GameObject enemyGObj)
+    private float DistToEnemy2D(GameObject enemyGObj)
     {
         Transform enemyTrfm = enemyGObj.transform;
         Vector2   enemyPos  = new Vector2(enemyTrfm.position.x, enemyTrfm.position.y);

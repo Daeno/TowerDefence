@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RaserGun : Weapon {
 
-    public GameObject PrefabRaserBullet;
+    public GameObject prefabRaserBullet;
 
 
     //inheritted fields
@@ -36,7 +36,7 @@ public class RaserGun : Weapon {
 	}
 
 
-    public override void attack()
+    public override void Attack()
     {
         Vector3 enemyPos = currentTarget.transform.position;
 
@@ -52,13 +52,13 @@ public class RaserGun : Weapon {
 
         //initiate bullet
         GameObject bulletGObj =
-            (GameObject)Instantiate(PrefabRaserBullet, pos, rot);
+            (GameObject)Instantiate(prefabRaserBullet, pos, rot);
         Bullet bullet = (Bullet)bulletGObj.GetComponent("Bullet");
         bullet.target = currentTarget.transform;
-        bullet.attackDamage = AttackDamage;
+        bullet.attackDamage = attackDamage;
     }
 
-    public new void levelUp()
+    public new void LevelUp()
     {
     }
 

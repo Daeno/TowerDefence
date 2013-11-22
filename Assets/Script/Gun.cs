@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Gun : Weapon {
 
-    public GameObject Prefabbullet;
+    public GameObject prefabBullet;
 
 
     //inheritted fields
@@ -36,19 +36,19 @@ public class Gun : Weapon {
 	}
 
 
-    public override void attack()
+    public override void Attack()
     {
         Vector3    pos = myTrfm.position;
         Quaternion rot = Quaternion.identity;
 
         GameObject bulletGObj = 
-            (GameObject)Instantiate(Prefabbullet, pos, rot);
+            (GameObject)Instantiate(prefabBullet, pos, rot);
         Bullet bullet         = (Bullet)bulletGObj.GetComponent("Bullet");
         bullet.target         = currentTarget.transform;
-        bullet.attackDamage   = AttackDamage;
+        bullet.attackDamage   = attackDamage;
     }
 
-    public new void levelUp()
+    public new void LevelUp()
     {
     }
 

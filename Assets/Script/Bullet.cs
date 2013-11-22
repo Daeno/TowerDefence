@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
         //setup initial position
         Vector3 myPos3D  = transform.position;
         myPos            = new Vector2(myPos3D.x, myPos3D.y);
@@ -28,9 +28,14 @@ public class Bullet : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
         myPos = Vector2.MoveTowards(myPos, enemyPos, Time.deltaTime * speed);
         transform.position = new Vector3(myPos.x, myPos.y);
+
+
+        if (Vector2.Distance(myPos, enemyPos) < 0.1) {
+            DestroyObject(gameObject);
+        }
 	}
 
 
@@ -46,7 +51,5 @@ public class Bullet : MonoBehaviour {
 
             DestroyObject(gameObject);
         }
-        
-
     }
 }

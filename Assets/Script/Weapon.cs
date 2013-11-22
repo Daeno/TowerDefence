@@ -5,13 +5,13 @@ using System.Collections.Generic;
 public abstract class Weapon: MonoBehaviour {
 
 
-    public float DetectRadius;
-    public GameObject WeaponDetectorGObj;
-    public float ShootPeriod;
+    public float detectRadius;
+    public GameObject weaponDetectorGObj;
+    public float shootPeriod;
 
-    public int MaxLevel = 1;
-    public int Level = 1;
-    public float AttackDamage = 10;
+    public int maxLevel = 1;
+    public int level = 1;
+    public float attackDamage = 10;
 
 
     //timer for shooting periodically
@@ -34,12 +34,12 @@ public abstract class Weapon: MonoBehaviour {
 	protected void Update () {
 
         // dynamically choose a target
-        setCurrentTarget();
+        SetCurrentTarget();
 
         // periodically shoot
-        if (Time.time - shootTimer >= ShootPeriod && currentTarget != null) {
+        if (Time.time - shootTimer >= shootPeriod && currentTarget != null) {
             shootTimer = Time.time;
-            attack();
+            Attack();
         }
 
 
@@ -49,10 +49,10 @@ public abstract class Weapon: MonoBehaviour {
 
 
     //============abstract functions==============
-    public abstract void attack();
-    public virtual void levelUp()
+    public abstract void Attack();
+    public virtual void LevelUp()
     {
-        if (Level < MaxLevel) Level++;
+        if (level < maxLevel) level++;
     }
 
 
@@ -60,9 +60,9 @@ public abstract class Weapon: MonoBehaviour {
     //=============public functions==================
     public void KillEnemy(GameObject enemy)
     {
-        WeaponDetector detector = getWeaponDetector();
+        WeaponDetector detector = GetWeaponDetector();
         detector.KillEnemy(enemy);
-        setCurrentTarget();
+        SetCurrentTarget();
     }
 
 
@@ -73,16 +73,16 @@ public abstract class Weapon: MonoBehaviour {
     // setup the gun detector
     private void setupWeaponDetector()
     {
-        WeaponDetector detector = getWeaponDetector();
+        WeaponDetector detector = GetWeaponDetector();
         detector.position   = myTrfm.position;
-        detector.scale      = new Vector2(DetectRadius, DetectRadius);
-        detector.setupTransform();
+        detector.scale      = new Vector2(detectRadius, detectRadius);
+        detector.SetupTransform();
     }
 
 
-    private void setCurrentTarget()
+    private void SetCurrentTarget()
     {
-        WeaponDetector detector = getWeaponDetector();
+        WeaponDetector detector = GetWeaponDetector();
 
         if (detector.enemyNearest != null) {
             targetList = detector.enemyDetectedList;
@@ -94,9 +94,9 @@ public abstract class Weapon: MonoBehaviour {
     }
 
 
-    private WeaponDetector getWeaponDetector()
+    private WeaponDetector GetWeaponDetector()
     {
-        WeaponDetector detector = (WeaponDetector)WeaponDetectorGObj.GetComponent("WeaponDetector");
+        WeaponDetector detector = (WeaponDetector)weaponDetectorGObj.GetComponent("WeaponDetector");
         if (detector == null) {
             Debug.Log("Error: WeaponDetector Not Found!");
         }
