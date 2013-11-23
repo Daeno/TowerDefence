@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Tank : Enemy {
 	// Use this for initialization
-	void Start () {
-        base.Start();
+    void Start()
+    {
+        base.Start(); 
 	}
 	
 	// Update is called once per frame

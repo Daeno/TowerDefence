@@ -15,7 +15,6 @@ public class MyNavigation: MonoBehaviour {
 	private Vector2 startMarker;
 	private GameObject player;
 
-    public bool isStarted = false;
     private bool isReached = false;
     public bool IsReached { get { return isReached; } }
    
@@ -45,9 +44,6 @@ public class MyNavigation: MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if ( !isStarted ) {
-            return;
-        }
 
         if (!isSpeedInitialized) {
             Debug.LogError("Error: MyNavigation: GameObject hasn't initialized speed!");
@@ -78,12 +74,16 @@ public class MyNavigation: MonoBehaviour {
 	}
 
 
-    //Must call this function when INITIALIZING A OBJECT USING THIS
+    //Must call this function when INITIALIZING AN OBJECT USING THIS
     public void SetSpeed(float spd)
     {
-        speed = spd;
         isSpeedInitialized = true;
+        
+        if ( spd == speed ) {
+            return;
+        }
 
+        speed = spd;
         startTime = Time.time;
         dis = Vector2.Distance(transform.position, (targets[targetNum]).position);
         startMarker = transform.position;

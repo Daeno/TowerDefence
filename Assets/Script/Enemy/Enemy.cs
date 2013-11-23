@@ -66,7 +66,6 @@ public abstract class Enemy : MonoBehaviour {
         renderer.sortingLayerName = "weapon";
 
         InitMyNavigation();
-
 	}
 	
 	// Update is called once per frame
@@ -97,15 +96,6 @@ public abstract class Enemy : MonoBehaviour {
     {
         myNavigation.parentObj = routePrefab;
     }
-
-
-    // Doesnt move until this is called
-    // No ealier moving for preset the route,speed, etc
-    public void StartMoving()
-    {
-        myNavigation.isStarted = true;
-    }
-
 
 
     // called by attacking bullet or weapon, 
@@ -215,7 +205,7 @@ public abstract class Enemy : MonoBehaviour {
 
     private void InitMyNavigation()
     {
-        myNavigation = (MyNavigation)GetComponent<MyNavigation>();
+        myNavigation = (MyNavigation) GetComponent<MyNavigation>();
         UpdateSpeed();
     }
 

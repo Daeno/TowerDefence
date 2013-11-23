@@ -14,10 +14,12 @@ public class GUIMainScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown ("t")){
 			GameObject tank = (GameObject)Instantiate (TankPrefabBlue, beginPoint.transform.position, Quaternion.identity);
+
 			//tankYellowList.Add( tank );
 		}
 		if (Input.GetKeyDown("r")){
 			GameObject tank = (GameObject)Instantiate (TankPrefabRed, beginPoint.transform.position, Quaternion.identity);
+
 			//tankRedList.Add( tank );
 		}
 	}
