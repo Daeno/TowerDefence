@@ -28,6 +28,18 @@ public class SlowGun : Weapon {
     private float slowTime;
 
 
+    //getter setters
+    public float SlowRatio
+    {
+        get { return slowRatio; }
+    }
+
+    public float SlowTime
+    {
+        get { return slowTime; }
+    }
+
+
 
 
     //inheritted fields

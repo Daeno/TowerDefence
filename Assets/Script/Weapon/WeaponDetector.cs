@@ -104,6 +104,7 @@ public class WeaponDetector : MonoBehaviour {
         }
 
 
+        nearestDistSqrt = 1000000000;
         // some enemies detected
         for (int i = enemyDetectedList.Count - 1; i >= 0; i--){
             GameObject obj = enemyDetectedList[i];
