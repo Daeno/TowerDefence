@@ -28,14 +28,22 @@ public class Bullet : MonoBehaviour {
     }
 	
 	// Update is called once per frame
+	/*protected void Update(){
+		}*/
 	protected void Update () {
-        myPos = Vector2.MoveTowards(myPos, enemyPos, Time.deltaTime * speed);
-        transform.position = new Vector3(myPos.x, myPos.y);
+		if (Vector2.Distance (myPos, enemyPos) < 0.01f) {
+			
+			DestroyObject (gameObject);
+		}
+		if (Vector2.Distance (myPos, enemyPos) < Time.deltaTime * speed) {
+				myPos = enemyPos;		
+		} else 
+		{
+				myPos = Vector2.MoveTowards (myPos, enemyPos, Time.deltaTime * speed);
+				transform.position = new Vector3 (myPos.x, myPos.y);
+						
+		}
 
-
-        if (Vector2.Distance(myPos, enemyPos) < 0.1) {
-            DestroyObject(gameObject);
-        }
 	}
 
 

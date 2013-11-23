@@ -19,6 +19,7 @@ public class SlowBullet : Bullet {
 
 
 
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         //if touch an enemy, attack it and destroy self

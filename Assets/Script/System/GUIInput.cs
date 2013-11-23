@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIMainScript : MonoBehaviour {
+public class GUIInput : MonoBehaviour {
 	public GameObject TankPrefabBlue;
 	public GameObject TankPrefabRed;
 	public GameObject beginPoint;
@@ -22,11 +22,12 @@ public class GUIMainScript : MonoBehaviour {
 		}
 		if (Input.GetKeyDown("r")){
 			GameObject tank = (GameObject)Instantiate (TankPrefabRed, beginPoint.transform.position, Quaternion.identity);
-
+			tank.SetActive(true);
 			//tankRedList.Add( tank );
 		}
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			disp.toggleMenu();
 		}
+
 	}
 }
