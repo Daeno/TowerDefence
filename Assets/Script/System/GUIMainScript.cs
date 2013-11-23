@@ -10,6 +10,7 @@ public class GUIMainScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		disp = gameObject.GetComponent<GUI_Disp> ();
+
 	}
 	
 	// Update is called once per frame
@@ -25,7 +26,6 @@ public class GUIMainScript : MonoBehaviour {
 			//tankRedList.Add( tank );
 		}
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Time.timeScale = Time.timeScale == 1?0:1;
 			disp.toggleMenu();
 		}
 	}
