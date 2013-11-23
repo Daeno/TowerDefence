@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GUIMainScript : MonoBehaviour {
-	public GameObject TankPrefabYellow;
+	public GameObject TankPrefabBlue;
 	public GameObject TankPrefabRed;
 	public GameObject beginPoint;
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class GUIMainScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("t")){
-			GameObject tank = (GameObject)Instantiate (TankPrefabYellow, beginPoint.transform.position, Quaternion.identity);
+			GameObject tank = (GameObject)Instantiate (TankPrefabBlue, beginPoint.transform.position, Quaternion.identity);
 			//tankYellowList.Add( tank );
 		}
 		if (Input.GetKeyDown("r")){

@@ -103,7 +103,8 @@ public class WeaponDetector : MonoBehaviour {
 
 
         // some enemies detected
-        foreach (GameObject obj in enemyDetectedList) {
+        for (int i = enemyDetectedList.Count - 1; i >= 0; i--){
+            GameObject obj = enemyDetectedList[i];
             
             //killed by some bullet
             if (obj == null) {

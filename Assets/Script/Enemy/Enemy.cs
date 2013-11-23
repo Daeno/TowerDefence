@@ -69,7 +69,7 @@ public abstract class Enemy : MonoBehaviour {
 
         //dies
         if (life <= 0) {
-            killed();
+            Killed();
         }
     }
 
@@ -94,7 +94,7 @@ public abstract class Enemy : MonoBehaviour {
 
 
     //may need to send "Killed" message to the Game
-    private void killed()
+    private void Killed()
     {
         DestroyObject(gameObject);
 
