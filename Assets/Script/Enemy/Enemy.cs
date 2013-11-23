@@ -3,13 +3,10 @@ using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
 
-    public float life = 3f;
-    public float originalSpeed = 10;
-
-    //public Vector2[] targetList;
-    //private int targetIdx;
-
-    public float speed = 10;
+    public float life = 100f;
+    public float maxLife = 100f;
+    public float originalSpeed = 10f;
+    public float speed = 10f;
 
 
     //slowed 
@@ -26,6 +23,41 @@ public abstract class Enemy : MonoBehaviour {
 
     //the MyNavigation object attached to the GameObject
     private MyNavigation myNavigation;
+    private bool         isReached = false;
+
+
+    // Getter Setter
+    public float OriginalSpeed 
+    {
+        get { return originalSpeed; }
+        set { originalSpeed = value; } 
+    }
+
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
+    public float MaxLife
+    {
+        get { return maxLife; }
+        set { maxLife = value; }
+    }
+
+    public float Life
+    {
+        get { return life; }
+        set { life = value; }
+    }
+
+    public Transform MyTransform
+    {
+        get { return transform; }
+    }
+
+
+
 
 
 	// Use this for initialization
@@ -58,11 +90,29 @@ public abstract class Enemy : MonoBehaviour {
     }
 
 
+    // =================== PUBLIC METHODS ==================
+
+    //set the route
+    public void SetRoute( GameObject routePrefab )
+    {
+        myNavigation.parentObj = routePrefab;
+    }
+
+
+    // Doesnt move until this is called
+    // No ealier moving for preset the route,speed, etc
+    public void StartMoving()
+    {
+        myNavigation.isStarted = true;
+    }
+
+
+
     // called by attacking bullet or weapon, 
     // if the rest life <= 0, die, destroy self
     public void Attacked(float damage)
     {
-        Debug.Log("Enemy being attacked: life = " + life + " , damage = " + damage);
+        //Debug.Log("Enemy being attacked: life = " + life + " , damage = " + damage);
         
         
         life -= damage;
@@ -101,13 +151,66 @@ public abstract class Enemy : MonoBehaviour {
         //TODO send message to the game
     }
 
-    //may need to send "Killed" message to the Game
-    private void reached()
-    {
-        DestroyObject(gameObject);
 
-        //TODO send message to the game
+
+    public bool IsSlowed()
+    {
+        return ( slowTime > 0 );
     }
+
+    public bool IsPoisoned()
+    {
+        return ( poisonedTime > 0 );
+    }
+
+    public bool IsAlive()
+    {
+        return ( life > 0 );
+    }
+
+    //whether reach the last target
+    public bool IsReached()
+    {
+        return myNavigation.IsReached;
+    }
+
+
+    public void  DestroyGameObject()   //不再需要它了 就殺掉它吧
+    {
+        Destroy(gameObject);
+    }
+
+    public void  MoveTo(Vector2 pos)
+    {
+        transform.position = pos;
+    }
+
+    public void  Translate(float x, float y)
+    {
+        transform.Translate(x, y, 0);
+    }
+        
+    public void  Translate(Vector2 trans)
+    {
+        Translate(trans.x, trans.y);
+    }
+
+    public void  Rotate(Quaternion rot)  //直接將transform.rotation設為rot
+    {
+        transform.rotation = rot;
+    }
+
+
+    public void Rotate( float degAntiCW )  //逆時針旋轉角度
+    {
+        Quaternion rotation = transform.rotation;
+        rotation.SetEulerAngles( rotation.x, rotation.y, rotation.z + degAntiCW );
+    }
+    
+
+
+
+    //==================== PRIVATE METHODS =======================
 
 
     private void InitMyNavigation()
@@ -142,7 +245,6 @@ public abstract class Enemy : MonoBehaviour {
         else {
             
         }*/
-
     }
 
 }

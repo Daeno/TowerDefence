@@ -14,6 +14,12 @@ public class MyNavigation: MonoBehaviour {
 	private float startTime;
 	private Vector2 startMarker;
 	private GameObject player;
+
+    public bool isStarted = false;
+    private bool isReached = false;
+    public bool IsReached { get { return isReached; } }
+   
+
 	
 	// Use this for initialization
 	void Start () {
@@ -34,10 +40,15 @@ public class MyNavigation: MonoBehaviour {
 		startTime = Time.time;
 		dis = Vector2.Distance (transform.position, (targets [targetNum]).position);
 		startMarker = transform.position;
+        isReached = false;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if ( !isStarted ) {
+            return;
+        }
+
         if (!isSpeedInitialized) {
             Debug.LogError("Error: MyNavigation: GameObject hasn't initialized speed!");
         }
@@ -53,9 +64,11 @@ public class MyNavigation: MonoBehaviour {
 					
 			} else {
 				//walk to end, Enemy destroyed
-
-				Destroy(this.gameObject);
+                
+				//Destroy(this.gameObject);
 				//GameStatic.game_score -=100;
+
+                isReached = true;
 			}
 					
 		}

@@ -10,7 +10,8 @@ public class WeaponDetector : MonoBehaviour {
     public List<GameObject> enemyDetectedList = new List<GameObject>();
     public GameObject enemyNearest = null;
     
-    private float nearestDist;
+    //the square of nearest distance
+    private float nearestDistSqrt;
 
 
 
@@ -25,7 +26,8 @@ public class WeaponDetector : MonoBehaviour {
 
         //always update the nearest enemy
         SetNearestEnemy();
-	}
+
+    }
 
 
 
@@ -83,7 +85,7 @@ public class WeaponDetector : MonoBehaviour {
         //no enemy detected
         if (enemyDetectedList.Count == 0) {
             enemyNearest = null;
-            nearestDist = 0;
+            nearestDistSqrt = 0;
             return;
         }
 
@@ -97,7 +99,7 @@ public class WeaponDetector : MonoBehaviour {
                 return;
             }
 
-            nearestDist = DistToEnemy2D(enemyNearest);
+            nearestDistSqrt = SqrDistToEnemy2D(enemyNearest);
             return;
         }
 
@@ -112,10 +114,11 @@ public class WeaponDetector : MonoBehaviour {
                 continue;
             }
 
-            float dist = DistToEnemy2D(obj);
-            if (dist < nearestDist) {
+            float dist = SqrDistToEnemy2D(obj);
+            if (dist < nearestDistSqrt) {
+                Debug.Log("Setting nearest enemy");
                 enemyNearest = obj;
-                nearestDist = dist;
+                nearestDistSqrt = dist;
             }
         }
     
@@ -123,11 +126,12 @@ public class WeaponDetector : MonoBehaviour {
     }
 
 
-    private float DistToEnemy2D(GameObject enemyGObj)
+    //return the square value of dist to enemy
+    private float SqrDistToEnemy2D(GameObject enemyGObj)
     {
         Transform enemyTrfm = enemyGObj.transform;
         Vector2   enemyPos  = new Vector2(enemyTrfm.position.x, enemyTrfm.position.y);
-        return Vector2.Distance(enemyPos, position);
+        return Vector2.SqrMagnitude(new Vector2( (enemyPos.x - position.x) , (enemyPos.y - position.y) ));
     }
 
 
