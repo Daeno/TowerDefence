@@ -103,8 +103,8 @@ public abstract class Enemy : MonoBehaviour {
     public void Attacked(float damage)
     {
         //Debug.Log("Enemy being attacked: life = " + life + " , damage = " + damage);
-        
-        
+
+        Debug.Log( "Enemy Attacked: " + damage );
         life -= damage;
 
         //dies
