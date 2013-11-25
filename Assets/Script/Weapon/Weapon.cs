@@ -79,7 +79,7 @@ public abstract class Weapon: MonoBehaviour {
 	protected void Start () {
         shootTimer = Time.time;
         myTrfm     =transform;
-        setupWeaponDetector();
+        SetupWeaponDetector();
 	}
 	
 	// Update is called once per frame
@@ -156,7 +156,7 @@ public abstract class Weapon: MonoBehaviour {
     //=============private functions===================
 
     // setup the gun detector
-    private void setupWeaponDetector()
+    private void SetupWeaponDetector()
     {
         WeaponDetector detector = GetWeaponDetector();
         detector.position   = myTrfm.position;

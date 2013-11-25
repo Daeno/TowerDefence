@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class WeaponDetector : MonoBehaviour {
 
     public Vector2 position;
-    public Vector2 scale;
     public float radius;
 
     public List<GameObject> enemyDetectedList = new List<GameObject>();
@@ -36,7 +35,7 @@ public class WeaponDetector : MonoBehaviour {
     {
         // Enemy enter detected region
         if (collider.gameObject.CompareTag("Enemy")) {
-            Debug.Log("Detect enemy");
+    
 
             enemyDetectedList.Add(collider.gameObject);
 

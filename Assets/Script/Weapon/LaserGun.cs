@@ -94,7 +94,7 @@ public class LaserGun : Weapon {
         float   targetLength = Vector2.Distance( myTrfm.position, enemyPos );
         Vector3 scale = currentLaserBeam.transform.localScale;
         float   times = targetLength*2f / currentLength;
-        scale.x = scale.x*times + 0.2f ;// targetLength + 0.2f;
+        scale.x = scale.x*times + 0.1f ;// targetLength + 0.2f;
         scale.y = 1;
         currentLaserBeam.transform.localScale = scale;
 

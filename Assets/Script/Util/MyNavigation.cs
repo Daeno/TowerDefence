@@ -17,7 +17,24 @@ public class MyNavigation: MonoBehaviour {
 
     private bool isReached = false;
     public bool IsReached { get { return isReached; } }
-   
+
+
+
+    // for getting the most forward enemy.
+    // if an enemy has the biggest value of "targetNum" and the smallest value of "dis,"
+    // then he is the closest to the terminal.
+    public int TargetNum
+    {
+        get { return targetNum; }
+    }
+
+    public float DistToCurrTarget
+    {
+        get { return dis; }
+    }
+
+
+
 
 	
 	// Use this for initialization
@@ -88,5 +105,10 @@ public class MyNavigation: MonoBehaviour {
         dis = Vector2.Distance(transform.position, (targets[targetNum]).position);
         startMarker = transform.position;
     }
+
+
+
+
+
 
 }

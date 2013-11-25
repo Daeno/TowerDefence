@@ -189,13 +189,6 @@ chrome.exe (8916)
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (9148)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
 chrome.exe (5092)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
@@ -210,13 +203,6 @@ chrome.exe (9208)
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (9188)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
 chrome.exe (9636)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
@@ -224,42 +210,7 @@ chrome.exe (9636)
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (2056)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (7576)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (4124)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
 chrome.exe (10032)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-devenv.exe (2924)
-    path: K:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe
-    company:  Microsoft Corporation
-    product:  MicrosoftR Visual StudioR 2012
-    filedesc: Microsoft Visual Studio 2012
-    filever:  11.0.60610.1
-    prodver:  11.0.60610.1
-chrome.exe (5804)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
@@ -287,13 +238,6 @@ adb.exe (7432)
     filedesc: 
     filever:  0.0.0.0
     prodver:  0.0.0.0
-chrome.exe (6440)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
 ComUpdatus.exe (6300)
     path: K:\Program Files (x86)\NVIDIA Corporation\NVIDIA Update Core\ComUpdatus.exe
     company:  NVIDIA Corporation
@@ -301,56 +245,112 @@ ComUpdatus.exe (6300)
     filedesc: NVIDIA Update COM object
     filever:  9.3.21.0
     prodver:  9.3.21.0
-chrome.exe (3600)
+Iedit_.exe (5400)
+    path: D:\Program Files (x86)\Corel\Ulead PhotoImpact X3\Iedit_.exe
+    company:  InterVideo Digital Technology Corporation
+    product:  Ulead PhotoImpact
+    filedesc: PhotoImpact
+    filever:  13.0.0.0
+    prodver:  13.0.0.0
+GitHub.exe (1840)
+    path: K:\Users\­ð\AppData\Local\Apps\2.0\BTH8ACWB.RWB\CM7CTL6W.2R2\gith..tion_317444273a93ac29_0001.0002_878eda3344b3e794\GitHub.exe
+    company:  GitHub, Inc.
+    product:  GitHub
+    filedesc: GitHub
+    filever:  1.2.3.0
+    prodver:  1.2.3.0
+ssh-agent.exe (4252)
+    path: K:\Users\­ð\AppData\Local\GitHub\PortableGit_0f65d050d0c352fd38a0b25d82ee942deb19ef87\bin\ssh-agent.exe
+    company:  
+    product:  
+    filedesc: 
+    filever:  0.0.0.0
+    prodver:  0.0.0.0
+chrome.exe (3948)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (9540)
+Evernote.exe (6888)
+    path: K:\Program Files (x86)\Evernote\Evernote\Evernote.exe
+    company:  Evernote Corp., 305 Walnut Street, Redwood City, CA 94063
+    product:  EvernoteR
+    filedesc: Evernote
+    filever:  5.0.3.1614
+    prodver:  5.0.3.1614
+EvernoteTray.exe (3732)
+    path: K:\Program Files (x86)\Evernote\Evernote\EvernoteTray.exe
+    company:  Evernote Corp., 305 Walnut Street, Redwood City, CA 94063
+    product:  EvernoteR
+    filedesc: Evernote Tray Application
+    filever:  5.0.3.1614
+    prodver:  5.0.3.1614
+EvernoteClipper.exe (9120)
+    path: K:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe
+    company:  Evernote Corp., 305 Walnut Street, Redwood City, CA 94063
+    product:  EvernoteR
+    filedesc: Evernote Clipper
+    filever:  5.0.3.1614
+    prodver:  5.0.3.1614
+chrome.exe (7116)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (6184)
+chrome.exe (5288)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (9520)
+PCMan.exe (2572)
+    path: K:\Program Files (x86)\PCMan Combo\PCMan.exe
+    company:  PCMan Project
+    product:  PCMan Combo
+    filedesc: PCMan
+    filever:  9.6.2.0
+    prodver:  9.6.2.0
+chrome.exe (9048)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (2304)
+chrome.exe (8620)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (5576)
+devenv.exe (10288)
+    path: K:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe
+    company:  Microsoft Corporation
+    product:  MicrosoftR Visual StudioR 2012
+    filedesc: Microsoft Visual Studio 2012
+    filever:  11.0.60610.1
+    prodver:  11.0.60610.1
+chrome.exe (8196)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (5088)
+chrome.exe (5396)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-UnityBugReporter.exe (7484)
+UnityBugReporter.exe (9496)
     path: K:\Program Files (x86)\Unity\Editor\UnityBugReporter.exe
     company:  Unity Technologies ApS
     product:  Unity Bug Reporter

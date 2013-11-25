@@ -16,10 +16,11 @@ public abstract class Enemy : MonoBehaviour {
     
 
     //poisoned
-    private float poisonedStartTime;
+    private float poisonedDamagePerSec;
     private float poisonedTime;
-    private float poisonedDamage;
-    private float poisonedDeltaTime;
+    private float poisonedStartTime;
+    private float poisonedTimer;
+    private float poisonedDamagePeriod = 0.1f;
 
     //the MyNavigation object attached to the GameObject
     private MyNavigation myNavigation;
@@ -129,8 +130,10 @@ public abstract class Enemy : MonoBehaviour {
     {
         poisonedStartTime = Time.time;
         poisonedTime      = lastTime;
-        poisonedDamage    = damage;
+        poisonedDamagePerSec = damage;
+        poisonedTimer = Time.time;
     }
+        
 
 
     //may need to send "Killed" message to the Game
@@ -175,14 +178,15 @@ public abstract class Enemy : MonoBehaviour {
         transform.position = pos;
     }
 
+
     public void  Translate(float x, float y)
     {
         transform.Translate(x, y, 0);
     }
-        
+
     public void  Translate(Vector2 trans)
     {
-        Translate(trans.x, trans.y);
+        this.Translate(trans.x, trans.y);
     }
 
     public void  Rotate(Quaternion rot)  //直接將transform.rotation設為rot
@@ -223,18 +227,35 @@ public abstract class Enemy : MonoBehaviour {
         }
         else {
             speed = originalSpeed;
+            slowTime = 0;
+            slowRatio = 0;
         }
     }
 
     private void UpdatePoisonedState()
     {
-        /*
-        if (Time.time - poisonedStartTime < poisonedTime) {
-            
+        if ( poisonedTimer != 0 ) {
+            Debug.Log( "Updating Poisoned State:  life = " + life + "  poisoned timer : " + poisonedTimer );
+            //Debug.Log( "poisonDamage : " + poisonedDamagePerSec );
+        }
+        //Debug.Log( "Time.time " + Time.time + "  poisonedStartTime : " + poisonedStartTime + " poisonedTime: " + poisonedTime);
+
+
+        if ( Time.time < poisonedStartTime + poisonedTime ) {
+            //Debug.Log( "1" );
+
+            if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
+                Debug.Log( "2" );
+
+                poisonedTimer = Time.time;
+                life -= poisonedDamagePerSec * poisonedDamagePeriod;
+            }
         }
         else {
-            
-        }*/
+            poisonedTime = 0;
+            poisonedDamagePerSec = 0;
+            poisonedTimer = 0;
+        }
     }
 
 }
