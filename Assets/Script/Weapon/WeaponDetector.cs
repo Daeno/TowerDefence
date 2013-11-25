@@ -6,6 +6,7 @@ public class WeaponDetector : MonoBehaviour {
 
     public Vector2 position;
     public Vector2 scale;
+    public float radius;
 
     public List<GameObject> enemyDetectedList = new List<GameObject>();
     public GameObject enemyNearest = null;
@@ -65,7 +66,9 @@ public class WeaponDetector : MonoBehaviour {
     public void SetupTransform()
     {
         transform.position = position;
-        transform.localScale = scale;
+        //transform.localScale = scale;
+        transform.localScale = new Vector2( transform.localScale.x * ( radius * 2 ) / transform.renderer.bounds.size.x ,
+                                            transform.localScale.y * ( radius * 2 ) / transform.renderer.bounds.size.y );
     }
 
 

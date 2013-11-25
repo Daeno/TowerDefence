@@ -160,12 +160,12 @@ public abstract class Weapon: MonoBehaviour {
     {
         WeaponDetector detector = GetWeaponDetector();
         detector.position   = myTrfm.position;
-        detector.scale      = new Vector2(detectRadius, detectRadius);
+        detector.radius     = detectRadius;
         detector.SetupTransform();
     }
 
 
-    private void SetCurrentTarget()
+    protected virtual void SetCurrentTarget()
     {
         WeaponDetector detector = GetWeaponDetector();
 
@@ -179,7 +179,7 @@ public abstract class Weapon: MonoBehaviour {
     }
 
 
-    private WeaponDetector GetWeaponDetector()
+    protected WeaponDetector GetWeaponDetector()
     {
         WeaponDetector detector = (WeaponDetector)weaponDetectorGObj.GetComponent("WeaponDetector");
         if (detector == null) {
