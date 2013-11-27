@@ -20,22 +20,27 @@ public abstract class Weapon: MonoBehaviour {
     };
 
 
-    public float detectRadius;
+    public float      detectRadius;
     public GameObject weaponDetectorGObj;
-    public float shootPeriod;
+    public float      shootPeriod;
 
-    public int maxLevel = 1;
-    public int level = 1;
-    public float attackDamage = 10;
+    public int        maxLevel     = 1;
+    public int        level        = 1;
+    public float      attackDamage = 10;
+    public int        cost         = 10;
+
+    public bool       enabled      = false;
+    public bool       selected     = false;
+
 
 
     //timer for shooting periodically
-    protected float shootTimer = 0f;
+    protected float   shootTimer   = 0f;
 
-    protected Transform myTrfm;
-    protected GameObject currentTarget;
+    protected Transform        myTrfm;
+    protected GameObject       currentTarget;
     protected List<GameObject> targetList;
-
+    
 
 
     // getter setters
@@ -74,7 +79,6 @@ public abstract class Weapon: MonoBehaviour {
 
 
 
-
 	// Use this for initialization
 	protected void Start () {
         shootTimer = Time.time;
@@ -84,6 +88,21 @@ public abstract class Weapon: MonoBehaviour {
 	
 	// Update is called once per frame
 	protected void Update () {
+
+        //if Selected, show the detector
+        if ( selected ) {
+            ShowDetector( true );
+        }
+        else {
+            ShowDetector( false );
+        }
+
+
+        //if not enebled, dont do anything
+        if ( !enabled ) {
+            return;
+        }
+
 
         // dynamically choose a target
         SetCurrentTarget();
@@ -179,6 +198,8 @@ public abstract class Weapon: MonoBehaviour {
     }
 
 
+
+
     protected WeaponDetector GetWeaponDetector()
     {
         WeaponDetector detector = (WeaponDetector)weaponDetectorGObj.GetComponent("WeaponDetector");
@@ -186,6 +207,14 @@ public abstract class Weapon: MonoBehaviour {
             Debug.Log("Error: WeaponDetector Not Found!");
         }
         return detector;
+    }
+
+
+    protected void ShowDetector( bool show )
+    {
+        WeaponDetector detector = GetWeaponDetector();
+
+        detector.show = show;
     }
 
 }

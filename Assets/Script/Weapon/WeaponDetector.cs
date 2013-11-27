@@ -4,14 +4,16 @@ using System.Collections.Generic;
 
 public class WeaponDetector : MonoBehaviour {
 
-    public Vector2 position;
-    public float radius;
+    public Vector2          position;
+    public float            radius;
 
     public List<GameObject> enemyDetectedList = new List<GameObject>();
-    public GameObject enemyNearest = null;
-    
+    public GameObject       enemyNearest = null;
+
+    public bool             show = false;
+
     //the square of nearest distance
-    private float nearestDistSqrt;
+    private float           nearestDistSqrt;
 
 
 
@@ -23,6 +25,13 @@ public class WeaponDetector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if ( show ) {
+            renderer.enabled = true;
+        }
+        else {
+            renderer.enabled = false;
+        }
 
         //always update the nearest enemy
         SetNearestEnemy();
