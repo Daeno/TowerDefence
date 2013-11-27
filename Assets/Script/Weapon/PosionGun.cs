@@ -7,7 +7,7 @@ public class PosionGun : Weapon {
     public GameObject prefabPoisonGas;
     private GameObject currentPoisonGas;
 
-    public float[] poisonTimeList = 
+    public float[] poisonTimeLevels = 
     {
         0,
         3f,
@@ -25,14 +25,12 @@ public class PosionGun : Weapon {
 	// Use this for initialization
 	void Start () {
         base.Start();
-        poisonTime = poisonTimeList[1];
+        poisonTime = poisonTimeLevels[level];
 	}
 	
 	// Update is called once per frame
 	void Update () {
         base.Update();
-
-        
 	}
 
 
@@ -55,7 +53,7 @@ public class PosionGun : Weapon {
 
     public new void LevelUp()
     {
-        poisonTime = poisonTimeList[level];
+        poisonTime = poisonTimeLevels[level];
     }
 
 

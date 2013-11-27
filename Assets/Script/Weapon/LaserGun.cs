@@ -6,13 +6,15 @@ public class LaserGun : Weapon {
     public GameObject prefabLaserBeam;
 
 
-    public float[] damageIncreaseRateList = 
+    public float[] damageIncreaseRateLevels = 
     {
         0, 3f, 4f, 5f, 6f, 7f
     };
 
-
     public float damageIncreaseRate = 3f;
+
+    // Not really affect the total damage, but how long you wait for an attack
+    // whose damage(per attack) is propotional to the period
     public float attackPeriod = 1f;
 
 
@@ -29,30 +31,13 @@ public class LaserGun : Weapon {
     // if a new beam is showed, change this as it and destroy the old one
     private GameObject currentLaserBeam;
 
-    //inheritted fields
-    /*--------------------------------------
-        public float DetectRadius;
-        public GameObject WeaponDetectorGObj;
-        public float ShootPeriod;
-
-        public int Level = 1;
-        public float AttackDamage = 10;
-
-
-        //timer for shooting periodically
-        protected float shootTimer = 0f;
-
-        protected Transform myTrfm;
-        protected Transform currentTarget;
-     * ---------------------------------------*/
-
 
 
 	// Use this for initialization
 
 	void Start () {
         base.Start();
-        
+        damageIncreaseRate = damageIncreaseRateLevels[level];
 	}
 	
 	// Update is called once per frame
@@ -109,7 +94,7 @@ public class LaserGun : Weapon {
 
     public new void LevelUp()
     {
-        attackDamage = attackDamageList[level];
+        damageIncreaseRate = damageIncreaseRateLevels[level];
     }
 
 

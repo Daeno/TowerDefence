@@ -6,25 +6,6 @@ public class Gun : Weapon {
     public GameObject prefabBullet;
 
 
-    //inheritted fields
-    /*--------------------------------------
-        public float DetectRadius;
-        public GameObject WeaponDetectorGObj;
-        public float ShootPeriod;
-
-        public int Level = 1;
-        public float AttackDamage = 10;
-
-
-        //timer for shooting periodically
-        protected float shootTimer = 0f;
-
-        protected Transform myTrfm;
-        protected Transform currentTarget;
-     * ---------------------------------------*/
-
-
-
 	// Use this for initialization
 	void Start () {
         base.Start();

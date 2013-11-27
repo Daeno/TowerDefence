@@ -4,34 +4,36 @@ using System.Collections.Generic;
 
 public abstract class Weapon: MonoBehaviour {
 
-    public float[] attackDamageList = 
+    public float[] attackDamageLevels = 
     {
         0, 10, 20, 30, 40, 50
     };
 
-    public float[] shootPeriodList  = 
+    public float[] shootPeriodLevels  = 
     { 
         1<<10, 1f, 0.9f, 0.8f, 0.6f, 0.4f
     } ;
 
-    public float[] detectRadiusList = 
+    public float[] detectRadiusLevels = 
     {
         0, 10f, 15f, 20f, 25f, 35f
     };
 
 
-    public float      detectRadius;
     public GameObject weaponDetectorGObj;
-    public float      shootPeriod;
 
-    public int        maxLevel     = 1;
+
+    public int        maxLevel     = 5;
     public int        level        = 1;
-    public float      attackDamage = 10;
-    public int        cost         = 10;
 
     public bool       enabled      = false;
     public bool       selected     = false;
+    public int        cost         = 10;
 
+
+    protected float   detectRadius;
+    protected float   shootPeriod;
+    protected float   attackDamage = 10;
 
 
     //timer for shooting periodically
@@ -40,7 +42,8 @@ public abstract class Weapon: MonoBehaviour {
     protected Transform        myTrfm;
     protected GameObject       currentTarget;
     protected List<GameObject> targetList;
-    
+
+
 
 
     // getter setters
@@ -81,8 +84,12 @@ public abstract class Weapon: MonoBehaviour {
 
 	// Use this for initialization
 	protected void Start () {
-        shootTimer = Time.time;
-        myTrfm     =transform;
+        shootTimer = -1; // for the first beat
+        myTrfm     = transform;
+        level      = 1;
+        attackDamage = attackDamageLevels[level];
+        shootPeriod = shootPeriodLevels[level];
+        detectRadius = detectRadiusLevels[level];
         SetupWeaponDetector();
 	}
 	
@@ -107,8 +114,9 @@ public abstract class Weapon: MonoBehaviour {
         // dynamically choose a target
         SetCurrentTarget();
 
-        // periodically shoot
-        if (Time.time - shootTimer >= shootPeriod && currentTarget != null) {
+        // periodically shoot ; shootTime = -1 is the initial state
+        if ( (Time.time - shootTimer >= shootPeriod || shootTimer == -1) 
+           && currentTarget != null ) {
             shootTimer = Time.time;
             Attack();
         }
@@ -126,6 +134,10 @@ public abstract class Weapon: MonoBehaviour {
     public virtual void LevelUp()
     {
         if (level < maxLevel) level++;
+
+        attackDamage = attackDamageLevels[level];
+        shootPeriod  = shootPeriodLevels[level];
+        detectRadius = detectRadiusLevels[level];
     }
 
     //----------------------------------
