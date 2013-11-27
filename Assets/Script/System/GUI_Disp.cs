@@ -8,13 +8,23 @@ public class GUI_Disp: MonoBehaviour {
 	public Texture2D iconRazerTower;
 	public Texture2D iconSlowTower;
 	public Texture2D iconGun;
+	public GameObject razerTower;
+	public GameObject slowTower;
+	public GameObject Gunn;
+
 
 	private bool showMenu = false;
 	private bool showBotBar = true;
 	private bool showSideBar = false;
+	//private bool isPlacing = false;
 	// Use this for initialization
 	void Start () {
-
+		Debug.Log( iconRazerTower.Resize (10,10));
+		iconSlowTower.Resize(10,10);
+		iconGun.Resize (10, 10);
+		iconRazerTower.Apply ();
+		iconSlowTower.Apply ();
+		iconGun.Apply ();
 	}
 	public void toggleMenu(){
 		showMenu = !showMenu;
@@ -66,21 +76,42 @@ public class GUI_Disp: MonoBehaviour {
 			// End the group we started above. This is very important to remember!
 			GUI.EndGroup ();
 		}
+
+
 		if (showSideBar) {
 			//sidebar
 			GUILayout.BeginArea (new Rect (Screen.width-150,Screen.height/5, 150 ,Screen.height/7*3 ));
 			// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
 
 			// We'll make a box so you can see where the group is on-screen.
-			GUILayout.BeginVertical();
+			GUILayout.BeginVertical("Box");
 			//GUILayout.Box (new Rect (0, 0, 150, Screen.height/7 * 3));
 			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
 
 			//GUILayout.Label (new Rect (10, 10, 100, 100), "Score: " + GameStatics.gameScore.ToString ());
 			//GUILayout.Label (new Rect (10, 30, 100, 100), "Cash: $ " + GameStatics.cash.ToString ());
-			GUILayout.Label ("Score: " + GameStatics.gameScore.ToString ());
-			GUILayout.Label ("Cash: $ " + GameStatics.cash.ToString ());
+			//塔的按鈕
+			GUI.enabled = GameStatics.cash >= (razerTower.GetComponent<RaserGun>()).cost;
+			if(GUILayout.Button (iconRazerTower)){
+				//gameObject.getComponent("HoverTest");
+				HoverTest hh = gameObject.GetComponent<HoverTest>();
+				hh.SetHover(razerTower);
+				toggleSideBar();
 
+			}
+			GUI.enabled = GameStatics.cash >= (Gunn.GetComponent<Gun>()).cost;
+			if(GUILayout.Button (iconGun)){
+				HoverTest hh = gameObject.GetComponent<HoverTest>();
+				hh.SetHover(Gunn);
+				toggleSideBar();
+			}
+			GUI.enabled = GameStatics.cash >= (slowTower.GetComponent<SlowGun>()).cost;
+			if(GUILayout.Button (iconSlowTower)){
+				HoverTest hh = gameObject.GetComponent<HoverTest>();
+				hh.SetHover(slowTower);
+				toggleSideBar();
+			}
+			GUI.enabled = true;
 			// End the group we started above. This is very important to remember!
 			GUILayout.EndVertical();
 			GUILayout.EndArea ();

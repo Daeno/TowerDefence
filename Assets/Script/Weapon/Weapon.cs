@@ -12,6 +12,7 @@ public abstract class Weapon: MonoBehaviour {
     public int maxLevel = 1;
     public int level = 1;
     public float attackDamage = 10;
+	public int cost = 10;
 
 
     //timer for shooting periodically

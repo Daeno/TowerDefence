@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour {
     public float maxLife = 100f;
     public float originalSpeed = 10f;
     public float speed = 10f;
-
+	public int money = 10;
 
     //slowed 
     private float slowStartTime;
@@ -137,7 +137,7 @@ public abstract class Enemy : MonoBehaviour {
     private void Killed()
     {
         DestroyObject(gameObject);
-
+		GameStatics.cash += money;
         //TODO send message to the game
     }
 

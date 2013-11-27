@@ -4,7 +4,7 @@ using System.Collections;
 public class SystemMain : MonoBehaviour {
 
 	//Enemy Prefabs
-	public Tank tank;
+	public GameObject tank;
 	public GameObject beginPoint;
 	// Use this for initialization
 	void SetNextWave(){
@@ -18,8 +18,10 @@ public class SystemMain : MonoBehaviour {
 		//yield return new WaitForEndOfFrame ();
 		//Debug.Log ("Coroutine");
 			for (int i = 0; i < GameStatics.waves + 5; i++){
-
+				/*Tank tt;
+				tt = (Tank)*/
 				Instantiate (tank, beginPoint.transform.position, Quaternion.identity);
+				
 				yield return new WaitForSeconds (GameStatics.waveTime);
 			}
 		SetNextWave ();
@@ -51,7 +53,5 @@ public class SystemMain : MonoBehaviour {
 	void AddLives(int i){GameStatics.lives+= i;}
 	void AddWaves(int i){GameStatics.waves += i;}
 
-
-
-
+	
 }
