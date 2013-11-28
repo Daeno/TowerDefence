@@ -11,6 +11,7 @@ public class SplittingCubeBullet : MonoBehaviour
     public float spiralGrowSpeed;
     public float circleTime;        // time on the circle before back in
 
+
     public enum CubeState
     {
         OUT,

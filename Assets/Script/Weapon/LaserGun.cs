@@ -38,6 +38,7 @@ public class LaserGun : Weapon {
 	void Start () {
         base.Start();
         damageIncreaseRate = damageIncreaseRateLevels[level];
+        shootPeriod = 0.001f;
 	}
 	
 	// Update is called once per frame
@@ -95,6 +96,7 @@ public class LaserGun : Weapon {
     public new void LevelUp()
     {
         damageIncreaseRate = damageIncreaseRateLevels[level];
+        shootPeriod = 0.001f;
     }
 
 

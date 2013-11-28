@@ -4,32 +4,33 @@ using System.Collections.Generic;
 
 public abstract class Weapon: MonoBehaviour {
 
+
+
+    public GameObject weaponDetectorGObj;
+
+    public int        maxLevel     = 5;
+
+    
     public float[] attackDamageLevels = 
     {
         0, 10, 20, 30, 40, 50
     };
-
-    public float[] shootPeriodLevels  = 
-    { 
-        1<<10, 1f, 0.9f, 0.8f, 0.6f, 0.4f
-    } ;
 
     public float[] detectRadiusLevels = 
     {
         0, 10f, 15f, 20f, 25f, 35f
     };
 
+    public float[] shootPeriodLevels  = 
+    { 
+        1<<10, 1f, 0.9f, 0.8f, 0.6f, 0.4f
+    };
 
-    public GameObject weaponDetectorGObj;
-
-
-    public int        maxLevel     = 5;
-    public int        level        = 1;
 
     public bool       enabled      = false;
     public bool       selected     = false;
     public int        cost         = 10;
-
+    public int        level        = 1;
 
     protected float   detectRadius;
     protected float   shootPeriod;
@@ -90,6 +91,7 @@ public abstract class Weapon: MonoBehaviour {
         attackDamage = attackDamageLevels[level];
         shootPeriod = shootPeriodLevels[level];
         detectRadius = detectRadiusLevels[level];
+
         SetupWeaponDetector();
 	}
 	

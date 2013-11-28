@@ -38,6 +38,9 @@ public class SplittingCubeWeapon : Weapon {
         base.Start();
 	    cubeNum   = cubeNumLevels[level];
         cubeSpeed = cubeSpeedLevels[level];
+
+        //shootPeriodLevels NOT WORKING
+        shootPeriod = detectRadius/spiralGrowSpeed * 2 + cubeCircleTime;
     }
 	
 	// Update is called once per frame
@@ -70,6 +73,10 @@ public class SplittingCubeWeapon : Weapon {
     {
         cubeNum = cubeNumLevels[level];
         cubeSpeed = cubeSpeedLevels[level];
+
+
+        //shootPeriodLevels NOT WORKING
+        shootPeriod = detectRadius/spiralGrowSpeed * 2 + cubeCircleTime;
     }
 
 }

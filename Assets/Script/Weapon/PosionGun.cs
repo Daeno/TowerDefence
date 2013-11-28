@@ -26,6 +26,7 @@ public class PosionGun : Weapon {
 	void Start () {
         base.Start();
         poisonTime = poisonTimeLevels[level];
+        shootPeriod = 0.001f;
 	}
 	
 	// Update is called once per frame
@@ -54,6 +55,7 @@ public class PosionGun : Weapon {
     public new void LevelUp()
     {
         poisonTime = poisonTimeLevels[level];
+        shootPeriod = 0.001f;
     }
 
 
