@@ -39,7 +39,6 @@ public abstract class Weapon: MonoBehaviour {
 
     //timer for shooting periodically
     protected float   shootTimer   = 0f;
-
     protected Transform        myTrfm;
     protected GameObject       currentTarget;
     protected List<GameObject> targetList;
