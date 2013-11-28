@@ -235,7 +235,7 @@ public abstract class Enemy : MonoBehaviour {
     private void UpdatePoisonedState()
     {
         if ( poisonedTimer != 0 ) {
-            Debug.Log( "Updating Poisoned State:  life = " + life + "  poisoned timer : " + poisonedTimer );
+            //Debug.Log( "Updating Poisoned State:  life = " + life + "  poisoned timer : " + poisonedTimer );
             //Debug.Log( "poisonDamage : " + poisonedDamagePerSec );
         }
         //Debug.Log( "Time.time " + Time.time + "  poisonedStartTime : " + poisonedStartTime + " poisonedTime: " + poisonedTime);

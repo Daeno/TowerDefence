@@ -58,7 +58,6 @@ public class WeaponDetector : MonoBehaviour {
     public void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Enemy")) {
-            Debug.Log("Enemy leaves");
 
             enemyDetectedList.Remove(collider.gameObject);
 
@@ -128,7 +127,6 @@ public class WeaponDetector : MonoBehaviour {
 
             float dist = SqrDistToEnemy2D(obj);
             if (dist < nearestDistSqrt) {
-                Debug.Log("Setting nearest enemy");
                 enemyNearest = obj;
                 nearestDistSqrt = dist;
             }
