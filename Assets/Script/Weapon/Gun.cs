@@ -4,7 +4,7 @@ using System.Collections;
 public class Gun : Weapon {
 
     public GameObject prefabBullet;
-
+    public float bulletSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +27,7 @@ public class Gun : Weapon {
         Bullet bullet         = (Bullet)bulletGObj.GetComponent("Bullet");
         bullet.target         = currentTarget.transform;
         bullet.attackDamage   = attackDamage;
+        bullet.speed          = bulletSpeed;
     }
 
     public new void LevelUp()

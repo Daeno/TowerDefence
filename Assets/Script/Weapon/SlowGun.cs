@@ -5,6 +5,8 @@ public class SlowGun : Weapon {
 
     public GameObject prefabSlowBullet;
 
+    public float bulletSpeed;
+
     public float[] slowRatioList = 
     { 1f,   // dummy
       0.7f, // level1
@@ -23,6 +25,7 @@ public class SlowGun : Weapon {
         11f, // level4
         15f  // level5
     };
+
 
     private float slowRatio;
     private float slowTime;
@@ -60,16 +63,17 @@ public class SlowGun : Weapon {
     {
 
         // shoot a no function bullet
-        Vector3 pos = myTrfm.position;
-        Quaternion rot = Quaternion.identity;
+        Vector3     pos = myTrfm.position;
+        Quaternion  rot = Quaternion.identity;
 
         GameObject bulletGObj =
             (GameObject)Instantiate(prefabSlowBullet, pos, rot);
-        SlowBullet bullet = (SlowBullet)bulletGObj.GetComponent("SlowBullet");
-        bullet.target = currentTarget.transform;
+        SlowBullet bullet   = (SlowBullet)bulletGObj.GetComponent("SlowBullet");
+        bullet.target       = currentTarget.transform;
         bullet.attackDamage = 0;
-        bullet.slowRatio = slowRatio;
-        bullet.slowTime = slowTime;
+        bullet.slowRatio    = slowRatio;
+        bullet.slowTime     = slowTime;
+        bullet.speed        = bulletSpeed;
     }
 
 

@@ -22,5 +22,9 @@ public class GUIMainScript : MonoBehaviour {
 
 			//tankRedList.Add( tank );
 		}
+
+        if ( Input.GetKeyUp( KeyCode.Escape ) ) {
+            Application.Quit();
+        }
 	}
 }
