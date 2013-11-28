@@ -9,33 +9,38 @@ public class Bullet : MonoBehaviour {
     //set by the initiating weapon
     public float attackDamage;
 
+    private Transform myTrfm;
+
     //always change
     private Vector2 myPos;
 
     //doesnt change after initially set
     private Vector2 enemyPos;
 
+    private Vector2 direction;
+
 
 	// Use this for initialization
 	protected void Start () {
         //setup initial position
-        Vector3 myPos3D  = transform.position;
-        myPos            = new Vector2(myPos3D.x, myPos3D.y);
-        enemyPos         = new Vector2(target.position.x, target.position.y);
-    
+        myTrfm           = transform;
+        Vector2 myPos    = myTrfm.position;
+        enemyPos         = target.position;
+
+        direction        = enemyPos - myPos;
+        direction.Normalize();
+
         //set the sorting layer
         renderer.sortingLayerName = "bullet";
     }
 	
 	// Update is called once per frame
 	protected void Update () {
-        myPos = Vector2.MoveTowards(myPos, enemyPos, Time.deltaTime * speed);
-        transform.position = new Vector3(myPos.x, myPos.y);
-
-
-        if (Vector2.Distance(myPos, enemyPos) < 0.1) {
-            DestroyObject(gameObject);
+        myTrfm.Translate( direction * speed * Time.deltaTime );
+        if ( Vector2.Distance( myTrfm.position, enemyPos ) > 50 ) {
+            DestroyObject( gameObject );
         }
+
 	}
 
 

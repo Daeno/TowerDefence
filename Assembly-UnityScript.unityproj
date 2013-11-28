@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{28866EB0-7993-C171-348D-8535A8E3480D}</ProjectGuid>
+	<ProjectGuid>{C0366CA2-DD8C-169A-0AC4-36BA819C4DAB}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,33 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\ColliderTest.cs" />
-     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
-     <Compile Include="Assets\Script\Enemy\Tank.cs" />
-     <Compile Include="Assets\Script\GUIMainScript.cs" />
-     <Compile Include="Assets\Script\GameStatic.cs" />
-     <Compile Include="Assets\Script\NavTankTest.cs" />
-     <Compile Include="Assets\Script\Score.cs" />
-     <Compile Include="Assets\Script\Util\MyNavigation.cs" />
-     <Compile Include="Assets\Script\Weapon\Bomb.cs" />
-     <Compile Include="Assets\Script\Weapon\BombFire.cs" />
-     <Compile Include="Assets\Script\Weapon\BombWeapon.cs" />
-     <Compile Include="Assets\Script\Weapon\Bullet.cs" />
-     <Compile Include="Assets\Script\Weapon\Gun.cs" />
-     <Compile Include="Assets\Script\Weapon\LaserBeam.cs" />
-     <Compile Include="Assets\Script\Weapon\LaserGun.cs" />
-     <Compile Include="Assets\Script\Weapon\MostForwardEnemyDetector.cs" />
-     <Compile Include="Assets\Script\Weapon\PoisonGas.cs" />
-     <Compile Include="Assets\Script\Weapon\PosionGun.cs" />
-     <Compile Include="Assets\Script\Weapon\SlowBullet.cs" />
-     <Compile Include="Assets\Script\Weapon\SlowGun.cs" />
-     <Compile Include="Assets\Script\Weapon\SpiralEmitterWeapon.cs" />
-     <Compile Include="Assets\Script\Weapon\SplittingCubeBullet.cs" />
-     <Compile Include="Assets\Script\Weapon\SplittingCubeWeapon.cs" />
-     <Compile Include="Assets\Script\Weapon\Weapon.cs" />
-     <Compile Include="Assets\Script\Weapon\WeaponDetector.cs" />
-     <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
-     <Compile Include="Assets\zzRuler\zzVerticalRuler.cs" />
+     <Compile Include="Assets\Script\Weapon\NewBehaviourScript.js" />
      <None Include="Assets\EnemyWeaponSetting.txt" />
      <None Include="Assets\zzRuler\readme.txt" />
   </ItemGroup>
