@@ -32,10 +32,6 @@ public class WeaponDetector : MonoBehaviour {
         else {
             renderer.enabled = false;
         }
-
-        //always update the nearest enemy
-        SetNearestEnemy();
-
     }
 
 
@@ -69,6 +65,15 @@ public class WeaponDetector : MonoBehaviour {
     }
 
 
+    // must OVERRIDE this when inheritting
+    public virtual GameObject GetCurrentTarget()
+    { 
+        //always update the nearest enemy
+        SetNearestEnemy();
+        return enemyNearest;
+    }
+
+
 
     public void SetupTransform()
     {
@@ -93,47 +98,49 @@ public class WeaponDetector : MonoBehaviour {
     private void SetNearestEnemy()
     {
         //no enemy detected
-        if (enemyDetectedList.Count == 0) {
+        if ( enemyDetectedList.Count == 0 ) {
             enemyNearest = null;
             nearestDistSqrt = 0;
             return;
         }
 
         // only 1 enemy detected
-        if (enemyDetectedList.Count == 1) {
+        if ( enemyDetectedList.Count == 1 ) {
             enemyNearest = enemyDetectedList[0];
 
             //killed by some bullet
-            if (enemyNearest == null) {
-                enemyDetectedList.Remove(enemyNearest);
+            if ( enemyNearest == null ) {
+                enemyDetectedList.Remove( enemyNearest );
                 return;
             }
 
-            nearestDistSqrt = SqrDistToEnemy2D(enemyNearest);
+            nearestDistSqrt = SqrDistToEnemy2D( enemyNearest );
             return;
         }
 
 
         nearestDistSqrt = 1000000000;
         // some enemies detected
-        for (int i = enemyDetectedList.Count - 1; i >= 0; i--){
+        for ( int i = enemyDetectedList.Count - 1; i >= 0; i-- ) {
             GameObject obj = enemyDetectedList[i];
-            
+
             //killed by some bullet
-            if (obj == null) {
-                enemyDetectedList.Remove(obj);
+            if ( obj == null ) {
+                enemyDetectedList.Remove( obj );
                 continue;
             }
 
-            float dist = SqrDistToEnemy2D(obj);
-            if (dist < nearestDistSqrt) {
+            float dist = SqrDistToEnemy2D( obj );
+            if ( dist < nearestDistSqrt ) {
                 enemyNearest = obj;
                 nearestDistSqrt = dist;
             }
         }
-    
-    
+
+
     }
+
+
 
 
     //return the square value of dist to enemy

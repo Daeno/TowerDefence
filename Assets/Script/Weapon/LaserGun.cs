@@ -51,7 +51,7 @@ public class LaserGun : Weapon {
 
     public override void Attack()
     {
-
+       
         //init
         Vector3 enemyPos = currentTarget.transform.position;
         Vector3 pos = myTrfm.position;

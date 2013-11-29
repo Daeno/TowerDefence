@@ -29,10 +29,16 @@ public class MostForwardEnemyDetector : WeaponDetector {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+    void Update()
+    {
         SetMostForwardEnemy();
 	}
 
+
+    public override GameObject GetCurrentTarget()
+    {
+        return enemyMostForward;
+    }
 
 
     private void SetMostForwardEnemy()
@@ -41,23 +47,34 @@ public class MostForwardEnemyDetector : WeaponDetector {
         float      minDistToTarget  = 99999;
         GameObject MostForwardEnemy = null;
 
-        foreach ( GameObject enemyGObj in enemyDetectedList ) {
 
+        for (int i = enemyDetectedList.Count - 1; i >= 0; i--) {
+
+            GameObject enemyGObj = enemyDetectedList[i];
+
+            // enemy already killed
             if ( enemyGObj == null ) {
+                enemyDetectedList.Remove( enemyGObj );
                 continue;
             }
 
 
             MyNavigation myNav = (MyNavigation) enemyGObj.GetComponent( "MyNavigation" );
 
+            //must backward
             if ( myNav.TargetNum < maxTargetNum ) {
                 continue;
             }
 
+            //may sbe forward
             else if ( myNav.TargetNum == maxTargetNum ) {
+
+                //actually backward because it is further to the same target
                 if ( myNav.DistToCurrTarget > minDistToTarget ) {
                     continue;
                 }
+
+                //actually forward
                 else if ( myNav.DistToCurrTarget < minDistToTarget ) {
                     minDistToTarget = myNav.DistToCurrTarget;
                     MostForwardEnemy = enemyGObj;
@@ -65,6 +82,7 @@ public class MostForwardEnemyDetector : WeaponDetector {
                 }
             }
 
+            //must be more forward
             else if ( myNav.TargetNum > maxTargetNum ) {
                 maxTargetNum = myNav.TargetNum;
                 minDistToTarget = myNav.DistToCurrTarget;
@@ -72,7 +90,6 @@ public class MostForwardEnemyDetector : WeaponDetector {
                 continue;
             }
         }
-
 
         enemyMostForward = MostForwardEnemy;
     }

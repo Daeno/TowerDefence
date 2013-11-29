@@ -140,7 +140,6 @@ public abstract class Enemy : MonoBehaviour {
     private void Killed()
     {
         DestroyObject(gameObject);
-
         //TODO send message to the game
     }
 
@@ -234,21 +233,14 @@ public abstract class Enemy : MonoBehaviour {
 
     private void UpdatePoisonedState()
     {
-        if ( poisonedTimer != 0 ) {
-            //Debug.Log( "Updating Poisoned State:  life = " + life + "  poisoned timer : " + poisonedTimer );
-            //Debug.Log( "poisonDamage : " + poisonedDamagePerSec );
-        }
-        //Debug.Log( "Time.time " + Time.time + "  poisonedStartTime : " + poisonedStartTime + " poisonedTime: " + poisonedTime);
-
 
         if ( Time.time < poisonedStartTime + poisonedTime ) {
-            //Debug.Log( "1" );
 
             if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
                 Debug.Log( "2" );
 
                 poisonedTimer = Time.time;
-                life -= poisonedDamagePerSec * poisonedDamagePeriod;
+                Attacked( poisonedDamagePerSec * poisonedDamagePeriod) ;
             }
         }
         else {

@@ -74,6 +74,7 @@ public class SlowGun : Weapon {
         bullet.slowRatio    = slowRatio;
         bullet.slowTime     = slowTime;
         bullet.speed        = bulletSpeed;
+        bullet.attackRadius = detectRadius;
     }
 
 

@@ -201,13 +201,11 @@ public abstract class Weapon: MonoBehaviour {
     {
         WeaponDetector detector = GetWeaponDetector();
 
-        if (detector.enemyNearest != null) {
+        currentTarget = detector.GetCurrentTarget();
+        if ( currentTarget != null ) {
             targetList = detector.enemyDetectedList;
-            currentTarget = detector.enemyNearest;
         }
-        else {
-            currentTarget = null;
-        }
+
     }
 
 

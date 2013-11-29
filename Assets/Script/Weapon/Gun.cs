@@ -28,6 +28,7 @@ public class Gun : Weapon {
         bullet.target         = currentTarget.transform;
         bullet.attackDamage   = attackDamage;
         bullet.speed          = bulletSpeed;
+        bullet.attackRadius   = detectRadius;
     }
 
     public new void LevelUp()
