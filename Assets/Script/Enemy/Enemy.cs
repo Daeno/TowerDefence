@@ -105,7 +105,7 @@ public abstract class Enemy : MonoBehaviour {
     {
         //Debug.Log("Enemy being attacked: life = " + life + " , damage = " + damage);
 
-        Debug.Log( "Enemy Attacked: " + damage );
+        //Debug.Log( "Enemy Attacked: " + damage );
         life -= damage;
 
         //dies
@@ -237,7 +237,6 @@ public abstract class Enemy : MonoBehaviour {
         if ( Time.time < poisonedStartTime + poisonedTime ) {
 
             if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
-                Debug.Log( "2" );
 
                 poisonedTimer = Time.time;
                 Attacked( poisonedDamagePerSec * poisonedDamagePeriod) ;

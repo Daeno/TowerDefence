@@ -49,7 +49,7 @@ public class SpiralEmitterWeapon : Weapon {
                 emittedBullets[i]     = (SpiralEmitterBullet) emittedBulletGObjs[i].GetComponent( "SpiralEmitterBullet" );
                 SpiralEmitterBullet bullet = emittedBullets[i];
 
-                bullet.target         = currentTarget.transform;
+                bullet.targetGObj     = currentTarget;
                 bullet.attackDamage   = attackDamage;
                 bullet.speed          = bulletSpeed;
                 bullet.waitTime       = emitPeriod * i ;

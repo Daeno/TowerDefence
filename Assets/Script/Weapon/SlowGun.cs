@@ -69,7 +69,7 @@ public class SlowGun : Weapon {
         GameObject bulletGObj =
             (GameObject)Instantiate(prefabSlowBullet, pos, rot);
         SlowBullet bullet   = (SlowBullet)bulletGObj.GetComponent("SlowBullet");
-        bullet.target       = currentTarget.transform;
+        bullet.targetGObj       = currentTarget;
         bullet.attackDamage = 0;
         bullet.slowRatio    = slowRatio;
         bullet.slowTime     = slowTime;

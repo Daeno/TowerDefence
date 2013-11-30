@@ -56,11 +56,13 @@
      <Compile Include="Assets\Script\Util\MyNavigation.cs" />
      <Compile Include="Assets\Script\Weapon\Bomb.cs" />
      <Compile Include="Assets\Script\Weapon\BombFire.cs" />
+     <Compile Include="Assets\Script\Weapon\BombFocusBeam.cs" />
      <Compile Include="Assets\Script\Weapon\BombWeapon.cs" />
      <Compile Include="Assets\Script\Weapon\Bullet.cs" />
      <Compile Include="Assets\Script\Weapon\Gun.cs" />
      <Compile Include="Assets\Script\Weapon\LaserBeam.cs" />
      <Compile Include="Assets\Script\Weapon\LaserGun.cs" />
+     <Compile Include="Assets\Script\Weapon\MostBackwardEnemyDetector.cs" />
      <Compile Include="Assets\Script\Weapon\MostForwardEnemyDetector.cs" />
      <Compile Include="Assets\Script\Weapon\PoisonGas.cs" />
      <Compile Include="Assets\Script\Weapon\PosionGun.cs" />
