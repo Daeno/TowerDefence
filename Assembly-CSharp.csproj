@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{28866EB0-7993-C171-348D-8535A8E3480D}</ProjectGuid>
+	<ProjectGuid>{AFD62564-509F-2D82-A528-F5D7F552680F}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>K:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>K:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,9 +50,15 @@
      <Compile Include="Assets\Script\Enemy\Enemy.cs" />
      <Compile Include="Assets\Script\Enemy\Tank.cs" />
      <Compile Include="Assets\Script\GUIMainScript.cs" />
-     <Compile Include="Assets\Script\GameStatic.cs" />
      <Compile Include="Assets\Script\NavTankTest.cs" />
-     <Compile Include="Assets\Script\Score.cs" />
+     <Compile Include="Assets\Script\System\DestroyEnemy.cs" />
+     <Compile Include="Assets\Script\System\GUIInput.cs" />
+     <Compile Include="Assets\Script\System\GUI_Disp.cs" />
+     <Compile Include="Assets\Script\System\GameStatics.cs" />
+     <Compile Include="Assets\Script\System\HoverTest.cs" />
+     <Compile Include="Assets\Script\System\MainMenu.cs" />
+     <Compile Include="Assets\Script\System\SystemMain.cs" />
+     <Compile Include="Assets\Script\System\WaveManager.cs" />
      <Compile Include="Assets\Script\Util\MyNavigation.cs" />
      <Compile Include="Assets\Script\Weapon\Bomb.cs" />
      <Compile Include="Assets\Script\Weapon\BombFire.cs" />

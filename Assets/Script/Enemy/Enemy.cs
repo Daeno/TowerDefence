@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour {
     public float maxLife = 100f;
     public float originalSpeed = 10f;
     public float speed = 10f;
-
+	public int value = 20;
 
     //slowed 
     private float slowStartTime;
@@ -110,6 +110,7 @@ public abstract class Enemy : MonoBehaviour {
 
         //dies
         if (life <= 0) {
+			GameStatics.cash += value;
             Killed();
         }
     }
@@ -140,6 +141,7 @@ public abstract class Enemy : MonoBehaviour {
     private void Killed()
     {
         DestroyObject(gameObject);
+
         //TODO send message to the game
     }
 
@@ -233,14 +235,21 @@ public abstract class Enemy : MonoBehaviour {
 
     private void UpdatePoisonedState()
     {
+        if ( poisonedTimer != 0 ) {
+            //Debug.Log( "Updating Poisoned State:  life = " + life + "  poisoned timer : " + poisonedTimer );
+            //Debug.Log( "poisonDamage : " + poisonedDamagePerSec );
+        }
+        //Debug.Log( "Time.time " + Time.time + "  poisonedStartTime : " + poisonedStartTime + " poisonedTime: " + poisonedTime);
+
 
         if ( Time.time < poisonedStartTime + poisonedTime ) {
+            //Debug.Log( "1" );
 
             if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
                 Debug.Log( "2" );
 
                 poisonedTimer = Time.time;
-                Attacked( poisonedDamagePerSec * poisonedDamagePeriod) ;
+                life -= poisonedDamagePerSec * poisonedDamagePeriod;
             }
         }
         else {

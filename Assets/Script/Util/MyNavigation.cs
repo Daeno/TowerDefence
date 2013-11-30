@@ -2,23 +2,22 @@
 using System.Collections;
 
 public class MyNavigation: MonoBehaviour {
-	public  GameObject  parentObj;
+	public GameObject parentObj;
 	private Transform[] targets;
 
-	private Tank        tt ;
-	private float       speed       = 0;
-    private bool        isSpeedInitialized = false;
+	private Tank tt ;
+	private float speed = 0;
+    private bool isSpeedInitialized = false;
 
-	private int         targetNum   = 1;
-	private float       dis         = 0;
-	private float       startTime;
-	private Vector2     startMarker;
-	private GameObject  player;
+	private int targetNum = 1;
+	private float dis = 0;
+	private float startTime;
+	private Vector2 startMarker;
+	private GameObject player;
 
-    private bool        isReached    = false;
-    public  bool        IsReached { get { return isReached; } }
+    private bool isReached = false;
+    public bool IsReached { get { return isReached; } }
 
-    private Transform   myTrfm;
 
 
     // for getting the most forward enemy.
@@ -40,9 +39,8 @@ public class MyNavigation: MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-        myTrfm    = transform;
-
-		player    = this.gameObject;
+		
+		player = this.gameObject;
 		targetNum = 1;
 
 		//transform.position += new Vector2 (1, 0, 0);
@@ -55,10 +53,10 @@ public class MyNavigation: MonoBehaviour {
 		foreach (Transform a in childrenTransform) {
 			targets[idx++] = a;
 		}
-		startTime   = Time.time;
-		dis         = Vector2.Distance (myTrfm.position, (targets [targetNum]).position);
-		startMarker = myTrfm.position;
-        isReached   = false;
+		startTime = Time.time;
+		dis = Vector2.Distance (transform.position, (targets [targetNum]).position);
+		startMarker = transform.position;
+        isReached = false;
 	}
 	
 	// Update is called once per frame
@@ -69,13 +67,13 @@ public class MyNavigation: MonoBehaviour {
         }
 
 
-		if (Vector2.Distance (myTrfm.position, (targets [targetNum]).position) < 0.05f) {
+		if (Vector2.Distance (transform.position, (targets [targetNum]).position) < 0.05f) {
 
 		    if (targetNum < targets.Length - 1) {
 				targetNum ++;
 				startTime = Time.time;
-                dis = Vector2.Distance( myTrfm.position, ( targets[targetNum] ).position );
-                startMarker = myTrfm.position;
+				dis = Vector2.Distance (transform.position, (targets [targetNum]).position);
+				startMarker = transform.position;
 					
 			} else {
 				//walk to end, Enemy destroyed
@@ -88,7 +86,7 @@ public class MyNavigation: MonoBehaviour {
 					
 		}
 
-		myTrfm.position = Vector2.Lerp (startMarker, targets [targetNum].position, speed * (Time.time - startTime) / dis);
+		player.transform.position = Vector2.Lerp (startMarker, targets [targetNum].position, speed * (Time.time - startTime) / dis);
 
 	}
 
@@ -104,10 +102,8 @@ public class MyNavigation: MonoBehaviour {
 
         speed = spd;
         startTime = Time.time;
-        if ( myTrfm != null ) {
-            dis = Vector2.Distance( myTrfm.position, ( targets[targetNum] ).position );
-            startMarker = myTrfm.position;
-        }
+        dis = Vector2.Distance(transform.position, (targets[targetNum]).position);
+        startMarker = transform.position;
     }
 
 
