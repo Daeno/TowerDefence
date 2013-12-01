@@ -91,6 +91,8 @@ public abstract class Weapon: MonoBehaviour {
         shootPeriod = shootPeriodLevels[level];
         detectRadius = detectRadiusLevels[level];
 
+        renderer.sortingLayerName = "weapon";
+
         SetupWeaponDetector();
 	}
 	

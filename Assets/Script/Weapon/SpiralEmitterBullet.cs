@@ -24,10 +24,12 @@ public class SpiralEmitterBullet : Bullet {
             if ( !resetRotation ) {
                 resetRotation   = true;
 
-                direction       = targetGObj.transform.position - myTrfm.position;
-                direction.Normalize();
-                Quaternion rot  = Quaternion.FromToRotation( Vector2.up, direction );
-                myTrfm.rotation = rot;
+                if (targetGObj != null) {
+                    direction       = targetGObj.transform.position - myTrfm.position;
+                    direction.Normalize();
+                    Quaternion rot  = Quaternion.FromToRotation( Vector2.up, direction );
+                    myTrfm.rotation = rot;
+                }
             }
 
 

@@ -44,7 +44,6 @@ public class Bomb : MonoBehaviour {
     void Update()
     {
         if ( Time.time - startStandTime >= standTime ) {
-            Debug.Log( "Bomb!!" );
             BombAttack();
         }
 

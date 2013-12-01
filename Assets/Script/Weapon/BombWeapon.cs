@@ -5,7 +5,7 @@ public class BombWeapon : Weapon {
 
     public GameObject prefabBomb;
     public float bombSpeed;
-    public float bombStandTime; // time since the bomb reaches to the time it bombs
+    public float bombStandTime = 0.3f; // time since the bomb reaches to the time it bombs
     public float[]  bombRadiusLevels = { 0, 2, 3, 4, 5, 6};
 
     private float bombRadius;
