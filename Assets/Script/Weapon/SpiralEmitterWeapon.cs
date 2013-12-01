@@ -29,6 +29,11 @@ public class SpiralEmitterWeapon : Weapon {
 	void Update () {
         base.Update();
 
+
+        if ( !enabled )
+            return;
+
+
         // the next shot must be after the current shot
         if ( IsShooting() && (Time.time - shootStartTime >= ( (emitNum) * emitPeriod ) ) ) {
             shootStartTime = 0;

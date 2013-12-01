@@ -57,6 +57,10 @@ public class SlowGun : Weapon {
 	void Update () {
 
         base.Update();
+
+        if ( !enabled )
+            return;
+
 	}
 
     public override void Attack()

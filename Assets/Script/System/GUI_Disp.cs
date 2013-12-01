@@ -45,6 +45,7 @@ public class GUI_Disp: MonoBehaviour {
 		showSideBar = !showSideBar;
 	}
 	// Update is called once per frame
+	[ExecuteInEditMode]
 	void OnGUI () {
 		//Debug.Log(guiT.text);
 		//print(aa);
@@ -83,6 +84,7 @@ public class GUI_Disp: MonoBehaviour {
 			GUILayout.BeginArea(new Rect(20,20,Screen.width, Screen.height/8+50));
 
 			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
+			GUILayout.BeginHorizontal();
 			GUILayout.BeginVertical();
 			/*GUI.Label (new Rect(10,10,100,100),"Wave: "+GameStatics.waves.ToString ());
 			GUI.Label (new Rect(10,30,100,100),"Cash: $ "+GameStatics.cash.ToString ());
@@ -91,7 +93,15 @@ public class GUI_Disp: MonoBehaviour {
 			GUILayout.Label("Cash: $ "+GameStatics.cash.ToString ());
 			GUILayout.Label("Live: "+GameStatics.lives.ToString());
 
-				GUILayout.EndVertical();
+			GUILayout.EndVertical();
+			GUILayout.BeginVertical();
+			if(GameStatics.selectedTower!=null){
+				GUILayout.Label("Selected Tower: " + GameStatics.selectedTower.name);
+			}
+
+
+			GUILayout.EndVertical();
+			GUILayout.EndHorizontal();
 			// End the group we started above. This is very important to remember!
 			GUILayout.EndArea();
 			GUI.EndGroup ();

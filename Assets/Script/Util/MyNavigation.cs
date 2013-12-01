@@ -39,7 +39,7 @@ public class MyNavigation: MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		parentObj = GameObject.Find ("RouteScene");
 		player = this.gameObject;
 		targetNum = 1;
 

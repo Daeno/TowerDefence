@@ -11,6 +11,9 @@ public class WeaponDetector : MonoBehaviour {
     public GameObject       enemyNearest = null;
 
     public bool             show = false;
+    
+    //totally controlled by Weapon
+    public bool             enabled = false;
 
     //the square of nearest distance
     private float           nearestDistSqrt;
@@ -19,18 +22,25 @@ public class WeaponDetector : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
         renderer.sortingLayerName = "weapondetector";
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected void Update () {
 
         if ( show ) {
             renderer.enabled = true;
         }
         else {
             renderer.enabled = false;
+        }
+
+        if ( enabled ) {
+            collider2D.enabled = true;
+        }
+        else {
+            collider2D.enabled = false;
         }
     }
 

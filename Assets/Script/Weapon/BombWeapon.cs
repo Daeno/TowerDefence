@@ -23,6 +23,9 @@ public class BombWeapon : Weapon {
     {
         base.Update();
 
+        if ( !enabled )
+            return;
+
         
         if ( IsFocusing() && !GetWeaponDetector().DetectingEnemy(focusedTarget) ) {
             focusBeam.CancelAttack();

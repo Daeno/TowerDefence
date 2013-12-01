@@ -24,13 +24,15 @@ public class MostForwardEnemyDetector : WeaponDetector {
 
 
 	// Use this for initialization
-	void Start () {
-        renderer.sortingLayerName = "weapondetector";
+	void Start () 
+    {
+        base.Start();
 	}
 	
 	// Update is called once per frame
     void Update()
     {
+        base.Update();
         SetMostForwardEnemy();
 	}
 

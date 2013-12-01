@@ -84,7 +84,7 @@
      <Compile Include="Assets\Script\Enemy\Tank.cs" />
      <Compile Include="Assets\Script\GUIMainScript.cs" />
      <Compile Include="Assets\Script\NavTankTest.cs" />
-     <Compile Include="Assets\Script\ScalingPosition.cs" />
+     <Compile Include="Assets\Script\SelectHandler.cs" />
      <Compile Include="Assets\Script\System\DestroyEnemy.cs" />
      <Compile Include="Assets\Script\System\GUIInput.cs" />
      <Compile Include="Assets\Script\System\GUI_Disp.cs" />
