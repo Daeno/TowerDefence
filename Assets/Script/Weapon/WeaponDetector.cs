@@ -84,6 +84,16 @@ public class WeaponDetector : MonoBehaviour {
     }
 
 
+    public bool DetectingEnemy( GameObject enemyGObj )
+    {
+        if ( enemyDetectedList.Contains( enemyGObj ) ) {
+            return true;
+        }
+        return false;
+    }
+
+
+
     //maybe not needed, 
     //maybe we can just check if some enemy is killed in SetNearesestEnemy() when updeta() called
     //but maybe also we will need this to calculate score, etc

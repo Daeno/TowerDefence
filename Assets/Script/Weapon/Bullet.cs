@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-    public Transform target;
+    public GameObject targetGObj;
     public float     speed = 50f;
     public float     attackRadius;
 
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour {
         //setup initial position
         myTrfm           = transform;
         origPos          = myTrfm.position;
-        enemyPos         = target.position;
+        enemyPos         = targetGObj.transform.position;
 
         direction        = enemyPos - origPos;
         direction.Normalize();

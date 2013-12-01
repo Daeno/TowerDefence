@@ -25,7 +25,7 @@ public class Gun : Weapon {
         GameObject bulletGObj = 
             (GameObject)Instantiate(prefabBullet, pos, rot);
         Bullet bullet         = (Bullet)bulletGObj.GetComponent("Bullet");
-        bullet.target         = currentTarget.transform;
+        bullet.targetGObj         = currentTarget;
         bullet.attackDamage   = attackDamage;
         bullet.speed          = bulletSpeed;
         bullet.attackRadius   = detectRadius;

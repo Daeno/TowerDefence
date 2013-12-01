@@ -9,15 +9,17 @@ public class Bomb : MonoBehaviour {
     public float        attackDamage ;
     public float        speed        ;
     public float        standTime    ;
+    public GameObject   targetGObj;//added 
     public Vector2      target       ;
     public float        bombRadius   ;
     public List<GameObject> detectedList;
 
     private Transform   myTrfm;
+    private Transform   targetTrfm;  //added
+    private Transform   bombFireTrfm;
     private Vector2     origPos;
-    private Vector2     direction;
+   // private Vector2     direction;
     private Vector2     origScale;
-    private float       distance;
     private float       startStandTime;
     private float       bombingTime;
     private GameObject  bombFireGObj;
@@ -27,27 +29,67 @@ public class Bomb : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         myTrfm         = transform;
+        targetTrfm     = targetGObj.transform;
         origPos        = myTrfm.position;
         origScale      = myTrfm.localScale;
-        direction      = ( target - origPos );
-        distance       = Vector2.Distance( target, origPos );
-        direction.Normalize();
-        startStandTime = -1;
+        //direction      = ( target - origPos );
+        //direction.Normalize();
+        startStandTime = Time.time ;
         bombingTime    = -1;
         attackedEnemyList = new List<GameObject>( detectedList );
         InitAttackRegion();
     }
 
 
+    void Update()
+    {
+        if ( Time.time - startStandTime >= standTime ) {
+            BombAttack();
+        }
+
+        bombFireTrfm.position    = targetTrfm.position;
+        myTrfm.position = targetTrfm.position;
+
+
+
+    }
+
+    private void BombAttack()
+    {
+        //just bombing
+        if ( bombingTime <= 0 ) {
+            bombingTime = Time.time;
+            bombFireGObj.renderer.enabled = true;
+            attackedEnemyList = GetAttackList(); // updated by bombFire
+
+            foreach ( GameObject enemyGObj in attackedEnemyList ) {
+                Enemy enemy = (Enemy) enemyGObj.GetComponent( "Enemy" );
+                enemy.Attacked( attackDamage );
+                //Debug.Log( "Attacking by Bomb" );
+            }
+        }
+
+        if ( Time.time - bombingTime >= 0.1f ) {
+            DestroyObject( bombFireGObj );
+            DestroyObject( gameObject );
+        }
+            
+    }
+
+
 	// Update is called once per frame
+    /*
 	void Update () {
-        if ( Vector2.Distance( myTrfm.position, origPos ) < bombRadius ) {
-            Debug.Log( "HEY, MOVE! + direction:" + direction + " speed:" + speed );
-            Debug.Log( "target:" + target + "  myPos:" + myTrfm.position );
+        Debug.Log( "Bomb's Update" );
+
+        if ( Vector2.Distance( myTrfm.position, origPos ) <= bombRadius + 1 ) {
+            //Debug.Log( "HEY, MOVE! + direction:" + direction + " speed:" + speed );
+            //Debug.Log( "target:" + target + "  myPos:" + myTrfm.position );
+
             myTrfm.Translate( direction * speed * Time.deltaTime );
-            myTrfm.localScale = origScale * ( 1 + (  (    Vector2.Distance( myTrfm.position, origPos ) <= Vector2.Distance( myTrfm.position, target ) ?
-                                                                        Vector2.Distance( myTrfm.position, origPos ) :
-                                                                        Vector2.Distance( myTrfm.position, target ) ) )/distance * 2 );
+            myTrfm.localScale = origScale * ( 1 + (  (  Vector2.Distance( myTrfm.position, origPos ) <= Vector2.Distance( myTrfm.position, target ) ?
+                                                        Vector2.Distance( myTrfm.position, origPos ) :
+                                                        Vector2.Distance( myTrfm.position, target ) ) )/distance * 2 );
 
             return;
         }
@@ -67,7 +109,7 @@ public class Bomb : MonoBehaviour {
                 foreach ( GameObject enemyGObj in attackedEnemyList ) {
                     Enemy enemy = (Enemy) enemyGObj.GetComponent( "Enemy" );
                     enemy.Attacked( attackDamage );
-                    Debug.Log( "Attacking by Bomb" );
+                    //Debug.Log( "Attacking by Bomb" );
                 }
             }
 
@@ -79,7 +121,16 @@ public class Bomb : MonoBehaviour {
 
         }
 
-	}
+	}*/
+
+
+    public void CancelAttack()
+    {
+        if (bombFireGObj != null)
+            DestroyObject( bombFireGObj );
+        if (gameObject != null)
+            DestroyObject( gameObject );
+    }
 
 
     //need to know which enemies are to attack.
@@ -90,6 +141,7 @@ public class Bomb : MonoBehaviour {
     {
         bombFireGObj            = (GameObject) Instantiate( prefabBombFire, target, Quaternion.identity );
         bombFireGObj.renderer.enabled = false;
+        bombFireTrfm   = bombFireGObj.transform;
         //( (SpriteRenderer) bombFireGObj.GetComponent<SpriteRenderer>() ).enabled = true;
 
         //set scale
