@@ -38,6 +38,9 @@ public class Bullet : MonoBehaviour {
 
         //set the sorting layer
         renderer.sortingLayerName = "bullet";
+
+        //set tag
+        gameObject.tag = "Bullet";
     }
 	
 	// Update is called once per frame

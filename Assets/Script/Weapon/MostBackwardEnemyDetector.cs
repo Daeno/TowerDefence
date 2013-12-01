@@ -27,12 +27,13 @@ public class MostBackwardEnemyDetector : WeaponDetector
     // Use this for initialization
     void Start()
     {
-        renderer.sortingLayerName = "weapondetector";
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
+        base.Update();
         SetMostBackwardEnemy();
     }
 

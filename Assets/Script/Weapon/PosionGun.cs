@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
 
 public class PosionGun : Weapon {
@@ -32,6 +32,11 @@ public class PosionGun : Weapon {
 	// Update is called once per frame
 	void Update () {
         base.Update();
+
+
+        if ( !enabled )
+            return;
+
 	}
 
 

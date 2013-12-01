@@ -47,6 +47,11 @@ public class SplittingCubeWeapon : Weapon {
 	void Update () 
     {
         base.Update();
+
+
+        if ( !enabled )
+            return;
+
 	}
 
     // override

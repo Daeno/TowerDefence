@@ -41,12 +41,20 @@ public class SplittingCubeBullet : MonoBehaviour
         stateStartTime   = Time.time;
         currRadius       = 0;
         lastPos          = new Vector2( 0, 0 );
+
+        //set the sorting layer
+        renderer.sortingLayerName = "bullet";
+
+        //set tag
+        gameObject.tag = "Bullet";
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetPosition();
+        if ( speed != 0 ) {
+            SetPosition();
+        }
     }
 
 

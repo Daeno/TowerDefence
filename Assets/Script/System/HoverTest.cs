@@ -39,6 +39,7 @@ public class HoverTest : MonoBehaviour {
 			}
 			if(hoverItem != null && Input.GetMouseButtonUp(0)){
 				Debug.Log ("HoverUnit deactivated!");
+                ( hoverItem.GetComponent<Weapon>() ).enabled = true;
 				activated = false;
 				hoverItem = null;
 			}

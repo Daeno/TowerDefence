@@ -10,7 +10,10 @@ public class SlowBullet : Bullet {
 	// Use this for initialization
 	void Start () {
         base.Start();
-	}
+
+        //set tag
+        gameObject.tag = "Bullet";
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,6 +24,9 @@ public class SlowBullet : Bullet {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log( "SlowBullet Collides" + collider.gameObject.ToString() );
+
+
         //if touch an enemy, attack it and destroy self
         if (collider.CompareTag("Enemy")) {
             GameObject enemyGObj = collider.gameObject;

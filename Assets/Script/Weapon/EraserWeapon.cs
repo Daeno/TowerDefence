@@ -32,6 +32,12 @@ public class EraserWeapon : Weapon {
 	void Update () {
         base.Update();
 
+
+        //if not enebled, dont do anything
+        if ( !enabled ) {
+            return;
+        }
+
         if (isTriggered && (Time.time - bombStartTime >= bombDelayTime)){
             DestroyObject( gameObject );
         }
@@ -39,6 +45,11 @@ public class EraserWeapon : Weapon {
 
     void OnTriggerEnter2D( Collider2D collider )
     {
+        if ( !enabled ) {
+            return;
+        }
+
+
         if ( collider.gameObject.CompareTag( "Enemy" ) ) {
             Enemy enemy = (Enemy) collider.gameObject.GetComponent( "Enemy" );
             enemy.Attacked( attackDamage );

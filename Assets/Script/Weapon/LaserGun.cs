@@ -5,6 +5,11 @@ public class LaserGun : Weapon {
 
     public GameObject prefabLaserBeam;
 
+    //Mirror Crystal
+    public GameObject prefabMirrorCrystal;
+    private MirrorCrystal mirrorCrystal;
+
+
 
     public float[] damageIncreaseRateLevels = 
     {
@@ -39,13 +44,24 @@ public class LaserGun : Weapon {
         base.Start();
         damageIncreaseRate = damageIncreaseRateLevels[level];
         shootPeriod = 0.001f;
+
+        GameObject mirroCrystalGObj = (GameObject) Instantiate( prefabMirrorCrystal, myTrfm.position, Quaternion.identity );
+        mirrorCrystal = (MirrorCrystal)prefabMirrorCrystal.GetComponent( "MirrorCrystal" );
+        mirrorCrystal.center = myTrfm.position;
+
+        mirrorCrystal.target = currentTarget != null ? currentTarget.transform : null;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
         base.Update();
 
-
+        if ( !enabled ) {
+            return;
+        }
+        
+        mirrorCrystal.target = currentTarget != null ? currentTarget.transform : null;
 	}
 
 
@@ -87,6 +103,7 @@ public class LaserGun : Weapon {
 
 
         LaserBeam beam = (LaserBeam) currentLaserBeam.GetComponent<LaserBeam>();
+        beam.weapon               = this;
         beam.attackDamageOriginal = attackDamage;
         beam.attackPeriod         = attackPeriod;
         beam.damageIncreaseRate   = damageIncreaseRate;

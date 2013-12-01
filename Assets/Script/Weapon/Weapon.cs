@@ -43,7 +43,7 @@ public abstract class Weapon: MonoBehaviour {
     protected GameObject       currentTarget;
     protected List<GameObject> targetList;
 
-
+    protected WeaponDetector weaponDetector;
 
 
     // getter setters
@@ -84,11 +84,11 @@ public abstract class Weapon: MonoBehaviour {
 
 	// Use this for initialization
 	protected void Start () {
-        shootTimer = -1; // for the first beat
-        myTrfm     = transform;
-        level      = 1;
+        shootTimer   = -1; // for the first beat
+        myTrfm       = transform;
+        level        = 1;
         attackDamage = attackDamageLevels[level];
-        shootPeriod = shootPeriodLevels[level];
+        shootPeriod  = shootPeriodLevels[level];
         detectRadius = detectRadiusLevels[level];
 
         renderer.sortingLayerName = "weapon";
@@ -110,7 +110,11 @@ public abstract class Weapon: MonoBehaviour {
 
         //if not enebled, dont do anything
         if ( !enabled ) {
+            weaponDetector.enabled = false;
             return;
+        }
+        else {
+            weaponDetector.enabled = true;
         }
 
 
@@ -149,8 +153,7 @@ public abstract class Weapon: MonoBehaviour {
 
     public void KillEnemy(GameObject enemy)
     {
-        WeaponDetector detector = GetWeaponDetector();
-        detector.KillEnemy(enemy);
+        weaponDetector.KillEnemy(enemy);
         SetCurrentTarget();
     }
 
@@ -192,20 +195,18 @@ public abstract class Weapon: MonoBehaviour {
     // setup the gun detector
     private void SetupWeaponDetector()
     {
-        WeaponDetector detector = GetWeaponDetector();
-        detector.position   = myTrfm.position;
-        detector.radius     = detectRadius;
-        detector.SetupTransform();
+        weaponDetector = GetWeaponDetector();
+        weaponDetector.position   = myTrfm.position;
+        weaponDetector.radius     = detectRadius;
+        weaponDetector.SetupTransform();
     }
 
 
     protected virtual void SetCurrentTarget()
     {
-        WeaponDetector detector = GetWeaponDetector();
-
-        currentTarget = detector.GetCurrentTarget();
+        currentTarget = weaponDetector.GetCurrentTarget();
         if ( currentTarget != null ) {
-            targetList = detector.enemyDetectedList;
+            targetList = weaponDetector.enemyDetectedList;
         }
 
     }
@@ -215,17 +216,19 @@ public abstract class Weapon: MonoBehaviour {
 
     protected WeaponDetector GetWeaponDetector()
     {
-        WeaponDetector detector = (WeaponDetector)weaponDetectorGObj.GetComponent("WeaponDetector");
-        if (detector == null) {
-            Debug.Log("Error: WeaponDetector Not Found!");
+        if ( weaponDetector == null ) {
+            weaponDetector = (WeaponDetector) weaponDetectorGObj.GetComponent( "WeaponDetector" );
+            if ( weaponDetector == null ) {
+                Debug.Log( "Error: WeaponDetector Not Found!" );
+            }
         }
-        return detector;
+        return weaponDetector ;
     }
 
 
     protected void ShowDetector( bool show )
     {
-        WeaponDetector detector = GetWeaponDetector();
+        WeaponDetector detector = weaponDetector;
 
         detector.show = show;
     }
