@@ -57,7 +57,7 @@ public class BombWeapon : Weapon {
 
         //set focus beam
         focusBeamGObj  = (GameObject) Instantiate( prefabFocusBeam, myTrfm.position, Quaternion.identity );
-        focusBeam      = (BombFocusBeam) focusBeamGObj.GetComponent("BombFocusBeam");
+        focusBeam      = focusBeamGObj.GetComponent<BombFocusBeam>();
         focusBeam.targetGObj = focusedTarget;
         focusBeam.bombGObj = (GameObject) Instantiate( prefabBomb, myPos, Quaternion.identity ); 
         

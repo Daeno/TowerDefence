@@ -217,7 +217,7 @@ public abstract class Weapon: MonoBehaviour {
     protected WeaponDetector GetWeaponDetector()
     {
         if ( weaponDetector == null ) {
-            weaponDetector = (WeaponDetector) weaponDetectorGObj.GetComponent( "WeaponDetector" );
+            weaponDetector =  weaponDetectorGObj.GetComponent<WeaponDetector>();
             if ( weaponDetector == null ) {
                 Debug.Log( "Error: WeaponDetector Not Found!" );
             }

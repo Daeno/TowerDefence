@@ -21,321 +21,97 @@ User locale: zh-TW
 System locale: zh-TW
 
 Running processes:
-TeamViewer.exe (9348)
+TeamViewer.exe (7352)
     path: K:\Program Files (x86)\TeamViewer\Version8\TeamViewer.exe
     company:  TeamViewer GmbH
     product:  TeamViewer
     filedesc: TeamViewer 8
     filever:  8.0.22298.0
     prodver:  8.0.0.0
-NvTmru.exe (5548)
+NvTmru.exe (3584)
     path: K:\Program Files (x86)\NVIDIA Corporation\NVIDIA Update Core\NvTmru.exe
     company:  NVIDIA Corporation
     product:  NVIDIA GeForce Experience
     filedesc: NVIDIA NvTmru Application
     filever:  9.3.21.0
     prodver:  9.3.21.0
-LManager.exe (7620)
-    path: K:\Program Files (x86)\Launch Manager\LManager.exe
-    company:  Dritek System Inc.
-    product:  Launch Manager
-    filedesc: Launch Manager
-    filever:  5.1.2.1588
-    prodver:  5.1.2.1588
-IAStorIcon.exe (8744)
-    path: K:\Program Files (x86)\Intel\Intel(R) Rapid Storage Technology\IAStorIcon.exe
-    company:  Intel Corporation
-    product:  IAStorIcon
-    filedesc: IAStorIcon
-    filever:  11.5.0.1207
-    prodver:  11.5.0.1207
-DTShellHlp.exe (8632)
+DTShellHlp.exe (5116)
     path: K:\Program Files (x86)\DAEMON Tools Pro\DTShellHlp.exe
     company:  DT Soft Ltd
     product:  DAEMON Tools Pro
     filedesc: DAEMON Tools Shell Extensions Helper
     filever:  5.2.0.348
     prodver:  5.2.0.348
-chrome.exe (1728)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (6764)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (4444)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (9576)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (448)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (9268)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (4264)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (7080)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (5268)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (6864)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (6824)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (7136)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (2260)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (6168)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (492)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (7140)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (7512)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (9864)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (8916)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (5092)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (9208)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (9636)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (10032)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-chrome.exe (6600)
-    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
-    company:  Google Inc.
-    product:  Google Chrome
-    filedesc: Google Chrome
-    filever:  31.0.1650.57
-    prodver:  31.0.1650.57
-clover.exe (6668)
-    path: K:\Program Files (x86)\Clover\clover.exe
-    company:  EJIE Technology
-    product:  Clover
-    filedesc: Clover
-    filever:  3.0.386.0
-    prodver:  3.0.386.0
-adb.exe (7432)
+LManager.exe (2244)
+    path: K:\Program Files (x86)\Launch Manager\LManager.exe
+    company:  Dritek System Inc.
+    product:  Launch Manager
+    filedesc: Launch Manager
+    filever:  5.1.2.1588
+    prodver:  5.1.2.1588
+IAStorIcon.exe (5304)
+    path: K:\Program Files (x86)\Intel\Intel(R) Rapid Storage Technology\IAStorIcon.exe
+    company:  Intel Corporation
+    product:  IAStorIcon
+    filedesc: IAStorIcon
+    filever:  11.5.0.1207
+    prodver:  11.5.0.1207
+adb.exe (6336)
     path: D:\eclipse\android-sdk\platform-tools\adb.exe
     company:  
     product:  
     filedesc: 
     filever:  0.0.0.0
     prodver:  0.0.0.0
-ComUpdatus.exe (6300)
+ComUpdatus.exe (9192)
     path: K:\Program Files (x86)\NVIDIA Corporation\NVIDIA Update Core\ComUpdatus.exe
     company:  NVIDIA Corporation
     product:  NVIDIA GeForce Experience
     filedesc: NVIDIA Update COM object
     filever:  9.3.21.0
     prodver:  9.3.21.0
-Iedit_.exe (5400)
-    path: D:\Program Files (x86)\Corel\Ulead PhotoImpact X3\Iedit_.exe
-    company:  InterVideo Digital Technology Corporation
-    product:  Ulead PhotoImpact
-    filedesc: PhotoImpact
-    filever:  13.0.0.0
-    prodver:  13.0.0.0
-GitHub.exe (1840)
-    path: K:\Users\­ð\AppData\Local\Apps\2.0\BTH8ACWB.RWB\CM7CTL6W.2R2\gith..tion_317444273a93ac29_0001.0002_878eda3344b3e794\GitHub.exe
-    company:  GitHub, Inc.
-    product:  GitHub
-    filedesc: GitHub
-    filever:  1.2.3.0
-    prodver:  1.2.3.0
-ssh-agent.exe (4252)
+ssh-agent.exe (2264)
     path: K:\Users\­ð\AppData\Local\GitHub\PortableGit_0f65d050d0c352fd38a0b25d82ee942deb19ef87\bin\ssh-agent.exe
     company:  
     product:  
     filedesc: 
     filever:  0.0.0.0
     prodver:  0.0.0.0
-chrome.exe (3948)
+chrome.exe (6580)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-Evernote.exe (6888)
-    path: K:\Program Files (x86)\Evernote\Evernote\Evernote.exe
-    company:  Evernote Corp., 305 Walnut Street, Redwood City, CA 94063
-    product:  EvernoteR
-    filedesc: Evernote
-    filever:  5.0.3.1614
-    prodver:  5.0.3.1614
-EvernoteTray.exe (3732)
-    path: K:\Program Files (x86)\Evernote\Evernote\EvernoteTray.exe
-    company:  Evernote Corp., 305 Walnut Street, Redwood City, CA 94063
-    product:  EvernoteR
-    filedesc: Evernote Tray Application
-    filever:  5.0.3.1614
-    prodver:  5.0.3.1614
-EvernoteClipper.exe (9120)
-    path: K:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe
-    company:  Evernote Corp., 305 Walnut Street, Redwood City, CA 94063
-    product:  EvernoteR
-    filedesc: Evernote Clipper
-    filever:  5.0.3.1614
-    prodver:  5.0.3.1614
-chrome.exe (7116)
+chrome.exe (3872)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (5288)
+chrome.exe (7972)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-PCMan.exe (2572)
-    path: K:\Program Files (x86)\PCMan Combo\PCMan.exe
-    company:  PCMan Project
-    product:  PCMan Combo
-    filedesc: PCMan
-    filever:  9.6.2.0
-    prodver:  9.6.2.0
-chrome.exe (9048)
+chrome.exe (12108)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (8620)
+chrome.exe (3272)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-devenv.exe (10288)
-    path: K:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe
-    company:  Microsoft Corporation
-    product:  MicrosoftR Visual StudioR 2012
-    filedesc: Microsoft Visual Studio 2012
-    filever:  11.0.60610.1
-    prodver:  11.0.60610.1
 chrome.exe (8196)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
@@ -343,14 +119,315 @@ chrome.exe (8196)
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-chrome.exe (5396)
+chrome.exe (8704)
     path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
     company:  Google Inc.
     product:  Google Chrome
     filedesc: Google Chrome
     filever:  31.0.1650.57
     prodver:  31.0.1650.57
-UnityBugReporter.exe (9496)
+chrome.exe (11052)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (10328)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (12144)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (8652)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (5484)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+PCMan.exe (2432)
+    path: K:\Program Files (x86)\PCMan Combo\PCMan.exe
+    company:  PCMan Project
+    product:  PCMan Combo
+    filedesc: PCMan
+    filever:  9.6.2.0
+    prodver:  9.6.2.0
+chrome.exe (8740)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (7128)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (6492)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (4856)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (3256)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (4292)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (11120)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (11584)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (10060)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (8024)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (10332)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (11612)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (824)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (11560)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (3148)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (7192)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (6472)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+clover.exe (10156)
+    path: K:\Program Files (x86)\Clover\clover.exe
+    company:  EJIE Technology
+    product:  Clover
+    filedesc: Clover
+    filever:  3.0.386.0
+    prodver:  3.0.386.0
+chrome.exe (10424)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+GitHub.exe (11664)
+    path: K:\Users\­ð\AppData\Local\Apps\2.0\BTH8ACWB.RWB\CM7CTL6W.2R2\gith..tion_317444273a93ac29_0001.0002_878eda3344b3e794\GitHub.exe
+    company:  GitHub, Inc.
+    product:  GitHub
+    filedesc: GitHub
+    filever:  1.2.3.0
+    prodver:  1.2.3.0
+chrome.exe (3720)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (12252)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+Unity.exe (1004)
+    path: K:\Program Files (x86)\Unity\Editor\Unity.exe
+    company:  Unity Technologies ApS
+    product:  Unity
+    filedesc: Unity Editor
+    filever:  4.3.0.27654
+    prodver:  4.3.0.27654
+devenv.exe (4164)
+    path: K:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe
+    company:  Microsoft Corporation
+    product:  MicrosoftR Visual StudioR 2012
+    filedesc: Microsoft Visual Studio 2012
+    filever:  11.0.60610.1
+    prodver:  11.0.60610.1
+devenv.exe (11732)
+    path: K:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe
+    company:  Microsoft Corporation
+    product:  MicrosoftR Visual StudioR 2012
+    filedesc: Microsoft Visual Studio 2012
+    filever:  11.0.60610.1
+    prodver:  11.0.60610.1
+chrome.exe (10336)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (11796)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (5732)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (4056)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (11384)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (5688)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+backgroundTaskHost.exe (492)
+    path: K:\Windows\syswow64\backgroundTaskHost.exe
+    company:  Microsoft Corporation
+    product:  MicrosoftR WindowsR Operating System
+    filedesc: Background Task Host
+    filever:  6.2.9200.16384
+    prodver:  6.2.9200.16384
+chrome.exe (12068)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (1000)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (9824)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (5544)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+chrome.exe (7660)
+    path: K:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+    company:  Google Inc.
+    product:  Google Chrome
+    filedesc: Google Chrome
+    filever:  31.0.1650.57
+    prodver:  31.0.1650.57
+UnityBugReporter.exe (10956)
     path: K:\Program Files (x86)\Unity\Editor\UnityBugReporter.exe
     company:  Unity Technologies ApS
     product:  Unity Bug Reporter
