@@ -8,6 +8,14 @@ public class LaserGun : Weapon {
     //Mirror Crystal
     public GameObject prefabMirrorCrystal;
     private MirrorCrystal mirrorCrystal;
+    public float mirrorCrystalRadius = 3f;
+    public float mirrorCrystalSpeed  = 3f;
+    public  float     accumulatingPowerPerTime;
+    private  float     accumulatedPower = 0;
+
+    public float mirrorBeamDelayTime = 0.1f;
+
+
 
 
 
@@ -44,13 +52,6 @@ public class LaserGun : Weapon {
         base.Start();
         damageIncreaseRate = damageIncreaseRateLevels[level];
         shootPeriod = 0.001f;
-
-        GameObject mirroCrystalGObj = (GameObject) Instantiate( prefabMirrorCrystal, myTrfm.position, Quaternion.identity );
-        mirrorCrystal = (MirrorCrystal)prefabMirrorCrystal.GetComponent( "MirrorCrystal" );
-        mirrorCrystal.center = myTrfm.position;
-
-        mirrorCrystal.target = currentTarget != null ? currentTarget.transform : null;
-
 	}
 	
 	// Update is called once per frame
@@ -60,7 +61,19 @@ public class LaserGun : Weapon {
         if ( !enabled ) {
             return;
         }
-        
+
+        if ( mirrorCrystal == null ) {
+            GameObject mirrorCrystalGObj = (GameObject) Instantiate( prefabMirrorCrystal, myTrfm.position, Quaternion.identity );
+            mirrorCrystal = (MirrorCrystal) mirrorCrystalGObj.GetComponent( "MirrorCrystal" );
+            mirrorCrystal.center = myTrfm.position;
+            mirrorCrystal.laserGun = this;
+            mirrorCrystal.target = currentTarget != null ? currentTarget.transform : null;
+            mirrorCrystal.radius = mirrorCrystalRadius;
+            mirrorCrystal.speed = mirrorCrystalSpeed;
+            mirrorCrystal.mirrorBeamDelayTime = mirrorBeamDelayTime;
+        }
+
+
         mirrorCrystal.target = currentTarget != null ? currentTarget.transform : null;
 	}
 
@@ -103,7 +116,6 @@ public class LaserGun : Weapon {
 
 
         LaserBeam beam = (LaserBeam) currentLaserBeam.GetComponent<LaserBeam>();
-        beam.weapon               = this;
         beam.attackDamageOriginal = attackDamage;
         beam.attackPeriod         = attackPeriod;
         beam.damageIncreaseRate   = damageIncreaseRate;
@@ -114,6 +126,11 @@ public class LaserGun : Weapon {
     {
         damageIncreaseRate = damageIncreaseRateLevels[level];
         shootPeriod = 0.001f;
+    }
+
+    public void AccumulatePower()
+    {
+        accumulatedPower += accumulatingPowerPerTime;
     }
 
 

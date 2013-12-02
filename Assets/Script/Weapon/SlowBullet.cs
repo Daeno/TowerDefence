@@ -24,7 +24,7 @@ public class SlowBullet : Bullet {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log( "SlowBullet Collides" + collider.gameObject.ToString() );
+        //Debug.Log( "SlowBullet Collides" + collider.gameObject.ToString() );
 
 
         //if touch an enemy, attack it and destroy self

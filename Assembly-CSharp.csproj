@@ -105,6 +105,7 @@
      <Compile Include="Assets\Script\Weapon\Gun.cs" />
      <Compile Include="Assets\Script\Weapon\LaserBeam.cs" />
      <Compile Include="Assets\Script\Weapon\LaserGun.cs" />
+     <Compile Include="Assets\Script\Weapon\MirrorBullet.cs" />
      <Compile Include="Assets\Script\Weapon\MirrorCrystal.cs" />
      <Compile Include="Assets\Script\Weapon\MostBackwardEnemyDetector.cs" />
      <Compile Include="Assets\Script\Weapon\MostForwardEnemyDetector.cs" />
