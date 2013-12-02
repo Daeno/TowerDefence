@@ -3,9 +3,9 @@ using System.Collections;
 
 public class BombFocusBeam : MonoBehaviour
 {
-    private Transform myTrfm;
-    public GameObject targetGObj;
-    private Transform targetTrfm;
+    private Transform  myTrfm;
+    public GameObject  targetGObj;
+    private Transform  targetTrfm;
 
     public  GameObject bombGObj;
     private Bomb       bomb;
@@ -25,12 +25,11 @@ public class BombFocusBeam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( bombGObj == null || targetGObj == null ) {
+        if ( bombGObj == null || targetGObj == null || bomb.bombed) {
             CancelAttack();
         }
+
         SetTransform();
-
-
     }
 
     private void SetTransform()
@@ -70,7 +69,7 @@ public class BombFocusBeam : MonoBehaviour
 
     public void CancelAttack()
     {
-        if (bomb != null)
+        if (bomb != null && bomb.bombed == false)
             bomb.CancelAttack();
 
         if (gameObject != null)
