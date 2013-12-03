@@ -48,6 +48,9 @@ public class WeaponDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        if ( !enabled )
+            return;
+
         // Enemy enter detected region
         if (collider.gameObject.CompareTag("Enemy")) {
     
@@ -63,6 +66,9 @@ public class WeaponDetector : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D collider)
     {
+        if ( !enabled )
+            return;
+
         if (collider.gameObject.CompareTag("Enemy")) {
 
             enemyDetectedList.Remove(collider.gameObject);
