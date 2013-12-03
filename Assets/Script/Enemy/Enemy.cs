@@ -3,11 +3,14 @@ using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
 
+
     public float life = 100f;
     public float maxLife = 100f;
     public float originalSpeed = 10f;
     public float speed = 10f;
+	public int value = 20;
 
+    protected static float startPeriod = 0.5f;
 
     //slowed 
     private float slowStartTime;
@@ -58,6 +61,11 @@ public abstract class Enemy : MonoBehaviour {
     }
 
 
+    public float StartPeriod
+    {
+        get { return startPeriod; }
+    }
+
 
 
 
@@ -95,6 +103,9 @@ public abstract class Enemy : MonoBehaviour {
     //set the route
     public void SetRoute( GameObject routePrefab )
     {
+        if ( myNavigation == null ) {
+            InitMyNavigation();
+        }
         myNavigation.parentObj = routePrefab;
     }
 
@@ -105,11 +116,12 @@ public abstract class Enemy : MonoBehaviour {
     {
         //Debug.Log("Enemy being attacked: life = " + life + " , damage = " + damage);
 
-        //Debug.Log( "Enemy Attacked: " + damage );
+        Debug.Log( "Enemy Attacked: " + damage );
         life -= damage;
 
         //dies
         if (life <= 0) {
+			GameStatics.cash += value;
             Killed();
         }
     }
@@ -140,6 +152,7 @@ public abstract class Enemy : MonoBehaviour {
     private void Killed()
     {
         DestroyObject(gameObject);
+
         //TODO send message to the game
     }
 
@@ -199,9 +212,6 @@ public abstract class Enemy : MonoBehaviour {
         Quaternion rotation = transform.rotation;
         rotation.SetEulerAngles( rotation.x, rotation.y, rotation.z + degAntiCW );
     }
-    
-
-
 
     //==================== PRIVATE METHODS =======================
 
@@ -233,13 +243,12 @@ public abstract class Enemy : MonoBehaviour {
 
     private void UpdatePoisonedState()
     {
-
         if ( Time.time < poisonedStartTime + poisonedTime ) {
 
             if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
 
                 poisonedTimer = Time.time;
-                Attacked( poisonedDamagePerSec * poisonedDamagePeriod) ;
+                life -= poisonedDamagePerSec * poisonedDamagePeriod;
             }
         }
         else {

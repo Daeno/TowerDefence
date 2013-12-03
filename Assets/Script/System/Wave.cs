@@ -20,7 +20,7 @@ public struct SubwaveInfo
 
 
 
-public class Wave : MonoBehaviour {
+public class Wave{
 
 
     protected int currentWaveIndex;

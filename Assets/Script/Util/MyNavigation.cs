@@ -5,7 +5,7 @@ public class MyNavigation: MonoBehaviour {
 	public  GameObject  parentObj;
 	private Transform[] targets;
 
-	private Tank        tt ;
+	private TankB        tt ;
 	private float       speed       = 0;
     private bool        isSpeedInitialized = false;
 

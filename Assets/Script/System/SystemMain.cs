@@ -7,10 +7,18 @@ public class SystemMain : MonoBehaviour {
 
 	//Enemy Prefabs
 	public GameObject tank;
-	public GameObject beginPoint;
 	
     //tang
+    public struct StageInfo
+    {
+        public StageInfo( bool s, int idx ) { single = s; stageIndex = idx; }
+        public bool single;
+        public int  stageIndex;
+    }
     public GameObject[] prefabEnemies;
+    public StageInfo    currentStageInfo;
+    public StageManager stageManager;
+    public WaveManager  waveManager;
     public enum EnemyType
     {
         A,
@@ -19,8 +27,9 @@ public class SystemMain : MonoBehaviour {
         D,
         E
     };
-    protected List<Wave> waveList = new List<Wave>();
-    protected int currentWaveNum = 1;
+
+
+
 
 	void Start () {
 		GameStatics.waves = 1;
@@ -29,8 +38,10 @@ public class SystemMain : MonoBehaviour {
 		GameStatics.lives = 20;
 		GameStatics.waveTime = 1f;
 
-        SetupWaves();
-        currentWaveNum = 1;
+
+        currentStageInfo = new StageInfo( true, 0 );  // 永遠的第一關
+        stageManager = GetComponent<StageManager>();
+        waveManager = GetComponent<WaveManager>();
 	}
 	
 	// Update is called once per frame
@@ -42,7 +53,7 @@ public class SystemMain : MonoBehaviour {
 
 	//public function for manipulating GameStatics
 	void AddScore(int i){GameStatics.gameScore += i;}
-	void AddCash(int i){GameStatics.cash += i;}
+	void AddCash(int i) {GameStatics.cash += i;}
 	void AddLives(int i){GameStatics.lives+= i;}
 	void AddWaves(int i){GameStatics.waves += i;}
 
@@ -50,82 +61,33 @@ public class SystemMain : MonoBehaviour {
     /*-----------------------------Start By Tang: Waves--------------------*/
 
 
-    // fucking hard-code the waves data
-    protected void SetupWaves()
-    {
-        Wave wave0 = new Wave();
-        waveList.Add( wave0 );
-        wave0.AddSubwave(EnemyType.A, 10);
-        wave0.AddSubwave(EnemyType.B, 20);
 
-        Wave wave1 = new Wave();
-        waveList.Add( wave1 );
-        wave1.AddSubwave( EnemyType.B, 15 );
-        wave1.AddSubwave( EnemyType.A, 15 );
-
-        Wave wave2 = new Wave();
-        waveList.Add( wave2 );
-        wave2.AddSubwave( EnemyType.A, 5 );
-        wave2.AddSubwave( EnemyType.B, 10 );
-        wave2.AddSubwave( EnemyType.A, 5 );
-        wave2.AddSubwave( EnemyType.B, 17 );
-    
-    }
    
     public void SendWave(){
 		//SetNextWave ();
 		//StartCoroutine("WaveCoroutine");
-        if ( currentWaveNum >= waveList.Count ) {
-            Debug.Log( "No wave left!" );
-            return;
-        }
-
-        Wave wave = waveList[currentWaveNum];
-        if (wave.IsEnded()){
-            return;
-        }
-
-        GameStatics.waves = currentWaveNum + 1;
-        StartCoroutine( sendSubwaves(wave) );
-        currentWaveNum++;
-        
+        List<Wave> waveList = stageManager.GetWaveList( currentStageInfo.single, currentStageInfo.stageIndex );
+        GameObject route    = stageManager.GetRoute( currentStageInfo.single, currentStageInfo.stageIndex );
+        waveManager.SendWave( waveList, route );
 	}
 
-    protected IEnumerator sendSubwaves( Wave wave )
-    {
-        while ( !wave.IsEnded() ) {
-            SubwaveInfo subwave = wave.CurrentSubwave;
-            int num = subwave.enemyNum;
-            for ( int i = 0; i < num; i++ ) {
-
-                yield return new WaitForSeconds( GetEnemyStartPeriod( subwave.enemyType ) );
-                Instantiate( prefabEnemies[(int) subwave.enemyType], beginPoint.transform.position, Quaternion.identity );
-            }
-
-            wave.NextSubwave();
-        }
-    }
 
 
-    protected float GetEnemyStartPeriod( EnemyType type )
-    {
-        Enemy enemy = GetEnemyInstanceByType( type );
-        return enemy.StartPeriod;
-    }
 
-    protected Enemy GetEnemyInstanceByType( EnemyType type )
+    public static Enemy GetEnemyInstanceByType( EnemyType type )
     {
         Enemy enemy = null;
         switch ( type ) {
-            case EnemyType.A: enemy = new Tank();   break;
-            case EnemyType.B: enemy = new TankB();  break;
+            case EnemyType.A: enemy = new Tank(); break;
+            case EnemyType.B: enemy = new TankB(); break;
             case EnemyType.C: break;
             case EnemyType.D: break;
             case EnemyType.E: break;
         }
-       
+
         return enemy;
     }
+
     /*--------------------------End------------------------*/
 
 
