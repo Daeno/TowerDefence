@@ -11,9 +11,14 @@ public class SelectHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			if(!ScreenMouseRay()){
-				GameStatics.selectedTower = null;
-			}
+            if ( !ScreenMouseRay() ) {
+
+                //tang
+                if ( GameStatics.selectedTower != null ) {
+                    GameStatics.selectedTower.GetComponent<Weapon>().selected = false;
+                    GameStatics.selectedTower = null;
+                }
+            }
 		}
 	}
 	public bool ScreenMouseRay()
@@ -32,7 +37,12 @@ public class SelectHandler : MonoBehaviour {
 		}*/
 		if (col != null) {
 			Debug.Log (col.gameObject.name);
+            if ( GameStatics.selectedTower != null && GameStatics.selectedTower != col.gameObject ) {
+                GameStatics.selectedTower.GetComponent<Weapon>().selected = false;
+            }
+
 			GameStatics.selectedTower = col.gameObject;
+            GameStatics.selectedTower.GetComponent<Weapon>().selected = true;
 			return true;
 		}
 		return false;

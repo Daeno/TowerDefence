@@ -51,7 +51,7 @@ public class GUI_Disp: MonoBehaviour {
 		//print(aa);
 		if (GUI.Button (new Rect (10,10,80,30), "Next Wave")) {
 			//print ("You clicked the button!");
-			(gameObject.GetComponent<SystemMain>()).SendWaves();
+			(gameObject.GetComponent<SystemMain>()).SendWave();
 		}
 
 		//Menu

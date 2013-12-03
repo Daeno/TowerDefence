@@ -27,7 +27,9 @@ public class HoverTest : MonoBehaviour {
 		if(activated){
 			if (hoverItem == null && Input.GetMouseButtonDown(0)) {
 				hoverItem = (GameObject)Instantiate(hovertype,Input.mousePosition,Quaternion.identity);
-				GameStatics.cash -= hoverItem.GetComponent<Weapon>().cost;
+                Weapon weapon = GetWeaponByGameObject( hoverItem );
+				GameStatics.cash -= weapon.cost;
+                weapon.selected = true;
 			}
 			if (hoverItem != null && Input.GetMouseButton(0)) {
 				Vector3 CurPos = camera.ScreenToWorldPoint(Input.mousePosition);
@@ -40,10 +42,20 @@ public class HoverTest : MonoBehaviour {
 			if(hoverItem != null && Input.GetMouseButtonUp(0)){
 				Debug.Log ("HoverUnit deactivated!");
 				activated = false;
-				(hoverItem.GetComponent<Weapon>()).enabled = true; 
+                Weapon weapon = GetWeaponByGameObject( hoverItem );
+                weapon.selected = false;
+				weapon.enabled = true; 
 				hoverItem = null;
 			}
 		}
 	}
+
+    protected Weapon GetWeaponByGameObject( GameObject gobj )
+    {
+        Weapon weapon = null;
+        weapon = gobj.GetComponent<Weapon>();
+        return weapon;
+
+    }
 
 }

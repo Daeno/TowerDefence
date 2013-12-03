@@ -89,10 +89,11 @@ public class WeaponDetector : MonoBehaviour {
     {
         transform.position = position;
         //transform.localScale = scale;
-        transform.localScale = new Vector2( transform.localScale.x * ( radius * 2 ) / transform.renderer.bounds.size.x ,
-                                            transform.localScale.y * ( radius * 2 ) / transform.renderer.bounds.size.y );
+        if ( transform.renderer.bounds.size.x != 0 && transform.renderer.bounds.size.y != 0 ) {
+            transform.localScale = new Vector2( transform.localScale.x * ( radius * 2 ) / transform.renderer.bounds.size.x,
+                                                transform.localScale.y * ( radius * 2 ) / transform.renderer.bounds.size.y );
+        }
     }
-
 
     public bool DetectingEnemy( GameObject enemyGObj )
     {

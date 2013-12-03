@@ -82,6 +82,7 @@
      <Compile Include="Assets\Script\ColliderTest.cs" />
      <Compile Include="Assets\Script\Enemy\Enemy.cs" />
      <Compile Include="Assets\Script\Enemy\Tank.cs" />
+     <Compile Include="Assets\Script\Enemy\TankB.cs" />
      <Compile Include="Assets\Script\GUIMainScript.cs" />
      <Compile Include="Assets\Script\GameStatic.cs" />
      <Compile Include="Assets\Script\NavTankTest.cs" />
@@ -95,6 +96,7 @@
      <Compile Include="Assets\Script\System\MainMenu.cs" />
      <Compile Include="Assets\Script\System\NetManager.cs" />
      <Compile Include="Assets\Script\System\SystemMain.cs" />
+     <Compile Include="Assets\Script\System\Wave.cs" />
      <Compile Include="Assets\Script\System\WaveManager.cs" />
      <Compile Include="Assets\Script\Util\MyNavigation.cs" />
      <Compile Include="Assets\Script\Weapon\Bomb.cs" />
