@@ -3,11 +3,14 @@ using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
 
+
     public float life = 100f;
     public float maxLife = 100f;
     public float originalSpeed = 10f;
     public float speed = 10f;
 	public int value = 20;
+
+    protected static float startPeriod = 0.5f;
 
     //slowed 
     private float slowStartTime;
@@ -58,6 +61,11 @@ public abstract class Enemy : MonoBehaviour {
     }
 
 
+    public float StartPeriod
+    {
+        get { return startPeriod; }
+    }
+
 
 
 
@@ -95,6 +103,9 @@ public abstract class Enemy : MonoBehaviour {
     //set the route
     public void SetRoute( GameObject routePrefab )
     {
+        if ( myNavigation == null ) {
+            InitMyNavigation();
+        }
         myNavigation.parentObj = routePrefab;
     }
 
@@ -201,9 +212,6 @@ public abstract class Enemy : MonoBehaviour {
         Quaternion rotation = transform.rotation;
         rotation.SetEulerAngles( rotation.x, rotation.y, rotation.z + degAntiCW );
     }
-    
-
-
 
     //==================== PRIVATE METHODS =======================
 
@@ -235,18 +243,9 @@ public abstract class Enemy : MonoBehaviour {
 
     private void UpdatePoisonedState()
     {
-        if ( poisonedTimer != 0 ) {
-            //Debug.Log( "Updating Poisoned State:  life = " + life + "  poisoned timer : " + poisonedTimer );
-            //Debug.Log( "poisonDamage : " + poisonedDamagePerSec );
-        }
-        //Debug.Log( "Time.time " + Time.time + "  poisonedStartTime : " + poisonedStartTime + " poisonedTime: " + poisonedTime);
-
-
         if ( Time.time < poisonedStartTime + poisonedTime ) {
-            //Debug.Log( "1" );
 
             if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
-                Debug.Log( "2" );
 
                 poisonedTimer = Time.time;
                 life -= poisonedDamagePerSec * poisonedDamagePeriod;

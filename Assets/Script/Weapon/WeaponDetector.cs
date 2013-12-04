@@ -48,6 +48,9 @@ public class WeaponDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        if ( !enabled )
+            return;
+
         // Enemy enter detected region
         if (collider.gameObject.CompareTag("Enemy")) {
     
@@ -63,6 +66,9 @@ public class WeaponDetector : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D collider)
     {
+        if ( !enabled )
+            return;
+
         if (collider.gameObject.CompareTag("Enemy")) {
 
             enemyDetectedList.Remove(collider.gameObject);
@@ -89,10 +95,11 @@ public class WeaponDetector : MonoBehaviour {
     {
         transform.position = position;
         //transform.localScale = scale;
-        transform.localScale = new Vector2( transform.localScale.x * ( radius * 2 ) / transform.renderer.bounds.size.x ,
-                                            transform.localScale.y * ( radius * 2 ) / transform.renderer.bounds.size.y );
+        if ( transform.renderer.bounds.size.x != 0 && transform.renderer.bounds.size.y != 0 ) {
+            transform.localScale = new Vector2( transform.localScale.x * ( radius * 2 ) / transform.renderer.bounds.size.x,
+                                                transform.localScale.y * ( radius * 2 ) / transform.renderer.bounds.size.y );
+        }
     }
-
 
     public bool DetectingEnemy( GameObject enemyGObj )
     {

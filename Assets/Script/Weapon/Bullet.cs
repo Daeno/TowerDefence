@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// 12.1晚餐討論結果
+// (1) 子彈可以射無限遠
+// (2) 不確定會不會跟蹤，要根據調敵人速度和子彈速度的結果決定
+
 public class Bullet : MonoBehaviour {
 
     public GameObject targetGObj;
-    public float     speed = 50f;
-    public float     attackRadius;
+    public float      speed = 50f;
+    public float      attackRadius;
 
     //set by the initiating weapon
     public float attackDamage;
@@ -38,12 +42,15 @@ public class Bullet : MonoBehaviour {
 
         //set the sorting layer
         renderer.sortingLayerName = "bullet";
+
+        //set tag
+        gameObject.tag = "Bullet";
     }
 	
 	// Update is called once per frame
 	protected void Update () {
         myTrfm.Translate( Vector2.up * speed * Time.deltaTime );
-        if ( Vector2.Distance( myTrfm.position,  origPos) > attackRadius ) {
+        if ( Vector2.Distance( myTrfm.position,  origPos) > 100) {
             DestroyObject( gameObject );
         }
 

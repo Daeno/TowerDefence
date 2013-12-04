@@ -51,7 +51,7 @@ public class GUI_Disp: MonoBehaviour {
 		//print(aa);
 		if (GUI.Button (new Rect (10,10,80,30), "Next Wave")) {
 			//print ("You clicked the button!");
-			(gameObject.GetComponent<SystemMain>()).SendWaves();
+			(gameObject.GetComponent<SystemMain>()).SendWave();
 		}
 
 		//Menu
@@ -81,7 +81,7 @@ public class GUI_Disp: MonoBehaviour {
 						
 			// We'll make a box so you can see where the group is on-screen..
 			GUI.Box (new Rect (0, 0, Screen.width, Screen.height / 8 + 50), "");
-			GUILayout.BeginArea(new Rect(20,20,Screen.width, Screen.height/8+50));
+			GUILayout.BeginArea(new Rect(20,20,Screen.width - 40, Screen.height/8+50));
 
 			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
 			GUILayout.BeginHorizontal();
@@ -96,7 +96,22 @@ public class GUI_Disp: MonoBehaviour {
 			GUILayout.EndVertical();
 			GUILayout.BeginVertical();
 			if(GameStatics.selectedTower!=null){
+				Weapon temp = GameStatics.selectedTower.GetComponent<Weapon>();
+				GUILayout.BeginHorizontal();
 				GUILayout.Label("Selected Tower: " + GameStatics.selectedTower.name);
+				GUILayout.Label ("Current Level: " + temp.Level.ToString());
+				GUILayout.EndHorizontal();
+
+				GUILayout.BeginHorizontal();
+
+				GUILayout.Label("Cost: "+ temp.cost * 0.2f + "$");
+				GUI.enabled = temp.cost*0.2f <= GameStatics.cash;
+				if(GUILayout.Button ("Level UP!!!")){
+					Debug.Log ("itchy");
+					temp.LevelUp();
+				}
+				GUI.enabled = true;
+				GUILayout.EndHorizontal();
 			}
 
 

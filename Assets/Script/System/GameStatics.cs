@@ -9,5 +9,4 @@ public class GameStatics : MonoBehaviour {
 	public static float waveTime;
 	public static GameObject selectedTower;
 	// Use this for initialization
-
 }

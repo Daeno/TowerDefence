@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{AFD62564-509F-2D82-A528-F5D7F552680F}</ProjectGuid>
+	<ProjectGuid>{449D22B1-3EC9-AFBA-79E6-E41EEE11D448}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -82,8 +82,11 @@
      <Compile Include="Assets\Script\ColliderTest.cs" />
      <Compile Include="Assets\Script\Enemy\Enemy.cs" />
      <Compile Include="Assets\Script\Enemy\Tank.cs" />
+     <Compile Include="Assets\Script\Enemy\TankB.cs" />
      <Compile Include="Assets\Script\GUIMainScript.cs" />
+     <Compile Include="Assets\Script\GameStatic.cs" />
      <Compile Include="Assets\Script\NavTankTest.cs" />
+     <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SelectHandler.cs" />
      <Compile Include="Assets\Script\System\DestroyEnemy.cs" />
      <Compile Include="Assets\Script\System\GUIInput.cs" />
@@ -92,7 +95,9 @@
      <Compile Include="Assets\Script\System\HoverTest.cs" />
      <Compile Include="Assets\Script\System\MainMenu.cs" />
      <Compile Include="Assets\Script\System\NetManager.cs" />
+     <Compile Include="Assets\Script\System\StageManager.cs" />
      <Compile Include="Assets\Script\System\SystemMain.cs" />
+     <Compile Include="Assets\Script\System\Wave.cs" />
      <Compile Include="Assets\Script\System\WaveManager.cs" />
      <Compile Include="Assets\Script\Util\MyNavigation.cs" />
      <Compile Include="Assets\Script\Weapon\Bomb.cs" />
@@ -104,6 +109,8 @@
      <Compile Include="Assets\Script\Weapon\Gun.cs" />
      <Compile Include="Assets\Script\Weapon\LaserBeam.cs" />
      <Compile Include="Assets\Script\Weapon\LaserGun.cs" />
+     <Compile Include="Assets\Script\Weapon\MirrorBullet.cs" />
+     <Compile Include="Assets\Script\Weapon\MirrorCrystal.cs" />
      <Compile Include="Assets\Script\Weapon\MostBackwardEnemyDetector.cs" />
      <Compile Include="Assets\Script\Weapon\MostForwardEnemyDetector.cs" />
      <Compile Include="Assets\Script\Weapon\PoisonGas.cs" />
@@ -116,6 +123,7 @@
      <Compile Include="Assets\Script\Weapon\SplittingCubeWeapon.cs" />
      <Compile Include="Assets\Script\Weapon\Weapon.cs" />
      <Compile Include="Assets\Script\Weapon\WeaponDetector.cs" />
+     <Compile Include="Assets\Script\testspeed.cs" />
      <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
      <Compile Include="Assets\zzRuler\zzVerticalRuler.cs" />
      <None Include="Assets\Plugins\release_history.txt" />

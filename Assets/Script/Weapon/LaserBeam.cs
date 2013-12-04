@@ -13,10 +13,11 @@ public class LaserBeam : MonoBehaviour {
 
     public GameObject targetGObj;
     public GameObject lastTargetGObj;
-
+    
     private float attackTimer;
     private float attackDamage;
     
+
 
 	// Use this for initialization
 	void Start () 
@@ -28,7 +29,6 @@ public class LaserBeam : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-
         if ( targetGObj == null ) {
             DestroyObject( gameObject );
             return;
