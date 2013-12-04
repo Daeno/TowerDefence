@@ -165,9 +165,9 @@ public class StageManager : MonoBehaviour {
         Wave wave2 = new Wave();
         waveList.Add( wave2 );
         wave2.AddSubwave( SystemMain.EnemyType.A, 5 );
-        wave2.AddSubwave( SystemMain.EnemyType.B, 10 );
-        wave2.AddSubwave( SystemMain.EnemyType.A, 5 );
-        wave2.AddSubwave( SystemMain.EnemyType.B, 17 );
+        wave2.AddSubwave( SystemMain.EnemyType.B, 2 );
+        wave2.AddSubwave( SystemMain.EnemyType.A, 3 );
+        wave2.AddSubwave( SystemMain.EnemyType.B, 2 );
 
 
         //------------------MULTI---------------------//
