@@ -66,5 +66,10 @@ public class NetManager : MonoBehaviour {
 		GameObject tank = (GameObject)Instantiate (TankPrefabBlue, beginPoint.transform.position, Quaternion.identity);
 	}
 
+	[RPC]
+	void SetOppStatics(){
+		
+	}
+
 
 }

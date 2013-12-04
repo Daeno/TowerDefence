@@ -20,6 +20,7 @@ public class SystemMain : MonoBehaviour {
     public StageManager stageManager;
     public WaveManager  waveManager;
     public SaveLoadManager saveLoadManager;
+
     public enum EnemyType
     {
         A,
@@ -95,14 +96,18 @@ public class SystemMain : MonoBehaviour {
     }
 
     /*--------------------------End------------------------*/
-    
 
 
+    /* -----------------------tang new --------------------*/
+    public void WinStage()
+    {
+        stageManager.PassStage( currentStageInfo.single, currentStageInfo.stageIndex );
+    }
 
-
-
-
-
+    public void FailedStage()
+    {
+        
+    }
 
 
 

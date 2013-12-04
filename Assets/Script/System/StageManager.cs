@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour {
     protected List<Stage> singlePlayStages = new List<Stage>();
     protected List<Stage> multiPlayStages = new List<Stage>();
 
+
     public static string STR_SPLITTER = SaveLoadManager.STR_SPLITTER;
 
     public class Stage

@@ -12,6 +12,7 @@ public class HoverTest : MonoBehaviour {
 	public float minDis = 1.0f;
 
 	private bool activated = false;
+	private bool isEraser = false;
 	private Weapon weapon;
 	Vector3 mouseStartPos;
 
@@ -24,6 +25,11 @@ public class HoverTest : MonoBehaviour {
 
 		Debug.Log("HoverTest Constructor called!");*/
 		hovertype = hh;
+		isEraser = false;
+		if (hovertype.name == "EraserWeapon") {
+			isEraser = true;
+			Debug.Log ("eeeeeee");
+		}
 		activated = true;
 	}
 	public static float minimum_distance(Vector2 v, Vector2 w, Vector2 p) {
@@ -87,11 +93,22 @@ public class HoverTest : MonoBehaviour {
 				hoverItem.transform.position = CurPos;
 				//Debug.Log("moving" + CurPos.ToString());
 				Vector3 temp = camera.ScreenToWorldPoint(Input.mousePosition);
-				if(!PlaceToRoute(new Vector2(temp.x,temp.y))){
-					weapon.ShowDetector(false);
-					Debug.Log ("too close to place");
-				}else{
-					weapon.ShowDetector (true);
+
+				if(!isEraser){
+					if(!PlaceToRoute(new Vector2(temp.x,temp.y))){
+						weapon.ShowDetector(false);
+						Debug.Log ("too close to place");
+					}else{
+						weapon.ShowDetector (true);
+					}
+				}
+				else{
+					if(PlaceToRoute(new Vector2(temp.x,temp.y))){
+						weapon.ShowDetector(false);
+						Debug.Log ("too close to place");
+					}else{
+						weapon.ShowDetector (true);
+					}
 				}
 			}
 			if(hoverItem != null && Input.GetMouseButtonUp(0)){
@@ -99,13 +116,26 @@ public class HoverTest : MonoBehaviour {
 				activated = false;
 				Vector3 temp = camera.ScreenToWorldPoint(Input.mousePosition);
 				//Weapon weapon = GetWeaponByGameObject( hoverItem );
-				if(PlaceToRoute(new Vector2(temp.x,temp.y))){
-					weapon.placing =  false;
-                	weapon.selected = true;
-					weapon.enabled =  true; 
-				}else{
-					GameStatics.cash += weapon.cost;
-					DestroyObject(hoverItem);
+
+				if(!isEraser){
+					if(PlaceToRoute(new Vector2(temp.x,temp.y))){
+						weapon.placing = false;
+	                	weapon.selected = true;
+						weapon.enabled = true; 
+					}else{
+						GameStatics.cash += weapon.cost;
+						DestroyObject(hoverItem);
+					}
+				}
+				else{
+					if(!PlaceToRoute(new Vector2(temp.x,temp.y))){
+						weapon.placing = false;
+						weapon.selected = true;
+						weapon.enabled = true; 
+					}else{
+						GameStatics.cash += weapon.cost;
+						DestroyObject(hoverItem);
+					}
 				}
 					
 				hoverItem = null;
