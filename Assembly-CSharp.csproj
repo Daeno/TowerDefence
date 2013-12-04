@@ -95,6 +95,7 @@
      <Compile Include="Assets\Script\System\HoverTest.cs" />
      <Compile Include="Assets\Script\System\MainMenu.cs" />
      <Compile Include="Assets\Script\System\NetManager.cs" />
+     <Compile Include="Assets\Script\System\SaveLoadManager.cs" />
      <Compile Include="Assets\Script\System\StageManager.cs" />
      <Compile Include="Assets\Script\System\SystemMain.cs" />
      <Compile Include="Assets\Script\System\Wave.cs" />

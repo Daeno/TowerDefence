@@ -29,6 +29,7 @@ public abstract class Weapon: MonoBehaviour {
 
     public bool       enabled      = false;
     public bool       selected     = false;
+	public bool		  placing	   = false;
     public int        cost         = 10;
     public int        level        = 1;
 
@@ -100,12 +101,13 @@ public abstract class Weapon: MonoBehaviour {
 	protected void Update () {
 
         //if Selected, show the detector
-        if ( selected ) {
-            ShowDetector( true );
-        }
-        else {
-            ShowDetector( false );
-        }
+        if (!placing) {
+				if (selected) {
+						ShowDetector (true);
+				} else {
+						ShowDetector (false);
+				}
+		}
 
 
         //if not enebled, dont do anything
@@ -141,10 +143,10 @@ public abstract class Weapon: MonoBehaviour {
     public virtual void LevelUp()
     {
         if (level < maxLevel) level++;
-
-        attackDamage = attackDamageLevels[level];
+		attackDamage = attackDamageLevels[level];
         shootPeriod  = shootPeriodLevels[level];
         detectRadius = detectRadiusLevels[level];
+		SetupWeaponDetector();
     }
 
     //----------------------------------
@@ -226,9 +228,9 @@ public abstract class Weapon: MonoBehaviour {
     }
 
 
-    protected void ShowDetector( bool show )
+    public void ShowDetector( bool show )
     {
-        WeaponDetector detector = weaponDetector;
+        WeaponDetector detector = GetWeaponDetector();
 
         detector.show = show;
     }

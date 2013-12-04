@@ -89,6 +89,18 @@ public class SystemMain : MonoBehaviour {
     }
 
     /*--------------------------End------------------------*/
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
     //這段我整個複寫ㄏㄏ  by Tang
