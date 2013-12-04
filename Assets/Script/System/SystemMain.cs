@@ -19,6 +19,7 @@ public class SystemMain : MonoBehaviour {
     public StageInfo    currentStageInfo;
     public StageManager stageManager;
     public WaveManager  waveManager;
+    public SaveLoadManager saveLoadManager;
     public enum EnemyType
     {
         A,
@@ -42,6 +43,7 @@ public class SystemMain : MonoBehaviour {
         currentStageInfo = new StageInfo( true, 0 );  // 永遠的第一關
         stageManager = GetComponent<StageManager>();
         waveManager = GetComponent<WaveManager>();
+        saveLoadManager = GetComponent<SaveLoadManager>();
 	}
 	
 	// Update is called once per frame
@@ -49,7 +51,11 @@ public class SystemMain : MonoBehaviour {
 
 	}
 
-
+    void OnApplicationQuit()
+    {
+        Debug.Log( "OnApplicationQuit called" );
+        saveLoadManager.SaveWhenEnd();
+    }
 
 	//public function for manipulating GameStatics
 	void AddScore(int i){GameStatics.gameScore += i;}

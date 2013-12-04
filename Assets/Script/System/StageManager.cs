@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,15 +13,21 @@ public class StageManager : MonoBehaviour {
     protected List<Stage> singlePlayStages = new List<Stage>();
     protected List<Stage> multiPlayStages = new List<Stage>();
 
+    public static string STR_SPLITTER = SaveLoadManager.STR_SPLITTER;
 
     public class Stage
     {
+        //saved data 
         public int              stageIndex;
+        public bool             passed = false;
+        public int              score  = 0;
+
+        //not saved data
         public GameObject       route;
         public List<Wave>       waveList = new List<Wave>();
         public Sprite           backGround;
-
     }
+
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +51,90 @@ public class StageManager : MonoBehaviour {
 
     public Stage GetStage( bool single, int stageIdx )
     {
-        return ( single ? singlePlayStages[stageIdx] : multiPlayStages[stageIdx] );
+        try {
+            return ( single ? singlePlayStages[stageIdx] : multiPlayStages[stageIdx] );
+        }
+        catch ( ArgumentOutOfRangeException e ) {
+            Debug.LogError( "ArgumentOutOfRangeException in StageManager::GetStage(bool single, int stageIdx). The parameter is out of range" );
+        }
+        return null;
+    }
+
+
+    public void PassStage( bool single, int stageIdx )
+    {
+        GetStage( single, stageIdx ).passed = true ;
+    }
+
+    
+
+
+    public int GetLastPassedStageIndex()
+    {
+        foreach ( Stage s in singlePlayStages ) {
+            if ( s.passed == false ) {
+                return s.stageIndex - 1;
+            }
+        }
+        return -1;
+    }
+
+    //stage
+    // "lastpassedstage/otherInformation1/otherInformation2"
+    //
+    //
+
+    public void LoadStageData()
+    {
+        SaveLoadManager slMgr           = GetComponent<SaveLoadManager>();
+        string          stageData       = slMgr.GetSavedStageData();
+        
+        //first time play
+        if ( stageData == null ) {
+            return;
+        }
+
+        string[]        dataArr         = stageData.Split( '/' );
+        int             lastPassedStage = int.Parse( dataArr[0] );
+
+
+        Debug.Log( "loading stage data: lastPassedStage = " + lastPassedStage );
+
+
+        for ( int i = 0; i < singlePlayStages.Count; i++ ) {
+            singlePlayStages[i].passed = ( i <= lastPassedStage );
+            
+            //if someday we have scores, add this line
+            //singlePlayStages[i].score  = singleStagesData[i].score;
+        }
+    }
+
+    public string GetStageDataStr()
+    {
+        string data = "";
+        int    lastPassedStage = -1;
+        int[]  scores = new int[singlePlayStageNum];
+
+        lastPassedStage = GetLastPassedStageIndex();
+
+        for ( int i = 0; i < singlePlayStageNum; i++ ) {
+            scores[i] = singlePlayStages[i].score;
+        }
+
+        data += lastPassedStage.ToString();
+        data += STR_SPLITTER;
+
+        //if some day we have scores, add this block
+        /*
+        for ( int i = 0; i < singlePlayStageNum; i++ ) {
+            data += scores[i].ToString();
+            
+            if (i != singlePlayStageNum - 1)
+                data += ",";
+        }
+        */
+
+        return data;
     }
 
 
