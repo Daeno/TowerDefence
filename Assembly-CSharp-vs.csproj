@@ -99,6 +99,7 @@
      <Compile Include="Assets\Script\System\SystemMain.cs" />
      <Compile Include="Assets\Script\System\Wave.cs" />
      <Compile Include="Assets\Script\System\WaveManager.cs" />
+     <Compile Include="Assets\Script\System\gameMessenger.cs" />
      <Compile Include="Assets\Script\Util\MyNavigation.cs" />
      <Compile Include="Assets\Script\Weapon\Bomb.cs" />
      <Compile Include="Assets\Script\Weapon\BombFire.cs" />

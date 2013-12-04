@@ -230,7 +230,7 @@ public abstract class Weapon: MonoBehaviour {
 
     public void ShowDetector( bool show )
     {
-        WeaponDetector detector = weaponDetector;
+        WeaponDetector detector = GetWeaponDetector();
 
         detector.show = show;
     }

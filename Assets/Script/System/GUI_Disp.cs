@@ -12,6 +12,7 @@ public class GUI_Disp: MonoBehaviour {
 	public Texture2D iconBombWeapon;
 	public Texture2D iconSplittingCube;
 	public Texture2D iconSpiralWeapon;
+	public Texture2D iconEraserWeapon;
 	public GameObject laserTower;
 	public GameObject slowTower;
 	public GameObject Gunn;
@@ -19,7 +20,7 @@ public class GUI_Disp: MonoBehaviour {
 	public GameObject bombWeapon;
 	public GameObject splittingCube;
 	public GameObject spiralWeapon;
-
+	public GameObject eraserWeapon;
 
 
 
@@ -107,10 +108,19 @@ public class GUI_Disp: MonoBehaviour {
 				GUILayout.Label("Cost: "+ temp.cost * 0.2f + "$");
 				GUI.enabled = temp.cost*0.2f <= GameStatics.cash;
 				if(GUILayout.Button ("Level UP!!!")){
-					Debug.Log ("itchy");
+					//Debug.Log ("itchy");
 					temp.LevelUp();
+					GameStatics.cash -= (int)(temp.cost*0.2f);
 				}
+				GUILayout.EndHorizontal ();
+				GUILayout.BeginHorizontal();
 				GUI.enabled = true;
+				GUILayout.Label("Sell: "+ (temp.cost * (int)(0.8f + temp.Level * 0.2f)) + "$");
+				if(GUILayout.Button ("Sell!!!")){
+					GameStatics.cash += (int)(temp.cost * (0.8f + temp.Level * 0.2f));
+					DestroyObject(GameStatics.selectedTower);
+					GameStatics.selectedTower = null;
+				}
 				GUILayout.EndHorizontal();
 			}
 
@@ -173,7 +183,7 @@ public class GUI_Disp: MonoBehaviour {
 			}
 
 		GUILayout.EndHorizontal();
-		//GUILayout.BeginHorizontal();
+		GUILayout.BeginHorizontal();
 
 			GUI.enabled = GameStatics.cash >= (bombWeapon.GetComponent<BombWeapon>()).cost;
 			if(GUILayout.Button (iconBombWeapon)){
@@ -187,19 +197,24 @@ public class GUI_Disp: MonoBehaviour {
 				hh.SetHover(splittingCube);
 				toggleSideBar();
 			}
-		//GUILayout.EndHorizontal();
-		//GUILayout.BeginHorizontal();
+		GUILayout.EndHorizontal();
+		GUILayout.BeginHorizontal();
 			GUI.enabled = GameStatics.cash >= (spiralWeapon.GetComponent<SpiralEmitterWeapon>()).cost;
 			if(GUILayout.Button (iconSpiralWeapon)){
 				HoverTest hh = gameObject.GetComponent<HoverTest>();
 				hh.SetHover(spiralWeapon);
 				toggleSideBar();
 			}
+			GUI.enabled = GameStatics.cash >= (eraserWeapon.GetComponent<EraserWeapon>()).cost;
+			if(GUILayout.Button (iconEraserWeapon)){
+				HoverTest hh = gameObject.GetComponent<HoverTest>();
+				hh.SetHover(eraserWeapon);
+				toggleSideBar();
+			}
 
 
 
-
-
+		GUILayout.EndHorizontal();
 			GUI.enabled = true;
 
 

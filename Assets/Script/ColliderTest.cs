@@ -17,6 +17,7 @@ public class ColliderTest : MonoBehaviour {
     public void OnTriggerEnter2D( Collider2D coll )
     {
         DestroyObject( coll.gameObject );
+		GameStatics.lives --;
     }
 
 
