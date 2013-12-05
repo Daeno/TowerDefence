@@ -40,10 +40,11 @@ public class NetManager : MonoBehaviour {
 		if(PhotonNetwork.connected)
 		   if(PhotonNetwork.room != null){
 			if (PhotonNetwork.room.playerCount == 1) {
-				//Debug.Log("Waiting Zzzz");		
+				//Debug.Log("Waiting Zzzz");
+				isWaiting = true;
 			}
 			else{
-				isWaiting=false;
+				isWaiting = false;
 			}
 			if(!isWaiting){
 				if(photonView == null)

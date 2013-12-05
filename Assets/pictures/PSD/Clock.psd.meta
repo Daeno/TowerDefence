@@ -40,6 +40,24 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Clock_0
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 156
+        width: 711
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Clock_1
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 484
+        width: 205
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
