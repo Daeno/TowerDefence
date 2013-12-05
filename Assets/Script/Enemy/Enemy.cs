@@ -121,7 +121,6 @@ public abstract class Enemy : MonoBehaviour {
 
         //dies
         if (life <= 0) {
-			GameStatics.cash += value;
             Killed();
         }
     }
@@ -151,9 +150,9 @@ public abstract class Enemy : MonoBehaviour {
     //may need to send "Killed" message to the Game
     private void Killed()
     {
+        GameStatics.cash += value;
+        GameStatics.restEnemyNum --;
         DestroyObject(gameObject);
-
-        //TODO send message to the game
     }
 
 

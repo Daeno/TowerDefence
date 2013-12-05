@@ -49,7 +49,7 @@ public class GUI_Disp: MonoBehaviour {
 		showSideBar = !showSideBar;
 	}
 	// Update is called once per frame
-	[ExecuteInEditMode]
+
 	void OnGUI () {
 		//Debug.Log(guiT.text);
 		//print(aa);
