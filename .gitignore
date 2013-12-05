@@ -1,18 +1,18 @@
 #Unity
 
-#[Ll]ibrary/  
+[Ll]ibrary/  
 [Tt]emp/  
 [Bb]uild/  
 
-#Library/
+Library/
 Temp/
 
 
-#*.pidb
-#*.sln
-#*.userprefs
-#*.csproj
-#*.orig
+*.pidb
+*.sln
+*.userprefs
+*.csproj
+*.orig
 
 
 
