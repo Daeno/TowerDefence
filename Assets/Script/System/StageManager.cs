@@ -67,6 +67,20 @@ public class StageManager : MonoBehaviour {
     }
 
 
+    public void Reset()
+    {
+        foreach ( Stage stage in singlePlayStages ) {
+            foreach ( Wave wave in stage.waveList ) {
+                wave.ResetLevel();
+            }
+        }
+        foreach ( Stage stage in multiPlayStages ) {
+            foreach ( Wave wave in stage.waveList ) {
+                wave.ResetLevel();
+            }
+        }
+    }
+
     public void PassStage( bool single, int stageIdx )
     {
         GetStage( single, stageIdx ).passed = true ;
@@ -172,7 +186,7 @@ public class StageManager : MonoBehaviour {
         Wave wave0 = new Wave();
         waveList.Add( wave0 );
         wave0.AddSubwave( SystemMain.EnemyType.A, 2 );
-        wave0.AddSubwave( SystemMain.EnemyType.B, 8 );
+        wave0.AddSubwave( SystemMain.EnemyType.B, 118 );
         
         Wave wave1 = new Wave();
         waveList.Add( wave1 );

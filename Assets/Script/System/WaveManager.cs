@@ -76,10 +76,15 @@ public class WaveManager : MonoBehaviour {
 
     public void Reset()
     {
+        waveList         = null;
         currentWaveIndex =  0;
         maxWaveIndex     = -1;
         win              = false;
         restEnemyNumThisWave = 0;
+        beginPoint       = new Vector2();
+        route            = null;
+
+        StopAllCoroutines();
     }
 
     public void SendWave( List<Wave> waves, GameObject routeObj )

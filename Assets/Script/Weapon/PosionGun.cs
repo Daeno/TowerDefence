@@ -104,7 +104,6 @@ public class PosionGun : Weapon {
         Quaternion rotation = Quaternion.identity;
         rotation.eulerAngles = new Vector3( 0, 0, orientation * 180 / Mathf.PI );
         myTrfm.rotation = rotation;
-        GetWeaponDetector().transform.rotation = Quaternion.identity;
     }
 
 }
