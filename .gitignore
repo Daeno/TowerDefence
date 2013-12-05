@@ -1,10 +1,10 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-Obj/
-UnityGenerated/
-Library/
+[Tt]emp/
+[Oo]bj/
+[Uu]nityGenerated/
+[Ll]ibrary/
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
