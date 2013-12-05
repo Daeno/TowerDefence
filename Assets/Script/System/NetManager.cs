@@ -6,10 +6,31 @@ public class NetManager : MonoBehaviour {
 	public GameObject TankPrefabBlue, beginPoint;
 	private bool isWaiting = true;
 	private PhotonView photonView;
+
+	private int temp_gameScore;
+	private int temp_cash;
+	private int temp_waves;
+	private int temp_lives;
+
 	// Use this for initialization
 	void Start () {
 		PhotonNetwork.ConnectUsingSettings("0.1");
+		/*temp_gameScore = GameStatics.gameScore;
+		temp_cash = GameStatics.cash;
+		temp_waves = GameStatics.waves;
+		temp_lives = GameStatics.lives;*/
+		//photonView.RPC ("SetOppStatics",PhotonTargets.Others,GameStatics.gameScore,GameStatics.cash,GameStatics.waves,GameStatics.lives);
 		//photonView = PhotonView.Get (this);
+	}
+	void CheckChanged(){
+		if (temp_cash != GameStatics.cash || temp_gameScore != GameStatics.gameScore || temp_waves != GameStatics.waves
+						|| temp_lives != GameStatics.lives) {
+			photonView.RPC ("SetOppStatics",PhotonTargets.Others,GameStatics.gameScore,GameStatics.cash,GameStatics.waves,GameStatics.lives);
+			temp_gameScore = GameStatics.gameScore;
+			temp_cash = GameStatics.cash;
+			temp_lives = GameStatics.lives;
+			temp_waves = GameStatics.waves;
+		}
 	}
 	
 	// Update is called once per frame
@@ -22,13 +43,16 @@ public class NetManager : MonoBehaviour {
 			else{
 				isWaiting=false;
 			}
-			if(!isWaiting)
+			if(!isWaiting){
 			if(Input.GetMouseButtonDown(0)){
 				Debug.Log ("sending 1");
 				photonView = PhotonView.Get(this);
 				photonView.RPC("SpawnEnemy",PhotonTargets.Others);
 			}
+				CheckChanged ();
+			}
 		}
+
 
 	}
 	void OnGUI(){
@@ -67,8 +91,12 @@ public class NetManager : MonoBehaviour {
 	}
 
 	[RPC]
-	void SetOppStatics(){
-		
+	void SetOppStatics(int a,int b,int c,int d){
+		GameStatics.opp_gameScore = a;
+		GameStatics.opp_cash = b;
+		GameStatics.opp_waves = c;
+		GameStatics.opp_lives = d;
+
 	}
 
 

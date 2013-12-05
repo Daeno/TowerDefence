@@ -61,8 +61,8 @@ public class HoverTest : MonoBehaviour {
 
 
 	void Start () {
-		//StageManager SM = GetComponent<StageManager> ();
-		//parentObj = SM.GetRoute (true,0);
+		StageManager SM = GameStatics.systemMain.stageManager;
+		parentObj = SM.GetRoute (true,0);
 
 		Transform[] childrenTransform = parentObj.GetComponentsInChildren<Transform> (true);
 		int idx = 0, len = childrenTransform.Length;

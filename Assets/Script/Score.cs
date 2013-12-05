@@ -13,6 +13,6 @@ public class Score: MonoBehaviour {
 	void OnGUI () {
 		//Debug.Log(guiT.text);
 		//print(aa);
-		guiT.text = "Score: " + GameStatic.game_score.ToString ();
+		//guiT.text = "Score: " + GameStatic.game_score.ToString ();
 	}
 }

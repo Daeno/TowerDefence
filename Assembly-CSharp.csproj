@@ -83,7 +83,6 @@
      <Compile Include="Assets\Script\Enemy\Tank.cs" />
      <Compile Include="Assets\Script\Enemy\TankB.cs" />
      <Compile Include="Assets\Script\GUIMainScript.cs" />
-     <Compile Include="Assets\Script\GameStatic.cs" />
      <Compile Include="Assets\Script\NavTankTest.cs" />
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SelectHandler.cs" />
@@ -91,6 +90,7 @@
      <Compile Include="Assets\Script\System\DestroyEnemy.cs" />
      <Compile Include="Assets\Script\System\GUIInput.cs" />
      <Compile Include="Assets\Script\System\GUI_Disp.cs" />
+     <Compile Include="Assets\Script\System\GUI_Disp_Multi.cs" />
      <Compile Include="Assets\Script\System\GameStatics.cs" />
      <Compile Include="Assets\Script\System\HoverTest.cs" />
      <Compile Include="Assets\Script\System\MainMenu.cs" />
