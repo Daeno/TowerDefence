@@ -6,6 +6,10 @@ public class MainMenu : MonoBehaviour {
     SystemMain systemMain;
 
     public Texture btnTexture;
+    public Texture singleGameBtnTexture;
+    public Texture multiGameBtnTexture;
+    public Texture settingBtnTexture;
+    public Texture tutorialBtnTexture;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +22,26 @@ public class MainMenu : MonoBehaviour {
 	}
 	void OnGUI()
     {
+        GUI.backgroundColor = Color.clear;
+        GUI.BeginGroup( new Rect( 0, Screen.height* 2/3, Screen.width, Screen.height /3 ) );
+        if ( GUI.Button( new Rect( 0, 0, Screen.width /4, Screen.height / 3 ), tutorialBtnTexture ) ) {
+            EnterTutorial(); 
+        }
+        if ( GUI.Button( new Rect( Screen.width / 4, 0, Screen.width /4, Screen.height / 3 ), singleGameBtnTexture ) ) {
+            EnterSingleGame(); 
+        }
+
+        if ( GUI.Button( new Rect( Screen.width*2 / 4, 0, Screen.width /4, Screen.height / 3 ), multiGameBtnTexture ) ) {
+            EnterMultiGame(); 
+        }
+        if ( GUI.Button( new Rect( Screen.width*3 / 4, 0, Screen.width /4, Screen.height / 3 ), settingBtnTexture ) ) {
+            EnterSettings(); ; 
+        }
+        GUI.EndGroup();
+
+
+
+        /*
         GUIStyle guiStyle = new GUIStyle();
         GUI.BeginGroup( new Rect( 0, Screen.height /2 , Screen.width, Screen.height /5 ) );
 
@@ -35,7 +59,7 @@ public class MainMenu : MonoBehaviour {
         }
         if ( GUI.Button( new Rect( 4*Screen.width / 5 + Screen.width/20, 0, Screen.width/10, Screen.height / 10 ), "Exit" ) ) {
             Application.Quit();
-        }
+        }*/
 
         /*if ( GUI.Button( new Rect( 10, 40, 80, 30 ), "Single" ) ) {
             EnterSingleGame();
@@ -53,8 +77,7 @@ public class MainMenu : MonoBehaviour {
             Application.Quit();
         }
          */
-        GUI.EndGroup();
-        //GUI.backgroundColor = Color.black;
+       // GUI.EndGroup();
     
 	}
 
@@ -75,7 +98,7 @@ public class MainMenu : MonoBehaviour {
         systemMain.ChangeToScene( GameStatics.SCENE_SETTINGS );
     }
 
-    protected void EnterAbout()
+    protected void EnterTutorial()
     {
         systemMain.ChangeToScene( GameStatics.SCENE_ABOUT );
     }

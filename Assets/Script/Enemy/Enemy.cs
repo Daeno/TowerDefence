@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class Enemy : MonoBehaviour {
 
     public GameObject prefabHealthBar;
-    protected GameObject healthBarGObj;
+    public GameObject healthBarGObj;
 
     public float life = 100f;
     public float maxLife = 100f;

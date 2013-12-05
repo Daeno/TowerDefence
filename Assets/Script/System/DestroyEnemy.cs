@@ -15,6 +15,7 @@ public class DestroyEnemy : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coli){
 		if (coli.tag == "Enemy") {
+            DestroyObject(coli.GetComponent<Enemy>().healthBarGObj );
 			DestroyObject(coli.gameObject);
 			GameStatics.gameScore -= 100;
 			GameStatics.lives -= 1;
