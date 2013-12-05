@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class StageManager : MonoBehaviour {
 
+    public GameObject prefabTarget;
+
     public int singlePlayStageNum = 1;
     public int multiPlayStageNum  = 1;
     public List<GameObject> singlePlayRoutes = new List<GameObject>();
@@ -32,6 +34,10 @@ public class StageManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         InitStages();
+
+        if ( prefabTarget == null ) {
+            Debug.LogError("PrefabTarget is null. Please assign the \"Prefab/PrefabTarget\" to it");
+        }
 	}
 	
 	// Update is called once per frame
@@ -66,7 +72,19 @@ public class StageManager : MonoBehaviour {
         GetStage( single, stageIdx ).passed = true ;
     }
 
-    
+    public Vector2 GetTargetPosition( bool single, int stageIdx)
+    {
+        GameObject route = single ? singlePlayRoutes[stageIdx] : multiPlayRoutes[stageIdx];
+        int maxPosIdx = -1;
+        Transform target = null;
+        foreach ( Transform point in route.transform ) {
+            if ( int.Parse( point.name ) > maxPosIdx ) {
+                maxPosIdx = int.Parse( point.name );
+                target    = point;
+            }
+        }
+        return target.position;
+    }
 
 
     public int GetLastPassedStageIndex()
@@ -155,18 +173,18 @@ public class StageManager : MonoBehaviour {
         waveList.Add( wave0 );
         wave0.AddSubwave( SystemMain.EnemyType.A, 3 );
         wave0.AddSubwave( SystemMain.EnemyType.B, 5 );
-
+        
         Wave wave1 = new Wave();
         waveList.Add( wave1 );
         wave1.AddSubwave( SystemMain.EnemyType.B, 2 );
         wave1.AddSubwave( SystemMain.EnemyType.A, 5 );
-
+        
         Wave wave2 = new Wave();
         waveList.Add( wave2 );
-        wave2.AddSubwave( SystemMain.EnemyType.A, 5 );
-        wave2.AddSubwave( SystemMain.EnemyType.B, 2 );
         wave2.AddSubwave( SystemMain.EnemyType.A, 3 );
-        wave2.AddSubwave( SystemMain.EnemyType.B, 2 );
+        wave2.AddSubwave( SystemMain.EnemyType.B, 3 );
+        wave2.AddSubwave( SystemMain.EnemyType.A, 3);
+        wave2.AddSubwave( SystemMain.EnemyType.B, 3 );
 
 
         //------------------MULTI---------------------//
@@ -194,6 +212,8 @@ public class StageManager : MonoBehaviour {
         }
 
     }
+
+    
 
 
 }

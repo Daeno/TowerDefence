@@ -150,6 +150,7 @@ public class SystemMain : MonoBehaviour {
         GameStatics.gameScore = 0;
         GameStatics.lives = 20;
         GameStatics.waveTime = 1f;
+        GameStatics.restEnemyNum = 0;
 
         waveManager.Reset();
     }
@@ -158,7 +159,7 @@ public class SystemMain : MonoBehaviour {
 
 
 
-    //這段我整個複寫ㄏㄏ  by Tang
+    //這段我整個複寫ㄏㄏ  by Tang    
     /*
     // Use this for initialization
     void SetNextWave(){

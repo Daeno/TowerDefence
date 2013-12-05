@@ -18,6 +18,7 @@ public class DestroyEnemy : MonoBehaviour {
 			DestroyObject(coli.gameObject);
 			GameStatics.gameScore -= 100;
 			GameStatics.lives -= 1;
+            GameStatics.restEnemyNum -= 1;
 		}
 	}
 }

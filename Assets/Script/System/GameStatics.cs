@@ -8,6 +8,7 @@ public class GameStatics : MonoBehaviour
     public static int waves;
     public static int lives;
     public static float waveTime;
+    public static int   restEnemyNum = 0;
     public static GameObject selectedTower;
 
 	public static int opp_gameScore;
