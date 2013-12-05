@@ -56,6 +56,9 @@ public class Bomb : MonoBehaviour {
         }
 
         if ( !bombed ) {
+            if ( targetTrfm == null ) {
+                return;
+            }
             bombFireTrfm.position    = targetTrfm.position;
             myTrfm.position          = targetTrfm.position;
         }
