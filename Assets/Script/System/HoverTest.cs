@@ -21,7 +21,7 @@ public class HoverTest : MonoBehaviour {
 	public void SetHover(GameObject hh){;
 		mouseStartPos = Input.mousePosition;
 		//mouseStartPos.z = 0;
-		/*Vector3 CurPos = camera.ScreenToWorldPoint(mouseStartPos);
+		/*Vector3 CurPos = Camera.main.ScreenToWorldPoint(mouseStartPos);
 
 		Debug.Log("HoverTest Constructor called!");*/
 		hovertype = hh;
@@ -87,12 +87,12 @@ public class HoverTest : MonoBehaviour {
 				weapon.placing = true;
 			}
 			if (hoverItem != null && Input.GetMouseButton(0)) {
-				Vector3 CurPos = camera.ScreenToWorldPoint(Input.mousePosition);
-				//Vector3 offset = camera.ScreenToViewportPoint(CurPos);                   
+				Vector3 CurPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				//Vector3 offset = Camera.main.ScreenToViewportPoint(CurPos);                   
 				CurPos.z = 0;
 				hoverItem.transform.position = CurPos;
 				//Debug.Log("moving" + CurPos.ToString());
-				Vector3 temp = camera.ScreenToWorldPoint(Input.mousePosition);
+				Vector3 temp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 				if(!isEraser){
 					if(!PlaceToRoute(new Vector2(temp.x,temp.y))){
@@ -114,7 +114,7 @@ public class HoverTest : MonoBehaviour {
 			if(hoverItem != null && Input.GetMouseButtonUp(0)){
 				Debug.Log ("HoverUnit deactivated!");
 				activated = false;
-				Vector3 temp = camera.ScreenToWorldPoint(Input.mousePosition);
+				Vector3 temp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				//Weapon weapon = GetWeaponByGameObject( hoverItem );
 
 				if(!isEraser){

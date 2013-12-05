@@ -9,8 +9,7 @@ public class GUIInput : MonoBehaviour {
 	private GUI_Disp disp;
 	// Use this for initialization
 	void Start () {
-		disp = gameObject.GetComponent<GUI_Disp> ();
-
+		disp = GameObject.Find(GameStatics.SCENESYSTEM_OBJ_NAME).GetComponent<GUI_Disp> ();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +24,9 @@ public class GUIInput : MonoBehaviour {
 			tank.SetActive(true);
 			//tankRedList.Add( tank );
 		}
-		if (Input.GetKeyDown(KeyCode.Escape)) {
+		
+        
+        if (Input.GetKeyDown(KeyCode.Escape)) {
 			disp.toggleMenu();
 		}
 

@@ -79,7 +79,6 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-     <Compile Include="Assets\Script\ColliderTest.cs" />
      <Compile Include="Assets\Script\Enemy\Enemy.cs" />
      <Compile Include="Assets\Script\Enemy\Tank.cs" />
      <Compile Include="Assets\Script\Enemy\TankB.cs" />
@@ -88,6 +87,7 @@
      <Compile Include="Assets\Script\NavTankTest.cs" />
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SelectHandler.cs" />
+     <Compile Include="Assets\Script\System\ChooseStagePage.cs" />
      <Compile Include="Assets\Script\System\DestroyEnemy.cs" />
      <Compile Include="Assets\Script\System\GUIInput.cs" />
      <Compile Include="Assets\Script\System\GUI_Disp.cs" />
@@ -98,6 +98,7 @@
      <Compile Include="Assets\Script\System\SaveLoadManager.cs" />
      <Compile Include="Assets\Script\System\StageManager.cs" />
      <Compile Include="Assets\Script\System\SystemMain.cs" />
+     <Compile Include="Assets\Script\System\SystemScene.cs" />
      <Compile Include="Assets\Script\System\Wave.cs" />
      <Compile Include="Assets\Script\System\WaveManager.cs" />
      <Compile Include="Assets\Script\System\gameMessenger.cs" />
@@ -125,7 +126,6 @@
      <Compile Include="Assets\Script\Weapon\SplittingCubeWeapon.cs" />
      <Compile Include="Assets\Script\Weapon\Weapon.cs" />
      <Compile Include="Assets\Script\Weapon\WeaponDetector.cs" />
-     <Compile Include="Assets\Script\testspeed.cs" />
      <Compile Include="Assets\zzRuler\zzHorizontalRuler.cs" />
      <Compile Include="Assets\zzRuler\zzVerticalRuler.cs" />
      <None Include="Assets\Plugins\release_history.txt" />

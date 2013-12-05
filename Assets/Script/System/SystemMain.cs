@@ -5,6 +5,10 @@ using System.Reflection;
 
 public class SystemMain : MonoBehaviour {
 
+    //test
+    int count = 0;
+
+
 	//Enemy Prefabs
 	public GameObject tank;
 	
@@ -30,17 +34,22 @@ public class SystemMain : MonoBehaviour {
         E
     };
 
+    
 
+    void Awake()
+    {
+        DontDestroyOnLoad( this );
+
+        GameStatics.waves = 1;
+        GameStatics.cash = 100;
+        GameStatics.gameScore = 0;
+        GameStatics.lives = 20;
+        GameStatics.waveTime = 1f;
+        GameStatics.systemMain = this;
+    }
 
 
 	void Start () {
-		GameStatics.waves = 1;
-		GameStatics.cash = 100;
-		GameStatics.gameScore = 0;
-		GameStatics.lives = 20;
-		GameStatics.waveTime = 1f;
-
-
         currentStageInfo = new StageInfo( true, 0 );  // 永遠的第一關
         stageManager = GetComponent<StageManager>();
         waveManager = GetComponent<WaveManager>();
@@ -49,8 +58,9 @@ public class SystemMain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 	}
+
+
 
     void OnApplicationQuit()
     {
@@ -109,6 +119,40 @@ public class SystemMain : MonoBehaviour {
         
     }
 
+    public void SetCurrentStage( bool single, int stageIdx )
+    {
+        currentStageInfo.single = single;
+        currentStageInfo.stageIndex = stageIdx;
+    }
+
+    public StageInfo GetCurrentStage()
+    {
+        return new StageInfo( currentStageInfo.single, currentStageInfo.stageIndex );
+    }
+
+    
+    
+    public void ChangeToScene( string sceneName )
+    {
+        if (sceneName.Equals( GameStatics.SCENE_GAME      )    ||
+            sceneName.Equals( GameStatics.SCENE_MULTIGAME )){
+            ResetGame();
+        }
+
+
+        Application.LoadLevel( sceneName );
+    }
+
+    protected void ResetGame()
+    {
+        GameStatics.waves = 1;
+        GameStatics.cash = 100;
+        GameStatics.gameScore = 0;
+        GameStatics.lives = 20;
+        GameStatics.waveTime = 1f;
+
+        waveManager.Reset();
+    }
 
 
 
@@ -139,5 +183,4 @@ public class SystemMain : MonoBehaviour {
         SetNextWave ();
     }
     */
-	
 }

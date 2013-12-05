@@ -5,6 +5,8 @@ Project("{BB06C3B3-49A1-9DFF-491D-8F26F3FA61B6}") = "TowerDefence", "Assembly-CS
 EndProject
 Project("{BB06C3B3-49A1-9DFF-491D-8F26F3FA61B6}") = "TowerDefence", "Assembly-CSharp-Editor.csproj", "{2AB0B55F-D70D-9F1E-8683-CE18D89D635F}"
 EndProject
+Project("{BB06C3B3-49A1-9DFF-491D-8F26F3FA61B6}") = "TowerDefence", "Assembly-UnityScript-Editor.unityproj", "{5FFEB1BF-FB7F-F7B0-C36A-EFD18CAF9315}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +21,15 @@ Global
 		{2AB0B55F-D70D-9F1E-8683-CE18D89D635F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AB0B55F-D70D-9F1E-8683-CE18D89D635F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AB0B55F-D70D-9F1E-8683-CE18D89D635F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FFEB1BF-FB7F-F7B0-C36A-EFD18CAF9315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFEB1BF-FB7F-F7B0-C36A-EFD18CAF9315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFEB1BF-FB7F-F7B0-C36A-EFD18CAF9315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFEB1BF-FB7F-F7B0-C36A-EFD18CAF9315}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																									GlobalSection(MonoDevelopProperties) = preSolution
 																																																								GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
