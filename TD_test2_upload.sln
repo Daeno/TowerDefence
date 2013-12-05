@@ -5,6 +5,8 @@ Project("{E35DB33C-8219-7EB7-E967-E9FB95BC6B42}") = "TD_test2_upload", "Assembly
 EndProject
 Project("{E35DB33C-8219-7EB7-E967-E9FB95BC6B42}") = "TD_test2_upload", "Assembly-CSharp-Editor.csproj", "{437DEF0A-42E3-2CF8-8404-8629F8A1F336}"
 EndProject
+Project("{E35DB33C-8219-7EB7-E967-E9FB95BC6B42}") = "TD_test2_upload", "Assembly-UnityScript-Editor.unityproj", "{4BD844A1-0EE7-5B46-DE67-711F67B06716}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +21,15 @@ Global
 		{437DEF0A-42E3-2CF8-8404-8629F8A1F336}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{437DEF0A-42E3-2CF8-8404-8629F8A1F336}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{437DEF0A-42E3-2CF8-8404-8629F8A1F336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD844A1-0EE7-5B46-DE67-711F67B06716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD844A1-0EE7-5B46-DE67-711F67B06716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD844A1-0EE7-5B46-DE67-711F67B06716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD844A1-0EE7-5B46-DE67-711F67B06716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-				GlobalSection(MonoDevelopProperties) = preSolution
+					GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
