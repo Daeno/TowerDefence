@@ -3,9 +3,12 @@ using System.Collections;
 
 public class PosionGun : Weapon {
 
+    public Sprite texturePoisonGun;
+    public Sprite texturePoisonGunAttack;
 
     public GameObject prefabPoisonGas;
     private GameObject currentPoisonGas;
+   
 
     public float[] poisonTimeLevels = 
     {
@@ -39,6 +42,8 @@ public class PosionGun : Weapon {
         if ( !enabled )
             return;
 
+        if (currentPoisonGas == null)
+            GetComponent<SpriteRenderer>().sprite = texturePoisonGun;
         Debug.Log( "poisonGun detect num: " + GetWeaponDetector().enemyDetectedList.Count );
 	}
 
@@ -51,6 +56,8 @@ public class PosionGun : Weapon {
 
         Debug.Log( "PoisonGun Attack()" );
         SetRotation();
+        GetComponent<SpriteRenderer>().sprite = texturePoisonGunAttack;
+
 
         PoisonGas poisonGas = (PoisonGas) currentPoisonGas.GetComponent("PoisonGas");
 

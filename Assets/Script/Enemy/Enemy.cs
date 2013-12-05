@@ -3,6 +3,8 @@ using System.Collections;
 
 public abstract class Enemy : MonoBehaviour {
 
+    public GameObject prefabHealthBar;
+    protected GameObject healthBarGObj;
 
     public float life = 100f;
     public float maxLife = 100f;
@@ -87,7 +89,7 @@ public abstract class Enemy : MonoBehaviour {
         UpdateSlowedState();
         UpdatePoisonedState();
 
-        
+        UpdateHealthBar();
 
 	}
 
@@ -152,6 +154,7 @@ public abstract class Enemy : MonoBehaviour {
     {
         GameStatics.cash += value;
         GameStatics.restEnemyNum --;
+        DestroyObject( healthBarGObj );
         DestroyObject(gameObject);
     }
 
@@ -257,4 +260,16 @@ public abstract class Enemy : MonoBehaviour {
         }
     }
 
+
+
+    protected void UpdateHealthBar()
+    {
+        if ( healthBarGObj == null ) {
+            healthBarGObj = (GameObject) Instantiate( prefabHealthBar, (Vector2)MyTransform.position + Vector2.up*0.5f, Quaternion.identity );
+        }
+
+        healthBarGObj.transform.position = (Vector2)MyTransform.position + Vector2.up*0.5f;
+        healthBarGObj.transform.localScale = new Vector2( life / maxLife, healthBarGObj.transform.localScale.y );
+        
+    }
 }

@@ -11,6 +11,14 @@ public class GameStatics : MonoBehaviour
     public static int   restEnemyNum = 0;
     public static GameObject selectedTower;
 
+	public static int opp_gameScore;
+	public static int opp_cash;
+	public static int opp_waves;
+	public static int opp_lives;
+	//public static float opp_waveTime;
+	//public static GameObject opp_selectedTower;
+
+
     public static SystemMain systemMain;
     // Use this for initialization
 
