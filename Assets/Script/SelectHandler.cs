@@ -5,6 +5,8 @@ public class SelectHandler : MonoBehaviour {
 
 	// Use this for initialization
 	private Rect botMenu;
+	public GameObject focusCircle;
+	private GameObject ff=null;
 	void Start () {
 		Vector2 temp = GUIUtility.GUIToScreenPoint (new Vector2(0, Screen.height / 8 * 7 - 50));
 		botMenu = new Rect (temp.x,temp.y, Screen.width, Screen.height / 8 + 50);
@@ -16,16 +18,20 @@ public class SelectHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			if(botMenu.Contains(Input.mousePosition))Debug.Log ("inside bot!!!");
+			//if(botMenu.Contains(Input.mousePosition))Debug.Log ("inside bot!!!");
             if ( !ScreenMouseRay() && !botMenu.Contains(Input.mousePosition)) {
 
                 //tang
                 if ( GameStatics.selectedTower != null ) {
                     GameStatics.selectedTower.GetComponent<Weapon>().selected = false;
                     GameStatics.selectedTower = null;
+					if( ff != null){
+						DestroyObject(ff);
+					}
                 }
             }
 		}
+
 	}
 	public bool ScreenMouseRay()
 	{
@@ -49,6 +55,11 @@ public class SelectHandler : MonoBehaviour {
             }
 
 			GameStatics.selectedTower = col.gameObject;
+			if(ff != null){
+				ff.transform.position = col.gameObject.transform.position;
+			}else{
+				ff = (GameObject)Instantiate(focusCircle,col.gameObject.transform.position,Quaternion.identity);
+			}
             GameStatics.selectedTower.GetComponent<Weapon>().selected = true;
 			return true;
 		}
