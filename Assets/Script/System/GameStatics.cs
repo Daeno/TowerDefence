@@ -15,6 +15,9 @@ public class GameStatics : MonoBehaviour
 	public static int opp_cash;
 	public static int opp_waves;
 	public static int opp_lives;
+
+	public static bool ready = false;
+	public static bool opp_ready = false;
 	//public static float opp_waveTime;
 	//public static GameObject opp_selectedTower;
 

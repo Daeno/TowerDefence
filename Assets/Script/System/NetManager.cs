@@ -4,7 +4,7 @@ using System.Collections;
 public class NetManager : MonoBehaviour {
 
 	public GameObject TankPrefabBlue, beginPoint;
-	private bool isWaiting = true;
+	private bool isWaiting = true,isWaiting_sending = false, isWaiting_opp = false;
 	private PhotonView photonView;
 
 	private int temp_gameScore;
@@ -70,15 +70,46 @@ public class NetManager : MonoBehaviour {
 
 		GUILayout.EndArea();
 		if (isWaiting) {
+			Time.timeScale = 0;
+			GUI.BeginGroup (new Rect (Screen.width / 2 - 75, Screen.height / 2 - 100, 150, 200));
+			// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
+
+			// We'll make a box so you can see where the group is on-screen.
+			GUI.Box (new Rect (0, 0, 150, 200), "");
+			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
+			GUI.Label (new Rect (0, 0, 150, 200), "Waiting");		
+			// End the group we started above. This is very important to remember!
+			GUI.EndGroup ();
+		} else {
+			Time.timeScale = 1;
+		}
+		if (isWaiting_sending) {
+			Time.timeScale = 0;
 			GUI.BeginGroup (new Rect (Screen.width / 2 - 75, Screen.height / 2 - 100, 150, 200));
 			// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
 			
 			// We'll make a box so you can see where the group is on-screen.
 			GUI.Box (new Rect (0, 0, 150, 200), "");
 			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
-			GUI.Label (new Rect (0, 0, 150, 200),"Waiting");		
+			GUI.Label (new Rect (0, 0, 150, 200), "Ready!!!! Waiting for opponent to press the button");		
 			// End the group we started above. This is very important to remember!
-			GUI.EndGroup ();		
+			GUI.EndGroup ();
+		} else {
+			Time.timeScale = 1;
+		}
+		if (isWaiting_opp) {
+			Time.timeScale = 0;
+			GUI.BeginGroup (new Rect (Screen.width / 2 - 75, Screen.height / 2 - 100, 150, 200));
+			// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
+			
+			// We'll make a box so you can see where the group is on-screen.
+			GUI.Box (new Rect (0, 0, 150, 200), "");
+			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
+			GUI.Label (new Rect (0, 0, 150, 200), "Your opponent is ready!! Hurry up!!!");		
+			// End the group we started above. This is very important to remember!
+			GUI.EndGroup ();
+		} else {
+			Time.timeScale = 1;
 		}
 	}
 	void OnJoinedLobby()
@@ -104,5 +135,28 @@ public class NetManager : MonoBehaviour {
 
 	}
 
+	public void SetReady(){
+		if (GameStatics.opp_ready) {
+			isWaiting_sending = false;
+			isWaiting_opp = false;
+			photonView.RPC("OppOK_back",PhotonTargets.Others);
+			GameStatics.systemMain.SendWave ();
+		} else {
+			isWaiting_sending = true;
+			photonView.RPC("OppOK",PhotonTargets.Others);
+		}
+	}
+	[RPC]
+	void OppOK(){
+		GameStatics.opp_ready = true;
+		isWaiting_opp = true;
+	}
+	[RPC]
+	void OppOK_back(){
+		GameStatics.opp_ready = true;
+		isWaiting_sending = false;
+		isWaiting_opp = false;
+		GameStatics.systemMain.SendWave ();
+	}
 
 }

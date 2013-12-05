@@ -56,7 +56,8 @@ public class GUI_Disp_Multi: MonoBehaviour {
 
 		if (GUI.Button (new Rect (10,10,100,50), "Next Wave")) {
 			//print ("You clicked the button!");
-			GameStatics.systemMain.SendWave();
+			GameObject aa = GameObject.Find ("NetManagerObj");
+			(aa.GetComponent<NetManager>()).SetReady();
 		}
 
 		//Menu
