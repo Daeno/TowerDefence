@@ -47,6 +47,7 @@ public class gameMessenger : MonoBehaviour {
 				GUI.Box (new Rect (0, 0, 150, 200), "Game Over!!!!");
 				//GUI.Button (new Rect (10, 40, 80, 30), "Save");
 				if (GUI.Button (new Rect (17, 40, 120, 30), "Restart")) {
+						Time.timeScale = 1;		
 						Application.LoadLevel ("scene");
 				}
 				if (GUI.Button (new Rect (17, 80, 120, 30), "Exit")) {
