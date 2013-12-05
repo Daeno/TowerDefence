@@ -83,6 +83,7 @@ public class HoverTest : MonoBehaviour {
 				hoverItem = (GameObject)Instantiate(hovertype,Input.mousePosition,Quaternion.identity);
                 weapon = GetWeaponByGameObject( hoverItem );
 				GameStatics.cash -= weapon.cost;
+				GameStatics.selectedTower = hoverItem;
                 weapon.selected = true;
 				weapon.placing = true;
 			}
