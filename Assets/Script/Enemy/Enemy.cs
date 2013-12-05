@@ -151,6 +151,7 @@ public abstract class Enemy : MonoBehaviour {
     private void Killed()
     {
         GameStatics.cash += value;
+		GameStatics.gameScore += value;
         GameStatics.restEnemyNum --;
         DestroyObject(gameObject);
     }

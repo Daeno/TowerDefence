@@ -53,7 +53,8 @@ public class GUI_Disp_Multi: MonoBehaviour {
 	void OnGUI () {
 		//Debug.Log(guiT.text);
 		//print(aa);
-		if (GUI.Button (new Rect (10,10,80,30), "Next Wave")) {
+
+		if (GUI.Button (new Rect (10,10,100,50), "Next Wave")) {
 			//print ("You clicked the button!");
 			GameStatics.systemMain.SendWave();
 		}

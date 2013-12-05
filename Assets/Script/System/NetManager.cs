@@ -12,6 +12,8 @@ public class NetManager : MonoBehaviour {
 	private int temp_waves;
 	private int temp_lives;
 
+	private int prev_gameScore = 0;
+
 	// Use this for initialization
 	void Start () {
 		PhotonNetwork.ConnectUsingSettings("0.1");
@@ -38,17 +40,20 @@ public class NetManager : MonoBehaviour {
 		if(PhotonNetwork.connected)
 		   if(PhotonNetwork.room != null){
 			if (PhotonNetwork.room.playerCount == 1) {
-				Debug.Log("Waiting Zzzz");		
+				//Debug.Log("Waiting Zzzz");		
 			}
 			else{
 				isWaiting=false;
 			}
 			if(!isWaiting){
-			if(Input.GetMouseButtonDown(0)){
-				Debug.Log ("sending 1");
-				photonView = PhotonView.Get(this);
-				photonView.RPC("SpawnEnemy",PhotonTargets.Others);
-			}
+				if(photonView == null)
+					photonView = PhotonView.Get(this);
+				//if(Input.GetMouseButtonDown(0)){
+				if(GameStatics.gameScore - prev_gameScore > 20){
+					Debug.Log ("sending 1");
+					prev_gameScore += 20;
+					photonView.RPC("SpawnEnemy",PhotonTargets.Others);
+				}
 				CheckChanged ();
 			}
 		}
