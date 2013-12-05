@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class StageManager : MonoBehaviour {
 
-    protected int currentStateIndex;
     public int singlePlayStageNum = 1;
     public int multiPlayStageNum  = 1;
     public List<GameObject> singlePlayRoutes = new List<GameObject>();

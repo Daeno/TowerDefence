@@ -3,9 +3,11 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
+    SystemMain systemMain;
+
 	// Use this for initialization
 	void Start () {
-	
+        systemMain = GetComponent<SystemMain>();
 	}
 	
 	// Update is called once per frame
@@ -26,4 +28,27 @@ public class MainMenu : MonoBehaviour {
 		// End the group we started above. This is very important to remember!
 		GUI.EndGroup ();
 	}
+
+
+
+    protected void EnterSingleGame()
+    {
+        
+    }
+
+    protected void EnterMultiGame()
+    {
+
+    }
+
+    protected void EnterSettings()
+    {
+
+    }
+
+    protected void EntetAbout()
+    {
+
+    }
+
 }

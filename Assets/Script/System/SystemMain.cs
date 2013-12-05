@@ -30,7 +30,18 @@ public class SystemMain : MonoBehaviour {
         E
     };
 
+    
+    public enum SceneID
+    {
+        MAIN_MENU,
+        CHOOSE_STAGE_PAGE,
+        GAME
+    }
 
+    void Awake()
+    {
+        DontDestroyOnLoad( this );
+    }
 
 
 	void Start () {
@@ -109,9 +120,37 @@ public class SystemMain : MonoBehaviour {
         
     }
 
+    public void SetCurrentStage( bool single, int stageIdx )
+    {
+        currentStageInfo.single = single;
+        currentStageInfo.stageIndex = stageIdx;
+    }
+
+    public StageInfo GetCurrentStage()
+    {
+        return new StageInfo( currentStageInfo.single, currentStageInfo.stageIndex );
+    }
 
 
 
+    public void ChangePage( SceneID sceneID)
+    {
+        Application.LoadLevel( GetSceneNameByID( sceneID ) );
+    }
+
+    private static string GetSceneNameByID( SceneID sceneID )
+    {
+        string name = null;
+        switch ( sceneID ) {
+            case SceneID.MAIN_MENU: 
+                name = "MainMenu"; break;
+            case SceneID.CHOOSE_STAGE_PAGE: 
+                name = "ChooseStagePage"; break;
+            case SceneID.GAME: 
+                name = "scene"; break;
+        }
+        return name;
+    }
 
 
     //這段我整個複寫ㄏㄏ  by Tang

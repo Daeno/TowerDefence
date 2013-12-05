@@ -88,6 +88,7 @@
      <Compile Include="Assets\Script\NavTankTest.cs" />
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SelectHandler.cs" />
+     <Compile Include="Assets\Script\System\ChooseStagePage.cs" />
      <Compile Include="Assets\Script\System\DestroyEnemy.cs" />
      <Compile Include="Assets\Script\System\GUIInput.cs" />
      <Compile Include="Assets\Script\System\GUI_Disp.cs" />
