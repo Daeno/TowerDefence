@@ -66,6 +66,9 @@ public class Bomb : MonoBehaviour {
         HashSet<GameObject> attackedEnemySet = GetAttackSet();
 
         foreach ( GameObject enemyGObj in attackedEnemySet ) {
+            if ( enemyGObj == null ) {
+                continue;
+            }
             Enemy enemy = (Enemy) enemyGObj.GetComponent( "Enemy" );
             enemy.Attacked( attackDamage );
         }

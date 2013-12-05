@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public abstract class Weapon: MonoBehaviour {
 
@@ -208,7 +209,7 @@ public abstract class Weapon: MonoBehaviour {
     {
         currentTarget = weaponDetector.GetCurrentTarget();
         if ( currentTarget != null ) {
-            targetList = weaponDetector.enemyDetectedList;
+            targetList = weaponDetector.enemyDetectedList.ToList<GameObject>();
         }
 
     }

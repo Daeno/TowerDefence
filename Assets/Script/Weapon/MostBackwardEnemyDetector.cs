@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class MostBackwardEnemyDetector : WeaponDetector
 {
@@ -59,6 +60,9 @@ public class MostBackwardEnemyDetector : WeaponDetector
             if ( enemyGObj == null ) {
                 enemyDetectedList.Remove( enemyGObj );
                 continue;
+            }
+            if ( SqrDistToEnemy2D( enemyGObj ) > Mathf.Pow( radius, 2 ) ) {
+                enemyDetectedList.Remove( enemyGObj );
             }
 
 

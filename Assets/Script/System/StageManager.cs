@@ -171,8 +171,8 @@ public class StageManager : MonoBehaviour {
 
         Wave wave0 = new Wave();
         waveList.Add( wave0 );
-        wave0.AddSubwave( SystemMain.EnemyType.A, 3 );
-        wave0.AddSubwave( SystemMain.EnemyType.B, 5 );
+        wave0.AddSubwave( SystemMain.EnemyType.A, 2 );
+        wave0.AddSubwave( SystemMain.EnemyType.B, 8 );
         
         Wave wave1 = new Wave();
         waveList.Add( wave1 );
