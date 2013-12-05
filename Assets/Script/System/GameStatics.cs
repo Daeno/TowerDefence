@@ -28,6 +28,7 @@ public class GameStatics : MonoBehaviour
     public static string SCENE_GAME         = "sceneNoSystem";
     public static string SCENE_MULTIGAME    = "multiGame";
     public static string SCENE_SETTINGS     = "settings";
+    public static string SCENE_TUTORIAL     = "tutorial";
     public static string SCENE_ABOUT        = "about";
 
     //name of the system objects of every scene

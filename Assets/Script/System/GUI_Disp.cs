@@ -51,6 +51,7 @@ public class GUI_Disp: MonoBehaviour {
 	// Update is called once per frame
 
 	void OnGUI () {
+
 		//Debug.Log(guiT.text);
 		//print(aa);
 		if (GUI.Button (new Rect (10,10,80,30), "Next Wave")) {
