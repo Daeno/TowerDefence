@@ -134,11 +134,7 @@ public class SystemMain : MonoBehaviour {
     
     public void ChangeToScene( string sceneName )
     {
-        if (sceneName.Equals( GameStatics.SCENE_GAME      )    ||
-            sceneName.Equals( GameStatics.SCENE_MULTIGAME )){
-            ResetGame();
-        }
-
+        ResetGame();
 
         Application.LoadLevel( sceneName );
     }
@@ -153,6 +149,9 @@ public class SystemMain : MonoBehaviour {
         GameStatics.restEnemyNum = 0;
 
         waveManager.Reset();
+        stageManager.Reset();
+
+        Time.timeScale = 1;
     }
 
 

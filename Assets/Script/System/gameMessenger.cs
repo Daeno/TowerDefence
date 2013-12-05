@@ -10,6 +10,8 @@ public class gameMessenger : MonoBehaviour {
     private bool showWinGame  = false;
 	void Start () {
         systemMain = GameStatics.systemMain;
+        showGameOver = false;
+        showWinGame  = false;
 	}
 	
 	// Update is called once per frame
@@ -52,14 +54,19 @@ public class gameMessenger : MonoBehaviour {
             if ( GUI.Button( new Rect( 17, 40, 120, 30 ), "Restart" ) ) {
                 Time.timeScale = 1;
                 systemMain.ChangeToScene( GameStatics.SCENE_GAME );
+                Destroy( this );
  			}
             if ( GUI.Button( new Rect( 17, 80, 120, 30 ), "選擇關卡" ) ) {
                 Time.timeScale = 1;
+                showWinGame = false;
                 systemMain.ChangeToScene( GameStatics.SCENE_CHOOSESTAGE );
+                Destroy( this );
             }
             if ( GUI.Button( new Rect( 17, 120, 120, 30 ), "主選單" ) ) {
                 Time.timeScale = 1;
+                showWinGame = false;
                 systemMain.ChangeToScene( GameStatics.SCENE_MAINMENU );
+                Destroy( this );
             }
 			if (GUI.Button (new Rect (17, 160, 120, 30), "Exit")) {
                 Application.Quit();
@@ -79,16 +86,19 @@ public class gameMessenger : MonoBehaviour {
 			GUI.Box (new Rect (0, 0, 150, 200), "Game Over!!!!");
 			//GUI.Button (new Rect (10, 40, 80, 30), "Save");
 			if (GUI.Button (new Rect (17, 40, 120, 30), "Restart")) {
-					Time.timeScale = 1;
-                    systemMain.ChangeToScene( GameStatics.SCENE_GAME );
+				Time.timeScale = 1;
+                systemMain.ChangeToScene( GameStatics.SCENE_GAME );
+                Destroy( this );
 			}
             if ( GUI.Button( new Rect( 17, 80, 120, 30 ), "選擇關卡" ) ) {
                 Time.timeScale = 1;
                 systemMain.ChangeToScene( GameStatics.SCENE_CHOOSESTAGE );
+                Destroy( this );
             }
             if ( GUI.Button( new Rect( 17, 120, 120, 30 ), "主選單" ) ) {
                 Time.timeScale = 1;
                 systemMain.ChangeToScene( GameStatics.SCENE_MAINMENU );
+                Destroy( this );
             }
 			if (GUI.Button (new Rect (17, 160, 120, 30), "Exit")) {
 					Application.Quit ();

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WeaponDetector : MonoBehaviour {
 
     public Vector2          position;
     public float            radius;
 
-    public List<GameObject> enemyDetectedList = new List<GameObject>();
+    public List<GameObject>    enemyDetectedList = new List<GameObject>();
     public GameObject       enemyNearest = null;
 
     public bool             show = false;
@@ -42,11 +43,12 @@ public class WeaponDetector : MonoBehaviour {
         else {
             collider2D.enabled = false;
         }
+
     }
 
 
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D( Collider2D collider )
     {
         if ( !enabled )
             return;
@@ -54,8 +56,8 @@ public class WeaponDetector : MonoBehaviour {
         // Enemy enter detected region
         if (collider.gameObject.CompareTag("Enemy")) {
     
-
-            enemyDetectedList.Add(collider.gameObject);
+            if (!DetectingEnemy(collider.gameObject))
+                enemyDetectedList.Add(collider.gameObject);
 
             // detect the first enemy, immediately set it as the nearest
             if (enemyDetectedList.Count == 1) {
@@ -68,10 +70,11 @@ public class WeaponDetector : MonoBehaviour {
     {
         if ( !enabled )
             return;
-
+        
         if (collider.gameObject.CompareTag("Enemy")) {
 
-            enemyDetectedList.Remove(collider.gameObject);
+            while(DetectingEnemy(collider.gameObject))
+                enemyDetectedList.Remove(collider.gameObject);
 
             // detect the first enemy, immediately set it as the nearest
             if (enemyNearest == collider.gameObject) {
@@ -131,6 +134,7 @@ public class WeaponDetector : MonoBehaviour {
             return;
         }
 
+
         // only 1 enemy detected
         if ( enemyDetectedList.Count == 1 ) {
             enemyNearest = enemyDetectedList[0];
@@ -156,22 +160,24 @@ public class WeaponDetector : MonoBehaviour {
                 enemyDetectedList.Remove( obj );
                 continue;
             }
-
             float dist = SqrDistToEnemy2D( obj );
             if ( dist < nearestDistSqrt ) {
                 enemyNearest = obj;
                 nearestDistSqrt = dist;
             }
+            
+            else if ( dist > radius*radius ) {
+                enemyDetectedList.Remove( obj );
+                continue;
+            }
         }
-
-
     }
 
 
 
 
     //return the square value of dist to enemy
-    private float SqrDistToEnemy2D(GameObject enemyGObj)
+    protected float SqrDistToEnemy2D(GameObject enemyGObj)
     {
         Transform enemyTrfm = enemyGObj.transform;
         Vector2   enemyPos  = new Vector2(enemyTrfm.position.x, enemyTrfm.position.y);

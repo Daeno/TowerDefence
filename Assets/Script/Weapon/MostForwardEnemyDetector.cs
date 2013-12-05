@@ -60,6 +60,9 @@ public class MostForwardEnemyDetector : WeaponDetector {
                 continue;
             }
 
+            if ( SqrDistToEnemy2D( enemyGObj ) > Mathf.Pow( radius, 2 ) ) {
+                enemyDetectedList.Remove(enemyGObj);
+            }
 
             MyNavigation myNav = (MyNavigation) enemyGObj.GetComponent( "MyNavigation" );
 

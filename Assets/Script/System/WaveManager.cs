@@ -52,7 +52,6 @@ public class WaveManager : MonoBehaviour {
 		//singleData = new singleWave[30]();
         currentWaveIndex = 0;
 
-        Debug.Log( "WaveManager::start" );
         systemMain    = GameStatics.systemMain;
         prefabEnemies = systemMain.prefabEnemies;
         Reset();
@@ -62,9 +61,6 @@ public class WaveManager : MonoBehaviour {
     void Update()
     {
         restEnemyNumThisWave = GameStatics.restEnemyNum;
-
-        Debug.Log( "restNum: " + restEnemyNumThisWave );
-
         try {
             if ( waveList != null && waveList.Count >= currentWaveIndex && waveList.Count != 0 ) {
                 if ( waveList[waveList.Count-1].IsEnded() && restEnemyNumThisWave == 0 && GameStatics.lives > 0 ) {
@@ -80,10 +76,15 @@ public class WaveManager : MonoBehaviour {
 
     public void Reset()
     {
+        waveList         = null;
         currentWaveIndex =  0;
         maxWaveIndex     = -1;
         win              = false;
         restEnemyNumThisWave = 0;
+        beginPoint       = new Vector2();
+        route            = null;
+
+        StopAllCoroutines();
     }
 
     public void SendWave( List<Wave> waves, GameObject routeObj )
