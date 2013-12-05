@@ -13,8 +13,8 @@ public class ChooseStagePage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        systemMain = GetComponent<SystemMain>();
-        stageMgr   = GetComponent<StageManager>();
+        systemMain = GameStatics.systemMain;
+        stageMgr   = systemMain.stageManager;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +23,19 @@ public class ChooseStagePage : MonoBehaviour {
 	}
 
 
+    void OnGUI()
+    {
+        GUI.BeginGroup( new Rect( 0, 0, 800, 80 ) );
+        if ( GUI.Button( new Rect( 10, 40, 80, 30 ), "第1關")) {
+            EnterStage( 0 );
+        }
+        if ( GUI.Button( new Rect( 110, 40, 80, 30 ), "Back" ) ) {
+            ExitToMainMenu();
+        }
+        GUI.EndGroup();
+
+    }
+    
     public void UpdateShowStage()
     {
         //first open
@@ -57,12 +70,12 @@ public class ChooseStagePage : MonoBehaviour {
     protected void EnterStage( int stageIdx )
     {
         systemMain.SetCurrentStage( true, stageIdx );
-        systemMain.ChangePage( SystemMain.SceneID.GAME );
+        Application.LoadLevel( GameStatics.SCENE_GAME );
     }
 
     protected void ExitToMainMenu()
     {
-        systemMain.ChangePage( SystemMain.SceneID.MAIN_MENU );
+        Application.LoadLevel( GameStatics.SCENE_MAINMENU );
     }
 
 

@@ -5,6 +5,10 @@ using System.Reflection;
 
 public class SystemMain : MonoBehaviour {
 
+    //test
+    int count = 0;
+
+
 	//Enemy Prefabs
 	public GameObject tank;
 	
@@ -31,16 +35,11 @@ public class SystemMain : MonoBehaviour {
     };
 
     
-    public enum SceneID
-    {
-        MAIN_MENU,
-        CHOOSE_STAGE_PAGE,
-        GAME
-    }
 
     void Awake()
     {
         DontDestroyOnLoad( this );
+        
     }
 
 
@@ -50,6 +49,7 @@ public class SystemMain : MonoBehaviour {
 		GameStatics.gameScore = 0;
 		GameStatics.lives = 20;
 		GameStatics.waveTime = 1f;
+        GameStatics.systemMain = this;
 
 
         currentStageInfo = new StageInfo( true, 0 );  // 永遠的第一關
@@ -60,8 +60,9 @@ public class SystemMain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 	}
+
+
 
     void OnApplicationQuit()
     {
@@ -133,6 +134,7 @@ public class SystemMain : MonoBehaviour {
 
 
 
+    /*
     public void ChangePage( SceneID sceneID)
     {
         Application.LoadLevel( GetSceneNameByID( sceneID ) );
@@ -151,7 +153,7 @@ public class SystemMain : MonoBehaviour {
         }
         return name;
     }
-
+    */
 
     //這段我整個複寫ㄏㄏ  by Tang
     /*

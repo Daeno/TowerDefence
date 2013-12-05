@@ -42,6 +42,7 @@ public class WaveManager : MonoBehaviour {
 		//singleData = new singleWave[30]();
         currentWaveIndex = 0;
 
+        Debug.Log( "WaveManager::start" );
         systemMain    = GetComponent<SystemMain>();
         prefabEnemies = systemMain.prefabEnemies;
 	}

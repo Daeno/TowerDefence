@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class testspeed : MonoBehaviour {
+public class SystemScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        Application.LoadLevel( GameStatics.SCENE_MAINMENU );
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate( Vector2.right * 1 * Time.deltaTime );
+	
 	}
 }

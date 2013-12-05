@@ -33,6 +33,8 @@ public class GUI_Disp: MonoBehaviour {
 	void Start () {
 
 	}
+
+
 	public void toggleMenu(){
 		showMenu = !showMenu;
 		Time.timeScale = (Time.timeScale == 1)?0:1;
@@ -53,7 +55,7 @@ public class GUI_Disp: MonoBehaviour {
 		//print(aa);
 		if (GUI.Button (new Rect (10,10,80,30), "Next Wave")) {
 			//print ("You clicked the button!");
-			(gameObject.GetComponent<SystemMain>()).SendWave();
+			GameStatics.systemMain.SendWave();
 		}
 
 		//Menu
@@ -67,6 +69,12 @@ public class GUI_Disp: MonoBehaviour {
 			if(GUI.Button (new Rect (17, 40, 120, 30), "Resume")){
 				toggleMenu();
 			}
+            if ( GUI.Button( new Rect( 17, 80, 120, 30 ), "選關" ) ) {
+                
+            }
+            if ( GUI.Button( new Rect( 17, 80, 120, 30 ), "主選單" ) ) {
+                
+            }
 			if(GUI.Button (new Rect (17, 80, 120, 30), "Exit")){
 				Application.Quit();
 			}
