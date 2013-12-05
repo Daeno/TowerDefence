@@ -39,19 +39,17 @@ public class SystemMain : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad( this );
-        
+
+        GameStatics.waves = 1;
+        GameStatics.cash = 100;
+        GameStatics.gameScore = 0;
+        GameStatics.lives = 20;
+        GameStatics.waveTime = 1f;
+        GameStatics.systemMain = this;
     }
 
 
 	void Start () {
-		GameStatics.waves = 1;
-		GameStatics.cash = 100;
-		GameStatics.gameScore = 0;
-		GameStatics.lives = 20;
-		GameStatics.waveTime = 1f;
-        GameStatics.systemMain = this;
-
-
         currentStageInfo = new StageInfo( true, 0 );  // 永遠的第一關
         stageManager = GetComponent<StageManager>();
         waveManager = GetComponent<WaveManager>();
@@ -132,28 +130,33 @@ public class SystemMain : MonoBehaviour {
         return new StageInfo( currentStageInfo.single, currentStageInfo.stageIndex );
     }
 
-
-
-    /*
-    public void ChangePage( SceneID sceneID)
+    
+    
+    public void ChangeToScene( string sceneName )
     {
-        Application.LoadLevel( GetSceneNameByID( sceneID ) );
-    }
-
-    private static string GetSceneNameByID( SceneID sceneID )
-    {
-        string name = null;
-        switch ( sceneID ) {
-            case SceneID.MAIN_MENU: 
-                name = "MainMenu"; break;
-            case SceneID.CHOOSE_STAGE_PAGE: 
-                name = "ChooseStagePage"; break;
-            case SceneID.GAME: 
-                name = "scene"; break;
+        if (sceneName.Equals( GameStatics.SCENE_GAME      )    ||
+            sceneName.Equals( GameStatics.SCENE_MULTIGAME )){
+            ResetGame();
         }
-        return name;
+
+
+        Application.LoadLevel( sceneName );
     }
-    */
+
+    protected void ResetGame()
+    {
+        GameStatics.waves = 1;
+        GameStatics.cash = 100;
+        GameStatics.gameScore = 0;
+        GameStatics.lives = 20;
+        GameStatics.waveTime = 1f;
+
+        waveManager.Reset();
+    }
+
+
+
+
 
     //這段我整個複寫ㄏㄏ  by Tang
     /*
@@ -180,5 +183,4 @@ public class SystemMain : MonoBehaviour {
         SetNextWave ();
     }
     */
-	
 }

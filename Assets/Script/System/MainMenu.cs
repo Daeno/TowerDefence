@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        systemMain = GetComponent<SystemMain>();
+        systemMain = GameStatics.systemMain;
 	}
 	
 	// Update is called once per frame
@@ -40,22 +40,22 @@ public class MainMenu : MonoBehaviour {
 
     protected void EnterSingleGame()
     {
-        Application.LoadLevel( GameStatics.SCENE_CHOOSESTAGE );
+        systemMain.ChangeToScene( GameStatics.SCENE_CHOOSESTAGE );
     }
 
     protected void EnterMultiGame()
     {
-        Application.LoadLevel( GameStatics.SCENE_MULTIGAME );
+        systemMain.ChangeToScene( GameStatics.SCENE_MULTIGAME );
     }
 
     protected void EnterSettings()
     {
-        Application.LoadLevel( GameStatics.SCENE_SETTINGS );
+        systemMain.ChangeToScene( GameStatics.SCENE_SETTINGS );
     }
 
     protected void EnterAbout()
     {
-        Application.LoadLevel( GameStatics.SCENE_ABOUT );
+        systemMain.ChangeToScene( GameStatics.SCENE_ABOUT );
     }
 
 }

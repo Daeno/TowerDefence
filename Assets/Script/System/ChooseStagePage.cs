@@ -70,12 +70,12 @@ public class ChooseStagePage : MonoBehaviour {
     protected void EnterStage( int stageIdx )
     {
         systemMain.SetCurrentStage( true, stageIdx );
-        Application.LoadLevel( GameStatics.SCENE_GAME );
+        GameStatics.systemMain.ChangeToScene( GameStatics.SCENE_GAME );
     }
 
     protected void ExitToMainMenu()
     {
-        Application.LoadLevel( GameStatics.SCENE_MAINMENU );
+        GameStatics.systemMain.ChangeToScene( GameStatics.SCENE_MAINMENU );
     }
 
 

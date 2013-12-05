@@ -60,7 +60,7 @@ public class GUI_Disp: MonoBehaviour {
 
 		//Menu
 		if (showMenu) {
-			GUI.BeginGroup (new Rect (Screen.width / 2 - 75, Screen.height / 2 - 100, 150, 200));
+			GUI.BeginGroup (new Rect (Screen.width / 2 - 75, Screen.height / 2 - 150, 150, 200));
 			// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
 
 			// We'll make a box so you can see where the group is on-screen.
@@ -70,12 +70,12 @@ public class GUI_Disp: MonoBehaviour {
 				toggleMenu();
 			}
             if ( GUI.Button( new Rect( 17, 80, 120, 30 ), "選關" ) ) {
-                
+                GameStatics.systemMain.ChangeToScene( GameStatics.SCENE_CHOOSESTAGE );
             }
-            if ( GUI.Button( new Rect( 17, 80, 120, 30 ), "主選單" ) ) {
-                
+            if ( GUI.Button( new Rect( 17, 120, 120, 30 ), "主選單" ) ) {
+                GameStatics.systemMain.ChangeToScene( GameStatics.SCENE_MAINMENU );
             }
-			if(GUI.Button (new Rect (17, 80, 120, 30), "Exit")){
+			if(GUI.Button (new Rect (17, 160, 120, 30), "Exit")){
 				Application.Quit();
 			}
 

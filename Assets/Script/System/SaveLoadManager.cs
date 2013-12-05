@@ -10,7 +10,7 @@ public class SaveLoadManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        systemMain = GetComponent<SystemMain>();
+        systemMain = GameStatics.systemMain;
         LoadWhenBegin();
 	}
 	

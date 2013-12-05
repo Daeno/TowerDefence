@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class WaveManager : MonoBehaviour {
 
 	// Use this for initialization
-	public GameObject[] enemyType;
-	public float waitingTime;
-	public GameObject nextEnemy;
-	public int waveNumber;
-	public float difficulty;
+	//public GameObject[] enemyType;
+	//public float waitingTime;
+	//public GameObject nextEnemy;
+	//public int waveNumber;
+	//public float difficulty;
 	/*public class singleWave{
 		public int type;
 		public int number;
@@ -43,10 +43,14 @@ public class WaveManager : MonoBehaviour {
         currentWaveIndex = 0;
 
         Debug.Log( "WaveManager::start" );
-        systemMain    = GetComponent<SystemMain>();
+        systemMain    = GameStatics.systemMain;
         prefabEnemies = systemMain.prefabEnemies;
 	}
-	
+
+    public void Reset()
+    {
+        currentWaveIndex = 0;
+    }
 
     public void SendWave( List<Wave> waves, GameObject routeObj )
     {
