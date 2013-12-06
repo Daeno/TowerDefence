@@ -25,13 +25,15 @@ public class ChooseStagePage : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.BeginGroup( new Rect( 0, 0, 800, 80 ) );
-        if ( GUI.Button( new Rect( 10, 40, 80, 30 ), "第1關")) {
+        GUI.BeginGroup( new Rect( 0, 0,1920,1280) );
+        GUI.contentColor = Color.clear;
+        GUI.backgroundColor = Color.clear;
+        if ( GUI.Button( new Rect( Screen.width/12, Screen.height/3, Screen.width/7, Screen.height/4 ), "第1關")) {
             EnterStage( 0 );
         }
-        if ( GUI.Button( new Rect( 110, 40, 80, 30 ), "Back" ) ) {
+        /*if ( GUI.Button( new Rect( 110, 40, 80, 30 ), "Back" ) ) {
             ExitToMainMenu();
-        }
+        }*/
         GUI.EndGroup();
 
     }
