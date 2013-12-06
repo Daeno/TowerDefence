@@ -251,7 +251,7 @@ public abstract class Enemy : MonoBehaviour {
             if ( Time.time - poisonedTimer >= poisonedDamagePeriod ) {
 
                 poisonedTimer = Time.time;
-                life -= poisonedDamagePerSec * poisonedDamagePeriod;
+                Attacked(poisonedDamagePerSec * poisonedDamagePeriod);
             }
         }
         else {
