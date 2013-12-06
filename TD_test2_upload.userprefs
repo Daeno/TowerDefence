@@ -1,9 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\System\NetManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\System\GUI_Disp_Multi.cs">
     <Files>
-      <File FileName="Assets\Script\System\NetManager.cs" Line="51" Column="56" />
-      <File FileName="Assets\Script\System\SingleGameScene.cs" Line="9" Column="1" />
+      <File FileName="Assets\Script\System\NetManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\System\SingleGameScene.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Enemy\Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\System\GUI_Disp_Multi.cs" Line="277" Column="4" />
+      <File FileName="Assets\Script\System\SystemMain.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\System\GameStatics.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\System\WaveManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\SelectHandler.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

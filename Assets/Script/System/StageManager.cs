@@ -127,8 +127,14 @@ public class StageManager : MonoBehaviour {
         }
 
         string[]        dataArr         = stageData.Split( '/' );
-        int             lastPassedStage = int.Parse( dataArr[0] );
-
+        int             lastPassedStage = -1;
+        try {
+            lastPassedStage = int.Parse( dataArr[0] );
+        }
+        catch ( Exception e ) {
+            Debug.LogError( "Exception" );
+            return;
+        }
 
         Debug.Log( "loading stage data: lastPassedStage = " + lastPassedStage );
 

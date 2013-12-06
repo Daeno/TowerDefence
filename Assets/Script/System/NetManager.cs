@@ -40,16 +40,17 @@ public class NetManager : MonoBehaviour {
 		if(PhotonNetwork.connected)
 		   if(PhotonNetwork.room != null){
 			if (PhotonNetwork.room.playerCount == 1) {
-				//Debug.Log("Waiting Zzzz");		
+				//Debug.Log("Waiting Zzzz");
+				isWaiting = true;
 			}
 			else{
-				isWaiting=false;
+				isWaiting = false;
 			}
 			if(!isWaiting){
 				if(photonView == null)
 					photonView = PhotonView.Get(this);
 				//if(Input.GetMouseButtonDown(0)){
-				if(GameStatics.gameScore - prev_gameScore > 20){
+				if(GameStatics.gameScore - prev_gameScore > 200){
 					Debug.Log ("sending 1");
 					prev_gameScore += 20;
 					photonView.RPC("SpawnEnemy",PhotonTargets.Others);
